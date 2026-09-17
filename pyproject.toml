@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "a11yjourney"
+version = "0.1.0"
+description = "Journey-based, semantic accessibility auditing for native mobile apps."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Sunny Mehta" }]
+keywords = ["accessibility", "a11y", "wcag", "android", "mobile", "testing", "sarif"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Quality Assurance",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5", "mypy>=1.8"]
+
+[project.urls]
+Homepage = "https://github.com/mehtasunny/a11yjourney"
+Issues = "https://github.com/mehtasunny/a11yjourney/issues"
+
+[project.scripts]
+a11yjourney = "a11yjourney.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/a11yjourney"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src"]
