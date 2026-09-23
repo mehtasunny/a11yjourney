@@ -36,3 +36,19 @@ uiautomator dump (XML)
 - **Real model:** construct `ModelJudge(complete)` and pass it to `run()`.
 - **New platform (iOS):** add a loader that produces a `Screen`; the checks and
   reporters are platform-agnostic.
+
+
+## Model providers
+
+`make_judge` builds a live judge from the environment with no third-party
+dependencies: `ANTHROPIC_API_KEY` (Anthropic Messages API) or `OPENAI_API_KEY`
+(any OpenAI-compatible `/chat/completions` endpoint, via `OPENAI_BASE_URL`).
+Both return a `complete(prompt) -> str` callable wrapped by `ModelJudge`, which
+caches per element and falls back to the heuristic on error.
+
+## Benchmark
+
+`a11yjourney/benchmark.py` evaluates the engine against a labeled corpus in
+`benchmark/`. Ground truth is declared in `build_corpus.py` specs, independent
+of the engine, so recall numbers are meaningful rather than circular. The
+runner reports static-only vs full-engine recall and precision.

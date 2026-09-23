@@ -1,0 +1,40 @@
+{
+  "name": "checkout",
+  "ground_truth": [
+    {
+      "element": "cardNumber",
+      "wcag": "3.3.2",
+      "class": "static"
+    },
+    {
+      "element": "expiry",
+      "wcag": "3.3.2",
+      "class": "static"
+    },
+    {
+      "element": "scanCard",
+      "wcag": "4.1.2",
+      "class": "static"
+    },
+    {
+      "element": "scanCard",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "payBtn",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "payBtn",
+      "wcag": "1.1.1",
+      "class": "judgment"
+    },
+    {
+      "element": "Enter payment details",
+      "wcag": "2.4.3",
+      "class": "judgment"
+    }
+  ]
+}

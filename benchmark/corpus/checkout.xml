@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hierarchy rotation="0" density="3.0">
+  <node index="0" class="android.widget.FrameLayout" bounds="[0,0][1080,2160]">
+    <node index="0" text="Checkout" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,120][700,190]"/>
+    <node index="1" text="" resource-id="com.example.app:id/cardNumber" class="android.widget.EditText" content-desc="" clickable="true" focusable="true" password="false" bounds="[60,300][1020,410]"/>
+    <node index="2" text="" resource-id="com.example.app:id/expiry" class="android.widget.EditText" content-desc="" clickable="true" focusable="true" password="false" bounds="[60,450][1020,560]"/>
+    <node index="3" text="" resource-id="com.example.app:id/scanCard" class="android.widget.ImageButton" content-desc="" clickable="true" focusable="true" password="false" bounds="[930,470][1010,540]"/>
+    <node index="4" text="Total: $42.00" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,620][1020,690]"/>
+    <node index="5" text="" resource-id="com.example.app:id/payBtn" class="android.widget.Button" content-desc="click here" clickable="true" focusable="true" password="false" bounds="[60,780][1020,900]"/>
+    <node index="6" text="Enter payment details" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,230][1020,280]"/>
+  </node>
+</hierarchy>

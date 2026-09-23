@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is exactly what Android's `uiautomator dump` produces from a live app screen.
+     It is the accessibility tree: every node carries the same attributes a screen
+     reader (TalkBack) uses to describe the screen to a blind user.
+     This sample is a Login screen that contains several real, common a11y defects. -->
+<hierarchy rotation="0" density="3.0">
+  <node index="0" class="android.widget.FrameLayout" package="com.example.app" bounds="[0,0][1080,2160]">
+    <node index="0" text="Welcome back" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" bounds="[60,180][700,260]"/>
+
+    <!-- Email field: no label, no content-desc. TalkBack will just say "edit box". -->
+    <node index="1" text="" resource-id="com.example.app:id/emailField" class="android.widget.EditText" content-desc="" clickable="true" focusable="true" bounds="[60,360][1020,470]"/>
+
+    <!-- Password field: same problem. -->
+    <node index="2" text="" resource-id="com.example.app:id/passwordField" class="android.widget.EditText" content-desc="" password="true" clickable="true" focusable="true" bounds="[60,520][1020,630]"/>
+
+    <!-- Show-password icon button: NO content-desc at all. TalkBack says "unlabeled button". -->
+    <node index="3" text="" resource-id="com.example.app:id/togglePwd" class="android.widget.ImageButton" content-desc="" clickable="true" focusable="true" bounds="[930,540][1020,610]"/>
+
+    <!-- "Forgot?" link, but the tap target is tiny (about 30dp). Hard to hit. -->
+    <node index="4" text="Forgot?" resource-id="com.example.app:id/forgot" class="android.widget.TextView" content-desc="" clickable="true" focusable="true" bounds="[840,660][930,750]"/>
+
+    <!-- Primary action. It HAS a content-desc, but it is meaningless: "button1". -->
+    <node index="5" text="" resource-id="com.example.app:id/signInBtn" class="android.widget.Button" content-desc="button1" clickable="true" focusable="true" bounds="[60,820][1020,940]"/>
+
+    <!-- Decorative brand image with a noisy filename as its label. Screen reader reads junk. -->
+    <node index="6" text="" resource-id="com.example.app:id/brand" class="android.widget.ImageView" content-desc="hero_final_v3.png" clickable="false" focusable="true" bounds="[60,1000][1020,1300]"/>
+
+    <!-- This help text sits visually ABOVE the sign-in button, but appears LAST in the tree,
+         so TalkBack reaches it after the button. Illogical focus order. -->
+    <node index="7" text="Use your work email to sign in" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" bounds="[60,720][1020,780]"/>
+  </node>
+</hierarchy>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hierarchy rotation="0" density="3.0">
+  <node index="0" class="android.widget.FrameLayout" bounds="[0,0][1080,2160]">
+    <node index="0" text="Now Playing" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,120][700,190]"/>
+    <node index="1" text="" resource-id="com.example.app:id/art" class="android.widget.ImageView" content-desc="cover_720.jpg" clickable="false" focusable="true" password="false" bounds="[60,240][1020,1000]"/>
+    <node index="2" text="" resource-id="com.example.app:id/prev" class="android.widget.ImageButton" content-desc="" clickable="true" focusable="true" password="false" bounds="[120,1100][240,1220]"/>
+    <node index="3" text="" resource-id="com.example.app:id/playPause" class="android.widget.ImageButton" content-desc="icon" clickable="true" focusable="true" password="false" bounds="[480,1080][640,1240]"/>
+    <node index="4" text="" resource-id="com.example.app:id/next" class="android.widget.ImageButton" content-desc="" clickable="true" focusable="true" password="false" bounds="[840,1100][960,1220]"/>
+    <node index="5" text="" resource-id="com.example.app:id/scrubber" class="android.widget.SeekBar" content-desc="" clickable="true" focusable="true" password="false" bounds="[60,1300][1020,1330]"/>
+  </node>
+</hierarchy>

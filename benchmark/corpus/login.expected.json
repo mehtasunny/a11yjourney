@@ -1,0 +1,60 @@
+{
+  "name": "login",
+  "ground_truth": [
+    {
+      "element": "emailField",
+      "wcag": "3.3.2",
+      "class": "static"
+    },
+    {
+      "element": "emailField",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "passwordField",
+      "wcag": "3.3.2",
+      "class": "static"
+    },
+    {
+      "element": "passwordField",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "togglePwd",
+      "wcag": "4.1.2",
+      "class": "static"
+    },
+    {
+      "element": "togglePwd",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "forgot",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "signInBtn",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "signInBtn",
+      "wcag": "1.1.1",
+      "class": "judgment"
+    },
+    {
+      "element": "brand",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "signInBtn",
+      "wcag": "2.4.3",
+      "class": "judgment"
+    }
+  ]
+}

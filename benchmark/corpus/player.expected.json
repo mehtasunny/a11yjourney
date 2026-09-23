@@ -1,0 +1,25 @@
+{
+  "name": "player",
+  "ground_truth": [
+    {
+      "element": "art",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "playPause",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "next",
+      "wcag": "4.1.2",
+      "class": "static"
+    },
+    {
+      "element": "scrubber",
+      "wcag": "2.5.8",
+      "class": "static"
+    }
+  ]
+}

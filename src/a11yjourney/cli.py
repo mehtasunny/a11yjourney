@@ -5,6 +5,7 @@ import argparse
 import sys
 
 from .checks import run
+from .judge import make_judge
 from .model import load
 from .reporters import FORMATTERS, summarize
 from .wcag import Severity
@@ -19,6 +20,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("dump", help="Path to a uiautomator accessibility-tree XML dump.")
     p.add_argument("-f", "--format", choices=list(FORMATTERS), default="text")
+    p.add_argument(
+        "--judge", choices=["auto", "heuristic", "model"], default="heuristic",
+        help="Semantic judge: 'heuristic' (offline default), 'model' (requires an "
+             "ANTHROPIC_API_KEY or OPENAI_API_KEY), or 'auto' (model if a key is set).",
+    )
     p.add_argument("--min-severity", choices=[s.value for s in Severity], default="moderate")
     p.add_argument("--fail-on-findings", action="store_true",
                    help="Exit non-zero if any finding at or above --min-severity (CI gate).")
@@ -27,7 +33,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    findings = run(load(args.dump))
+    try:
+        judge = make_judge(args.judge)
+    except RuntimeError as exc:
+        sys.stderr.write(f"error: {exc}\n")
+        return 2
+    findings = run(load(args.dump), judge)
     threshold = _ORDER[Severity(args.min_severity)]
     findings = [f for f in findings if _ORDER[f.severity] >= threshold]
     sys.stdout.write(FORMATTERS[args.format](args.dump, findings) + "\n")

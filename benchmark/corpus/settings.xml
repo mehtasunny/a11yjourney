@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hierarchy rotation="0" density="3.0">
+  <node index="0" class="android.widget.FrameLayout" bounds="[0,0][1080,2160]">
+    <node index="0" text="" resource-id="com.example.app:id/back" class="android.widget.ImageButton" content-desc="" clickable="true" focusable="true" password="false" bounds="[40,90][110,160]"/>
+    <node index="1" text="Settings" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[140,90][700,160]"/>
+    <node index="2" text="" resource-id="com.example.app:id/avatar" class="android.widget.ImageView" content-desc="ic_profile_v2.png" clickable="false" focusable="true" password="false" bounds="[60,220][220,380]"/>
+    <node index="3" text="Notifications" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,440][700,510]"/>
+    <node index="4" text="" resource-id="com.example.app:id/notifToggle" class="android.widget.Switch" content-desc="" clickable="true" focusable="true" password="false" bounds="[960,445][1020,505]"/>
+    <node index="5" text="Dark mode" resource-id="" class="android.widget.TextView" content-desc="" clickable="false" focusable="true" password="false" bounds="[60,580][700,650]"/>
+    <node index="6" text="" resource-id="com.example.app:id/darkToggle" class="android.widget.Switch" content-desc="on" clickable="true" focusable="true" password="false" bounds="[940,580][1020,660]"/>
+  </node>
+</hierarchy>

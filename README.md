@@ -54,6 +54,44 @@ a11yjourney examples/sample_login_dump.xml --min-severity serious --fail-on-find
 The SARIF output uploads directly to GitHub code scanning, so accessibility
 findings show up inline on pull requests like any other static-analysis result.
 
+## Semantic judge: heuristic or a real model
+
+The semantic and journey checks run through a swappable `Judge`. The default is
+an offline heuristic (no key, no network). To use a real model, set a key and
+pass `--judge model` (or `--judge auto`):
+
+```bash
+export ANTHROPIC_API_KEY=sk-...        # or OPENAI_API_KEY (any OpenAI-compatible endpoint)
+a11yjourney examples/sample_login_dump.xml --judge model
+```
+
+Provider calls use only the standard library, results are cached per element,
+and a model error or odd reply falls back to the heuristic so a run never
+crashes. See `a11yjourney/judge.py`.
+
+## Coverage benchmark
+
+A key claim of this project is measurable: the full engine recovers more of a
+screen's genuine accessibility problems than a static-only scanner can. The
+`benchmark/` corpus is labeled with ground truth declared independently of the
+engine. Run it:
+
+```bash
+python benchmark/run.py
+```
+
+Seed corpus results (synthetic screens, offline heuristic judge):
+
+| Mode | Recall of genuine issues |
+|---|---|
+| static-only (presence/absence) | ~59% |
+| full engine (heuristic judge) | ~85% |
+
+The gap is the point, and it widens with a real model judge on the
+judgment-class criteria. These are seed numbers on synthetic screens; the
+roadmap is to grow the corpus with real open-source apps and report model-judge
+results. See [docs/benchmark.md](docs/benchmark.md) once populated.
+
 ## How it works
 
 | Layer | What it does |

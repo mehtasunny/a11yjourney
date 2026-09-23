@@ -1,0 +1,47 @@
+{
+  "aggregate": {
+    "cases": 4,
+    "ground_truth_issues": 27,
+    "static_recall_pct": 59.3,
+    "full_recall_pct": 85.2,
+    "full_precision_pct": 67.6
+  },
+  "cases": [
+    {
+      "name": "checkout",
+      "gt_total": 7,
+      "gt_static": 4,
+      "gt_judgment": 3,
+      "static_hits": 4,
+      "full_hits": 4,
+      "full_reported": 8
+    },
+    {
+      "name": "login",
+      "gt_total": 11,
+      "gt_static": 7,
+      "gt_judgment": 4,
+      "static_hits": 7,
+      "full_hits": 11,
+      "full_reported": 12
+    },
+    {
+      "name": "player",
+      "gt_total": 4,
+      "gt_static": 2,
+      "gt_judgment": 2,
+      "static_hits": 2,
+      "full_hits": 4,
+      "full_reported": 8
+    },
+    {
+      "name": "settings",
+      "gt_total": 5,
+      "gt_static": 3,
+      "gt_judgment": 2,
+      "static_hits": 3,
+      "full_hits": 4,
+      "full_reported": 6
+    }
+  ]
+}

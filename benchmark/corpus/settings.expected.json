@@ -1,0 +1,30 @@
+{
+  "name": "settings",
+  "ground_truth": [
+    {
+      "element": "back",
+      "wcag": "4.1.2",
+      "class": "static"
+    },
+    {
+      "element": "avatar",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    },
+    {
+      "element": "notifToggle",
+      "wcag": "4.1.2",
+      "class": "static"
+    },
+    {
+      "element": "notifToggle",
+      "wcag": "2.5.8",
+      "class": "static"
+    },
+    {
+      "element": "darkToggle",
+      "wcag": "2.4.6",
+      "class": "judgment"
+    }
+  ]
+}
