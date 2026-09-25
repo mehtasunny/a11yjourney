@@ -3,11 +3,19 @@ on: [push, pull_request]
 jobs:
   quality:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.11" }
+        with: { python-version: "${{ matrix.python-version }}" }
       - run: pip install -e ".[dev]"
       - run: ruff check .
       - run: mypy
       - run: pytest -q
+      - name: Smoke test the CLI on the examples
+        run: |
+          a11yjourney examples/sample_login_dump.xml
+          a11yjourney examples/transit/trip.xml --format sarif > /dev/null
+          python benchmark/run.py

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "A11yJourney: accessibility checks for native Android apps"
+abstract: >-
+  A dependency-free command-line tool that captures screens from Android
+  devices and reports accessibility barriers (missing and meaningless labels,
+  focus order, text and icon contrast, text resize at 200%, and touch target
+  size), each mapped to a WCAG success criterion and judged against a
+  conformance profile, with text, JSON, and SARIF output.
+type: software
+authors:
+  - given-names: Sunny
+    family-names: Mehta
+    email: sunnykmehta@gmail.com
+repository-code: "https://github.com/mehtasunny/a11yjourney"
+license: MIT
+version: 0.2.0
+keywords:
+  - accessibility
+  - android
+  - wcag
+  - mobile testing
+  - screen reader
+  - low vision

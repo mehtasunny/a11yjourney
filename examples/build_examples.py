@@ -89,7 +89,7 @@ def screenshot() -> bytes:
                     px[y * W + x] = ink
                 elif phase == 4:
                     bg = px[y * W + x]
-                    px[y * W + x] = tuple((a + b) // 2 for a, b in zip(ink, bg))
+                    px[y * W + x] = tuple((a + b) // 2 for a, b in zip(ink, bg, strict=True))
     return encode(W, H, px)
 
 

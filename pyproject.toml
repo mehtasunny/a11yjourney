@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "a11yjourney"
-version = "0.2.0.dev0"
-description = "Journey-based, semantic accessibility auditing for native mobile apps."
+version = "0.2.0"
+description = "Accessibility checks for native Android apps: labels, contrast, 200% text, touch targets, and semantic judgment, mapped to WCAG."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "Sunny Mehta" }]
-keywords = ["accessibility", "a11y", "wcag", "android", "mobile", "testing", "sarif"]
+keywords = ["accessibility", "a11y", "wcag", "android", "talkback", "mobile", "testing", "sarif", "adb"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -18,6 +18,10 @@ classifiers = [
   "Topic :: Software Development :: Quality Assurance",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
 ]
 dependencies = []
 

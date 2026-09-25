@@ -108,7 +108,7 @@ def _semantic(screen: Screen, judge: Judge) -> list[Finding]:
                                "Presence-only scanners score this as a pass."))
 
     focus, visual = screen.focus_order(), screen.visual_order()
-    for i, (a, b) in enumerate(zip(focus, visual)):
+    for i, (a, b) in enumerate(zip(focus, visual, strict=True)):
         if a is not b:
             out.append(Finding(SEMANTIC, "2.4.3", Severity.SERIOUS, a.ident,
                                f"Focus order is illogical near position {i + 1}: "
