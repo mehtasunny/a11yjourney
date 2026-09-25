@@ -1,6 +1,9 @@
-"""A11yJourney: journey-based, semantic accessibility auditing for mobile apps."""
-from .checks import Finding, run
-from .judge import (
+"""A11yJourney: accessibility auditing for native Android apps."""
+__version__ = "0.2.0"
+
+from .checks import Audit, audit, run  # noqa: E402
+from .findings import Finding  # noqa: E402
+from .judge import (  # noqa: E402
     HeuristicJudge,
     Judge,
     ModelJudge,
@@ -8,14 +11,15 @@ from .judge import (
     make_judge,
     openai_completer,
 )
-from .model import Node, Screen, load
-from .reporters import summarize, to_json, to_sarif, to_text
-from .wcag import Criterion, Severity, criterion
+from .model import Node, Screen, load, parse  # noqa: E402
+from .privacy import redact  # noqa: E402
+from .reporters import in_scope, summarize, to_json, to_sarif, to_text  # noqa: E402
+from .wcag import DEFAULT_PROFILE, PROFILES, Criterion, Profile, Severity, criterion  # noqa: E402
 
-__version__ = "0.2.0.dev0"
 __all__ = [
-    "Finding", "run", "HeuristicJudge", "Judge", "ModelJudge", "make_judge",
-    "anthropic_completer", "openai_completer", "Node", "Screen", "load",
-    "summarize", "to_json", "to_sarif", "to_text", "Criterion", "Severity",
-    "criterion", "__version__",
+    "Audit", "audit", "run", "Finding", "HeuristicJudge", "Judge", "ModelJudge",
+    "make_judge", "anthropic_completer", "openai_completer", "Node", "Screen", "load",
+    "parse", "redact", "in_scope", "summarize", "to_json", "to_sarif", "to_text",
+    "DEFAULT_PROFILE", "PROFILES", "Criterion", "Profile", "Severity", "criterion",
+    "__version__",
 ]

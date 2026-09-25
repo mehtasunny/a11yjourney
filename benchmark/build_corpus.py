@@ -68,7 +68,7 @@ CASES = [
             # label present but vague: heuristic passes it, a real model should FAIL it
             {"cls": "Button", "rid": "payBtn", "desc": "click here", "clickable": True,
              "bounds": [60, 780, 1020, 900], "defects": ["2.4.6", "1.1.1"]},
-            # visually first, but last in tree -> focus-order defect
+            # visually first but last in the tree, so a focus-order defect
             {"cls": "TextView", "text": "Enter payment details", "bounds": [60, 230, 1020, 280],
              "defects": ["2.4.3"]},
         ],

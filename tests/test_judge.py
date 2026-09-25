@@ -45,3 +45,34 @@ def test_model_judge_survives_exception():
 def test_run_accepts_model_judge():
     findings = run(load(SAMPLE), ModelJudge(lambda _p: "FAIL"))
     assert findings  # a model that fails everything still yields findings
+
+
+def test_model_judge_counts_errors():
+    def boom(_p):
+        raise RuntimeError("HTTP Error 404: model not found")
+
+    j = ModelJudge(boom)
+    j.label_meaningful(Node(cls="Button", desc="Pay"), [])
+    assert j.errors == 1 and "404" in j.last_error
+
+
+def test_make_judge_requires_a_model_name(monkeypatch):
+    import pytest
+
+    from a11yjourney import make_judge
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key")
+    monkeypatch.delenv("A11YJOURNEY_MODEL", raising=False)
+    with pytest.raises(RuntimeError, match="model name"):
+        make_judge("model")
+    assert isinstance(make_judge("auto"), HeuristicJudge)  # key but no model
+    assert isinstance(make_judge("model", model="some-model"), ModelJudge)
+
+
+def test_make_judge_requires_a_key(monkeypatch):
+    import pytest
+
+    from a11yjourney import make_judge
+    for var in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY"):
+        monkeypatch.delenv(var, raising=False)
+    with pytest.raises(RuntimeError, match="API_KEY"):
+        make_judge("model", model="some-model")

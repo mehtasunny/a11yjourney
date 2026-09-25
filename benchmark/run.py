@@ -20,7 +20,7 @@ def main() -> None:
     out.write_text(json.dumps(
         {"aggregate": agg,
          "cases": [r.__dict__ for r in results]}, indent=2))
-    print(f"\nsaved -> {out}")
+    print(f"\nsaved to {out}")
 
 
 if __name__ == "__main__":

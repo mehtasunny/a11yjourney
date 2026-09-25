@@ -19,7 +19,17 @@ from .checks import run
 from .judge import Judge
 from .model import load
 
-Pair = tuple[str, str]  # (element, wcag)
+Pair = tuple[str, str]  # (element, criterion family)
+
+# Criteria that describe the same defect at different thresholds. Ground truth
+# says "this target is too small"; the engine reports it under whichever
+# threshold it fails (2.5.8, 2.5.5, or the Android 48dp guidance).
+_FAMILIES = {"2.5.8": "target-size", "2.5.5": "target-size",
+             "android-touch-target": "target-size"}
+
+
+def _family(wcag: str) -> str:
+    return _FAMILIES.get(wcag, wcag)
 
 
 @dataclass(frozen=True)
@@ -38,7 +48,7 @@ def _gt_pairs(expected_path: pathlib.Path) -> tuple[set[Pair], set[Pair]]:
     static: set[Pair] = set()
     judgment: set[Pair] = set()
     for g in data["ground_truth"]:
-        pair = (g["element"], g["wcag"])
+        pair = (g["element"], _family(g["wcag"]))
         (static if g["class"] == "static" else judgment).add(pair)
     return static, judgment
 
@@ -49,8 +59,9 @@ def evaluate_case(
     gt_static, gt_judgment = _gt_pairs(expected)
     gt = gt_static | gt_judgment
     findings = run(load(str(xml)), judge)
-    detected_static = {(f.element, f.wcag) for f in findings if f.kind == "STRUCTURAL"}
-    detected_full = {(f.element, f.wcag) for f in findings}
+    detected_static = {(f.element, _family(f.wcag)) for f in findings
+                       if f.kind == "STRUCTURAL"}
+    detected_full = {(f.element, _family(f.wcag)) for f in findings}
     return CaseResult(
         name=xml.stem,
         gt_total=len(gt),

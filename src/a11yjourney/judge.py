@@ -11,9 +11,11 @@ Three implementations ship here:
   language model makes the call. Vendor-neutral.
 * :func:`make_judge` - a factory that builds a live model judge from environment
   variables (Anthropic or any OpenAI-compatible endpoint), using only the
-  standard library, and falls back to the heuristic when no key is present.
+  standard library, and falls back to the heuristic when none is configured.
 
-No third-party packages are required; provider calls use ``urllib``.
+No third-party packages are required; provider calls use ``urllib``. No model
+name is hard-coded: provider model names change and retire, so you choose one
+with ``--model`` or ``A11YJOURNEY_MODEL``.
 """
 from __future__ import annotations
 
@@ -25,6 +27,7 @@ from collections.abc import Callable
 from typing import Protocol, runtime_checkable
 
 from .model import Node
+from .privacy import redact
 
 _GENERIC = re.compile(r"^(button\d*|btn[_-]?\d*|image\d*|icon\d*|label\d*|view\d*|untitled)$", re.I)
 _FILENAME = re.compile(r"\.(png|jpg|jpeg|webp|svg|gif)$", re.I)
@@ -52,7 +55,7 @@ class HeuristicJudge:
     """Dependency-free default. Documents exactly where a model would decide."""
 
     def label_meaningful(self, node: Node, context: list[str]) -> bool:
-        name = (node.name or "").strip()
+        name = (node.announced or "").strip()
         if not name:
             return False
         return not (_GENERIC.match(name) or _FILENAME.search(name))
@@ -63,27 +66,46 @@ class ModelJudge:
 
     ``complete`` is any callable taking a prompt and returning the model's text.
     Results are cached per (role, label, context) so repeated elements and
-    re-runs do not re-bill the model. If the model errors or replies oddly, we
-    fail safe by deferring to the heuristic, so a bad call never crashes a run.
+    re-runs do not re-bill the model. If the model errors or replies oddly, the
+    heuristic decides that element instead, so a bad call never crashes a run;
+    ``errors`` and ``last_error`` record it so callers can tell the user.
+
+    With ``redact=True`` (the default), personal data patterns are replaced
+    with placeholders before any text is placed in a prompt.
     """
 
-    def __init__(self, complete: Callable[[str], str]) -> None:
+    def __init__(self, complete: Callable[[str], str], redact: bool = True) -> None:
         self._complete = complete
+        self._redact = redact
         self._cache: dict[tuple[str, str, str], bool] = {}
         self._fallback = HeuristicJudge()
+        self.calls = 0
+        self.errors = 0
+        self.last_error = ""
+
+    def _clean(self, text: str) -> str:
+        return redact(text) if self._redact else text
 
     def label_meaningful(self, node: Node, context: list[str]) -> bool:
-        key = (node.cls, node.name, " | ".join(context[:8]))
+        label = self._clean(node.announced)
+        ctx = [self._clean(c) for c in context[:8]]
+        key = (node.cls, label, " | ".join(ctx))
         if key in self._cache:
             return self._cache[key]
-        prompt = _PROMPT.format(role=node.cls or "unknown", label=node.name,
-                                context=", ".join(context[:8]) or "(none)")
+        prompt = _PROMPT.format(role=node.cls or "unknown", label=label,
+                                context=", ".join(ctx) or "(none)")
+        self.calls += 1
         try:
             verdict = self._complete(prompt).strip().upper()
-            result = verdict.startswith("PASS")
-            if not (verdict.startswith("PASS") or verdict.startswith("FAIL")):
+            if verdict.startswith("PASS") or verdict.startswith("FAIL"):
+                result = verdict.startswith("PASS")
+            else:
+                self.errors += 1
+                self.last_error = f"unexpected reply {verdict[:40]!r}"
                 result = self._fallback.label_meaningful(node, context)
-        except Exception:
+        except Exception as exc:  # network, auth, unknown model, rate limit
+            self.errors += 1
+            self.last_error = f"{type(exc).__name__}: {exc}"[:200]
             result = self._fallback.label_meaningful(node, context)
         self._cache[key] = result
         return result
@@ -102,9 +124,7 @@ def _http_json(url: str, headers: dict[str, str], payload: dict[str, object]) ->
         return loaded
 
 
-def anthropic_completer(
-    api_key: str, model: str = "claude-3-5-haiku-latest"
-) -> Callable[[str], str]:
+def anthropic_completer(api_key: str, model: str) -> Callable[[str], str]:
     """A `complete` backed by the Anthropic Messages API."""
 
     def complete(prompt: str) -> str:
@@ -121,7 +141,7 @@ def anthropic_completer(
 
 
 def openai_completer(
-    api_key: str, model: str = "gpt-4o-mini", base_url: str = "https://api.openai.com/v1"
+    api_key: str, model: str, base_url: str = "https://api.openai.com/v1"
 ) -> Callable[[str], str]:
     """A `complete` backed by any OpenAI-compatible chat-completions endpoint."""
 
@@ -137,37 +157,40 @@ def openai_completer(
     return complete
 
 
-def make_judge(kind: str = "auto") -> Judge:
+def make_judge(kind: str = "auto", model: str | None = None, redact: bool = True) -> Judge:
     """Build a judge.
 
     ``kind``:
       * ``heuristic`` - always the offline heuristic.
-      * ``model`` - a live model judge; raises if no provider is configured.
-      * ``auto`` (default) - a model judge if an API key is in the environment,
-        otherwise the heuristic.
+      * ``model`` - a live model judge; raises ``RuntimeError`` if no provider
+        key or no model name is configured.
+      * ``auto`` - a model judge when both a key and a model name are
+        configured, otherwise the heuristic.
 
-    Environment:
-      * ``ANTHROPIC_API_KEY`` (+ optional ``A11YJOURNEY_MODEL``), or
-      * ``OPENAI_API_KEY`` (+ optional ``A11YJOURNEY_MODEL``, ``OPENAI_BASE_URL``).
+    Configuration (arguments win over environment):
+      * ``model`` or ``A11YJOURNEY_MODEL``: the provider's model name.
+      * ``ANTHROPIC_API_KEY``, or ``OPENAI_API_KEY`` (+ optional ``OPENAI_BASE_URL``
+        for any OpenAI-compatible endpoint, including a local model server).
     """
     if kind == "heuristic":
         return HeuristicJudge()
 
-    model = os.environ.get("A11YJOURNEY_MODEL")
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        completer = anthropic_completer(
-            os.environ["ANTHROPIC_API_KEY"], model or "claude-3-5-haiku-latest"
-        )
-        return ModelJudge(completer)
-    if os.environ.get("OPENAI_API_KEY"):
-        completer = openai_completer(
-            os.environ["OPENAI_API_KEY"], model or "gpt-4o-mini",
-            os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1"),
-        )
-        return ModelJudge(completer)
+    name = model or os.environ.get("A11YJOURNEY_MODEL", "")
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    openai_key = os.environ.get("OPENAI_API_KEY", "")
 
     if kind == "model":
-        raise RuntimeError(
-            "judge=model requested but no ANTHROPIC_API_KEY or OPENAI_API_KEY is set."
-        )
+        if not (anthropic_key or openai_key):
+            raise RuntimeError(
+                "judge=model needs ANTHROPIC_API_KEY or OPENAI_API_KEY in the environment.")
+        if not name:
+            raise RuntimeError(
+                "judge=model needs a model name: pass --model or set A11YJOURNEY_MODEL "
+                "to a model your provider currently offers.")
+
+    if name and anthropic_key:
+        return ModelJudge(anthropic_completer(anthropic_key, name), redact=redact)
+    if name and openai_key:
+        base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+        return ModelJudge(openai_completer(openai_key, name, base), redact=redact)
     return HeuristicJudge()

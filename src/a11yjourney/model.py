@@ -1,9 +1,14 @@
 """Accessibility-tree model.
 
 A screen reader does not read pixels, it reads the accessibility tree. On
-Android that tree is what `uiautomator dump` emits and what Appium/Espresso
-query. This module parses that tree into typed nodes so the rest of the
-engine can reason about it the way an assistive technology would.
+Android that tree is what ``uiautomator dump`` emits and what Appium and
+Espresso query. This module parses that tree into typed nodes so the rest of
+the engine can reason about it the way an assistive technology would.
+
+Density: sizes are judged in density-independent pixels (dp). A raw
+``uiautomator dump`` does not record screen density, so ``a11yjourney
+capture`` writes it into the file. For dumps captured another way, pass
+``density=`` (dpi / 160, for example 2.625 for a 420 dpi phone).
 """
 from __future__ import annotations
 
@@ -11,7 +16,8 @@ import re
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 
-_BOUNDS = re.compile(r"\[(\d+),(\d+)]\[(\d+),(\d+)]")
+_EDITABLE = ("EditText", "AutoCompleteTextView", "MultiAutoCompleteTextView")
+_BOUNDS = re.compile(r"\[(-?\d+),(-?\d+)]\[(-?\d+),(-?\d+)]")
 
 
 @dataclass(frozen=True)
@@ -21,10 +27,15 @@ class Node:
     cls: str = ""
     text: str = ""
     desc: str = ""
+    hint: str = ""
+    inner_text: str = ""  # text of descendants, which TalkBack reads for unlabeled containers
     rid: str = ""
     clickable: bool = False
     focusable: bool = False
     password: bool = False
+    enabled: bool = True
+    scrollable: bool = False
+    in_scroll: bool = False
     bounds: tuple[int, int, int, int] = (0, 0, 0, 0)
     w_dp: float = 0.0
     h_dp: float = 0.0
@@ -33,8 +44,16 @@ class Node:
 
     @property
     def name(self) -> str:
-        """The accessible name a screen reader would announce."""
+        """The element's own accessible name (content description, then text)."""
         return self.desc or self.text
+
+    @property
+    def announced(self) -> str:
+        """What a screen reader would say for this element when it gets focus:
+        its own name, a field's hint, or else the text of its descendants."""
+        if self.editable:
+            return self.desc or self.hint  # typed text is user data, not a label
+        return self.name or self.inner_text
 
     @property
     def ident(self) -> str:
@@ -44,13 +63,25 @@ class Node:
     def actionable(self) -> bool:
         return self.clickable or self.cls in ("EditText", "Button", "ImageButton")
 
+    @property
+    def editable(self) -> bool:
+        return self.cls in _EDITABLE
+
+    @property
+    def visible(self) -> bool:
+        x1, y1, x2, y2 = self.bounds
+        return x2 > x1 and y2 > y1
+
 
 @dataclass(frozen=True)
 class Screen:
-    """A captured screen: its nodes plus device density."""
+    """A captured screen: its nodes plus device density and size (px)."""
 
     nodes: tuple[Node, ...] = field(default_factory=tuple)
     density: float = 1.0
+    density_known: bool = True
+    width: int = 0
+    height: int = 0
 
     def focus_order(self) -> list[Node]:
         """Nodes in the order a screen reader traverses them (tree order)."""
@@ -69,27 +100,70 @@ def _parse_bounds(raw: str) -> tuple[int, int, int, int]:
     return (x1, y1, x2, y2)
 
 
-def load(path: str) -> Screen:
-    """Load a `uiautomator dump` XML file into a :class:`Screen`."""
-    root = ET.parse(path).getroot()
-    density = float(root.get("density", "1.0")) or 1.0
+def _short(value: str) -> str:
+    return value.split(".")[-1]
+
+
+def parse(xml_text: str, density: float | None = None) -> Screen:
+    """Parse ``uiautomator dump`` XML text into a :class:`Screen`."""
+    root = ET.fromstring(xml_text)
+    attr = root.get("density")
+    if attr:
+        dens, known = float(attr) or 1.0, True
+    elif density:
+        dens, known = density, True
+    else:
+        dens, known = 1.0, False
+
     nodes: list[Node] = []
-    for n in root.iter("node"):
-        x1, y1, x2, y2 = _parse_bounds(n.get("bounds", ""))
-        nodes.append(
-            Node(
-                cls=(n.get("class", "") or "").split(".")[-1],
-                text=n.get("text", "") or "",
-                desc=n.get("content-desc", "") or "",
-                rid=(n.get("resource-id", "") or "").split("/")[-1],
-                clickable=n.get("clickable") == "true",
-                focusable=n.get("focusable") == "true",
-                password=n.get("password") == "true",
-                bounds=(x1, y1, x2, y2),
-                w_dp=(x2 - x1) / density,
-                h_dp=(y2 - y1) / density,
-                cx=(x1 + x2) // 2,
-                cy=(y1 + y2) // 2,
+    width = height = 0
+
+    def inner(el: ET.Element) -> str:
+        parts = []
+        for d in el.iter("node"):
+            if d is el:
+                continue
+            if _short(d.get("class", "") or "") in _EDITABLE:  # typed text is user data
+                parts.append(d.get("content-desc") or d.get("hint") or "")
+            else:
+                parts.append(d.get("content-desc") or d.get("text") or "")
+        return " ".join(p for p in parts if p)[:200]
+
+    def walk(el: ET.Element, in_scroll: bool) -> None:
+        nonlocal width, height
+        for n in el.findall("node"):
+            x1, y1, x2, y2 = _parse_bounds(n.get("bounds", ""))
+            width, height = max(width, x2), max(height, y2)
+            scrollable = n.get("scrollable") == "true"
+            nodes.append(
+                Node(
+                    cls=_short(n.get("class", "") or ""),
+                    text=n.get("text", "") or "",
+                    desc=n.get("content-desc", "") or "",
+                    hint=n.get("hint", "") or "",
+                    inner_text=inner(n),
+                    rid=(n.get("resource-id", "") or "").split("/")[-1],
+                    clickable=n.get("clickable") == "true",
+                    focusable=n.get("focusable") == "true",
+                    password=n.get("password") == "true",
+                    enabled=n.get("enabled", "true") != "false",
+                    scrollable=scrollable,
+                    in_scroll=in_scroll,
+                    bounds=(x1, y1, x2, y2),
+                    w_dp=(x2 - x1) / dens,
+                    h_dp=(y2 - y1) / dens,
+                    cx=(x1 + x2) // 2,
+                    cy=(y1 + y2) // 2,
+                )
             )
-        )
-    return Screen(nodes=tuple(nodes), density=density)
+            walk(n, in_scroll or scrollable)
+
+    walk(root, False)
+    return Screen(nodes=tuple(nodes), density=dens, density_known=known,
+                  width=width, height=height)
+
+
+def load(path: str, density: float | None = None) -> Screen:
+    """Load a ``uiautomator dump`` XML file into a :class:`Screen`."""
+    with open(path, encoding="utf-8") as fh:
+        return parse(fh.read(), density)
