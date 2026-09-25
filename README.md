@@ -19,10 +19,12 @@ It is a command-line tool with no required dependencies, and it writes text,
 JSON, or SARIF, so results can show up on pull requests through GitHub code
 scanning.
 
-> **Status: v0.2.0, early.** The checks below work and are covered by tests
-> and a small synthetic benchmark. Field validation on real open-source apps
-> is in progress (see [docs/field-validation.md](docs/field-validation.md)).
-> Until that is published, treat findings as leads to confirm, not verdicts.
+> **Status: v0.2.1, early.** The checks below work and are covered by tests
+> and a small synthetic benchmark. The first run on a real Jetpack Compose app
+> exposed false positives, now fixed and kept fixed by tests on those
+> captures. Field validation on open-source apps is in progress (see
+> [docs/field-validation.md](docs/field-validation.md)). Until that is
+> published, treat findings as leads to confirm, not verdicts.
 
 ## What it checks
 

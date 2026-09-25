@@ -70,11 +70,12 @@ def _prop(adb: Adb, name: str) -> str:
     return adb(["shell", "getprop", name]).decode(errors="replace").strip()
 
 
-def dump_tree(adb: Adb, density: float, attempts: int = 3) -> str:
+def dump_tree(adb: Adb, density: float, attempts: int = 5) -> str:
     """Dump the accessibility tree and stamp the density onto the root element."""
     last = ""
     for _ in range(attempts):
-        out = adb(["shell", "uiautomator", "dump", _REMOTE]).decode(errors="replace")
+        # "2>&1" runs on the device, so uiautomator's error text comes back too
+        out = adb(["shell", "uiautomator", "dump", _REMOTE, "2>&1"]).decode(errors="replace")
         if "dumped to" in out.lower():
             xml = adb(["shell", "cat", _REMOTE]).decode("utf-8", errors="replace")
             adb(["shell", "rm", "-f", _REMOTE])
@@ -82,8 +83,10 @@ def dump_tree(adb: Adb, density: float, attempts: int = 3) -> str:
                 raise CaptureError("uiautomator produced no hierarchy")
             return re.sub(r"<hierarchy\b", f'<hierarchy density="{density:g}"', xml, count=1)
         last = out.strip()
-        time.sleep(1.0)  # usually "could not get idle state" during animation
-    raise CaptureError(f"uiautomator dump failed: {last}")
+        time.sleep(1.5)  # usually "could not get idle state" during animation
+    raise CaptureError(
+        f"uiautomator dump failed after {attempts} attempts: {last or 'no output'}. "
+        "If the screen has ongoing animation or video, pause it and try again.")
 
 
 def screenshot(adb: Adb) -> bytes:

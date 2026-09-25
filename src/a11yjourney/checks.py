@@ -81,17 +81,24 @@ def _structural(screen: Screen, notes: list[str]) -> list[Finding]:
         if n.actionable and not n.announced and not n.editable:
             out.append(Finding(STRUCTURAL, "4.1.2", Severity.SERIOUS, n.ident,
                                f"{n.cls} is actionable but has no accessible name."))
-        if n.editable and not (n.desc or n.hint):
+        if n.editable and not n.announced:
             out.append(Finding(STRUCTURAL, "3.3.2", Severity.SERIOUS, n.ident,
                                "Input field has no programmatic label."))
     if not screen.density_known:
         notes.append("target size: screen density unknown, so sizes in dp cannot be "
                      "computed; pass --density or capture with `a11yjourney capture`")
         return out
+    clipped = 0
     for n in targets:
+        if n.clipped:
+            clipped += 1
+            continue
         f = _target_size(n, targets, screen.density)
         if f:
             out.append(f)
+    if clipped:
+        notes.append(f"target size: {clipped} element(s) cut off at the edge of the screen or "
+                     "a scrolling area were not measured; scroll and capture again to check them")
     return out
 
 

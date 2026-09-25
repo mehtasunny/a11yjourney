@@ -2,6 +2,26 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVer.
 
+## [0.2.1] - 2026-09-25
+### Fixed
+- False positives on Jetpack Compose apps, found by auditing a real Compose app
+  on an emulator (fixtures in `tests/fixtures/compose/`). The first run reported
+  20 conformance findings on three accessible screens; it now reports none,
+  while unlabeled Compose buttons and fields are still caught.
+  - Compose puts a button's role on an empty child node; the role now moves to
+    the clickable parent that TalkBack focuses, and the parent is named by its
+    label text.
+  - A text field's label drawn inside it (a child node in Compose) counts as its
+    label.
+  - Only clickable elements, or focusable controls, count as targets.
+  - Elements cut off at the edge of the screen or a scrolling area are no longer
+    size-checked (a note says how many were skipped).
+  - Visual reading order groups elements into rows, so side-by-side fields of
+    different heights are read left to right.
+  - Resize check: text pushed off screen at 200% is fine when the screen
+    scrolls, and a text box that got wider instead of taller is not "stuck".
+- `capture` now reports uiautomator's own error message and retries five times.
+
 ## [0.2.0] - 2026-09-25
 ### Added
 - `a11yjourney capture`: one command captures the accessibility tree, a

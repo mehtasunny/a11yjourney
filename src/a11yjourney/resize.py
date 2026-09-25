@@ -50,6 +50,10 @@ def _height(n: Node) -> int:
     return n.bounds[3] - n.bounds[1]
 
 
+def _width(n: Node) -> int:
+    return n.bounds[2] - n.bounds[0]
+
+
 def compare(base: Screen, scaled: Screen) -> tuple[list[Finding], list[str]]:
     """Compare a normal capture with a 200% font-scale capture of the same screen."""
     notes: list[str] = []
@@ -69,18 +73,19 @@ def compare(base: Screen, scaled: Screen) -> tuple[list[Finding], list[str]]:
         return [], notes
 
     out: list[Finding] = []
+    scrolls = any(n.scrollable for n in scaled.nodes)
     for key, b in before.items():
-        if key not in after and not b.in_scroll:
+        if key not in after and not b.in_scroll and not scrolls:
             out.append(Finding(RESIZE, "1.4.4", Severity.SERIOUS, b.ident,
-                               "Text is no longer on screen at 200% font size and is not in a "
-                               "scrolling container, so users cannot reach it.", review=True))
+                               "Text is no longer on screen at 200% font size and the screen does "
+                               "not scroll, so users cannot reach it.", review=True))
 
     for _, b, a in matched:
         if a.bounds[2] > base.width + 1:
             out.append(Finding(RESIZE, "1.4.4", Severity.SERIOUS, a.ident,
                                "At 200% font size this text runs past the right edge of the "
                                "screen.", review=True))
-        elif _height(a) <= _height(b) * _STUCK:
+        elif _height(a) <= _height(b) * _STUCK and _width(a) <= _width(b) * _GREW:
             out.append(Finding(RESIZE, "1.4.4", Severity.MODERATE, a.ident,
                                "Text box did not grow at 200% font size, so the text is likely "
                                "clipped or truncated. Confirm on the device.", review=True))

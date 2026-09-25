@@ -1,5 +1,5 @@
 """A11yJourney: accessibility auditing for native Android apps."""
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 from .checks import Audit, audit, run  # noqa: E402
 from .findings import Finding  # noqa: E402
