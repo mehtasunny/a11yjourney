@@ -199,6 +199,14 @@ Framework cover many presence checks on device. A11yJourney's focus is a
 developer-first CLI with large-text and semantic checks, a clear line between
 required and advisory findings, and an open benchmark.
 
+## Companion project
+
+[A11yJourney Compose](https://github.com/mehtasunny/a11yjourney-compose) is the
+prevention half: Jetpack Compose components with these checks' concerns built
+in (required labels, 48dp targets, errors in words, large-text layouts,
+captions). Its CI audits its demo app with this tool on an emulator, and the
+captures in `tests/fixtures/compose/` come from that app.
+
 ## Contributing, citing, license
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). If you use A11yJourney in research or
