@@ -1,0 +1,43 @@
+name: field-study
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  field-study:
+    name: Explore open-source apps on an emulator
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run the study
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash scripts/field_study.sh field-study
+      - name: Publish results to the field-study branch
+        if: always()
+        run: |
+          mkdir -p /tmp/out && cp -r field-study/. /tmp/out/ 2>/dev/null || true
+          cp field/README.md /tmp/out/README.md
+          cd /tmp/out
+          git init -q -b field-study
+          git config user.name "field-study"
+          git config user.email "field-study@users.noreply.github.com"
+          git add -A && git commit -q -m "Field study run ${GITHUB_RUN_ID} at ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" field-study

@@ -1,0 +1,8 @@
+# Open-source Android apps used for the field study, from F-Droid.
+# package                      category     why it is here
+de.grobox.liberario            transit      Transportr: public transit trip planner
+com.futsch1.medtimer           health       MedTimer: medication reminders
+com.governikus.ausweisapp2     government   AusweisApp: Germany's official electronic ID app
+ws.xsoh.etar                   scheduling   Etar: calendar and appointments
+org.fossify.calendar           scheduling   Fossify Calendar: calendar and appointments
+me.hackerchick.catima          services     Catima: membership and benefit cards
