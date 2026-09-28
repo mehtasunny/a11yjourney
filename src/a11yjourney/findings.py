@@ -11,6 +11,7 @@ VISUAL = "VISUAL"  # measured from the screenshot (contrast)
 RESIZE = "RESIZE"  # compares default and enlarged-text captures
 SEMANTIC = "SEMANTIC"  # needs judgment about meaning or order
 JOURNEY = "JOURNEY"  # can the task be completed at all
+KEYBOARD = "KEYBOARD"  # measured on the device by pressing Tab
 
 JUDGMENT_KINDS = frozenset({SEMANTIC, JOURNEY})
 

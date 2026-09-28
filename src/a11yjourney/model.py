@@ -41,6 +41,7 @@ class Node:
     rid: str = ""
     clickable: bool = False
     focusable: bool = False
+    focused: bool = False
     password: bool = False
     enabled: bool = True
     scrollable: bool = False
@@ -192,6 +193,7 @@ def parse(xml_text: str, density: float | None = None) -> Screen:
                     rid=(n.get("resource-id", "") or "").split("/")[-1],
                     clickable=n.get("clickable") == "true",
                     focusable=n.get("focusable") == "true",
+                    focused=n.get("focused") == "true",
                     password=n.get("password") == "true",
                     enabled=n.get("enabled", "true") != "false",
                     scrollable=scrollable,

@@ -89,7 +89,10 @@ CRITERIA: dict[str, Criterion] = {
         _c("1.4.3", "Contrast (Minimum)", "contrast-minimum", "AA", "2.0"),
         _c("1.4.4", "Resize Text", "resize-text", "AA", "2.0"),
         _c("1.4.11", "Non-text Contrast", "non-text-contrast", "AA", "2.1"),
+        _c("2.1.1", "Keyboard", "keyboard", "A", "2.0"),
+        _c("2.1.2", "No Keyboard Trap", "no-keyboard-trap", "A", "2.0"),
         _c("2.4.3", "Focus Order", "focus-order", "A", "2.0"),
+        _c("2.4.4", "Link Purpose (In Context)", "link-purpose-in-context", "A", "2.0"),
         _c("2.4.6", "Headings and Labels", "headings-and-labels", "AA", "2.0"),
         _c("2.5.5", "Target Size (Enhanced)", "target-size-enhanced", "AAA", "2.1"),
         _c("2.5.8", "Target Size (Minimum)", "target-size-minimum", "AA", "2.2"),
@@ -98,14 +101,28 @@ CRITERIA: dict[str, Criterion] = {
     )
 }
 
-# Platform guidance that is not a WCAG criterion but matters to real users.
-CRITERIA["android-touch-target"] = Criterion(
-    "android-touch-target",
-    "Android touch target guidance (48dp)",
-    "https://support.google.com/accessibility/android/answer/7101858",
-    "platform",
-    "",
-)
+# Platform guidance that is not a WCAG criterion but matters to real users. Where
+# Google's Accessibility Test Framework (ATF) has an equivalent check, the link points
+# to it, so the two tools' results can be compared.
+_ATF = ("https://github.com/google/Accessibility-Test-Framework-for-Android/blob/master/"
+        "src/main/java/com/google/android/apps/common/testing/accessibility/framework/checks/")
+
+
+def _p(cid: str, name: str, url: str) -> Criterion:
+    return Criterion(cid, name, url, "platform", "")
+
+
+for _crit in (
+    _p("android-touch-target", "Android touch target guidance (48dp)",
+       "https://support.google.com/accessibility/android/answer/7101858"),
+    _p("android-redundant-role", "Label repeats the control's role",
+       _ATF + "RedundantDescriptionCheck.java"),
+    _p("android-duplicate-clickable", "Nested clickable elements with the same bounds",
+       _ATF + "DuplicateClickableBoundsCheck.java"),
+    _p("android-editable-description", "Editable field with a content description",
+       _ATF + "EditableContentDescCheck.java"),
+):
+    CRITERIA[_crit.id] = _crit
 
 
 def criterion(cid: str) -> Criterion:

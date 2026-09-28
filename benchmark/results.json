@@ -3,8 +3,8 @@
     "cases": 4,
     "ground_truth_issues": 27,
     "static_recall_pct": 59.3,
-    "full_recall_pct": 85.2,
-    "full_precision_pct": 67.6
+    "full_recall_pct": 88.9,
+    "full_precision_pct": 66.7
   },
   "cases": [
     {
@@ -13,8 +13,8 @@
       "gt_static": 4,
       "gt_judgment": 3,
       "static_hits": 4,
-      "full_hits": 4,
-      "full_reported": 8
+      "full_hits": 5,
+      "full_reported": 9
     },
     {
       "name": "login",
@@ -32,7 +32,7 @@
       "gt_judgment": 2,
       "static_hits": 2,
       "full_hits": 4,
-      "full_reported": 8
+      "full_reported": 9
     },
     {
       "name": "settings",

@@ -24,6 +24,10 @@ import subprocess
 import time
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Any
+
+from .keyboard import focused_node, node_key
+from .model import parse
 
 Adb = Callable[[list[str]], bytes]
 
@@ -102,6 +106,7 @@ class Capture:
     screenshot: pathlib.Path
     large: pathlib.Path | None
     manifest: pathlib.Path
+    focus: pathlib.Path | None = None
 
 
 def capture(
@@ -109,6 +114,7 @@ def capture(
     out_dir: str,
     name: str,
     large_text: bool = True,
+    keyboard: bool = False,
     settle: float = 2.0,
     sleep: Callable[[float], None] = time.sleep,
 ) -> Capture:
@@ -134,6 +140,13 @@ def capture(
         finally:
             restore = original if original not in ("", "null") else "1.0"
             adb(["shell", "settings", "put", "system", "font_scale", restore])
+            sleep(settle)
+
+    focus: pathlib.Path | None = None
+    if keyboard:
+        focus = out / f"{name}.focus.json"
+        focus.write_text(json.dumps(focus_walk(adb, density, sleep=sleep), indent=2) + "\n",
+                         encoding="utf-8")
 
     manifest = out / f"{name}.json"
     manifest.write_text(json.dumps({
@@ -144,9 +157,59 @@ def capture(
         "density": density,
         "font_scale_default": original or None,
         "font_scale_large": "2.0" if large_text else None,
-        "files": [p.name for p in (tree, shot, large) if p],
+        "keyboard_focus_measured": keyboard,
+        "files": [p.name for p in (tree, shot, large, focus) if p],
     }, indent=2) + "\n", encoding="utf-8")
-    return Capture(tree, shot, large, manifest)
+    return Capture(tree, shot, large, manifest, focus)
+
+
+def focus_walk(
+    adb: Adb,
+    density: float,
+    max_steps: int = 40,
+    settle: float = 0.4,
+    sleep: Callable[[float], None] = time.sleep,
+) -> dict[str, Any]:
+    """Press Tab repeatedly and record which element holds focus after each press.
+
+    Stops when focus comes back to the first element (a full cycle), when focus stays
+    on the same element for three presses (a possible trap), or after ``max_steps``.
+    """
+    steps: list[dict[str, Any]] = []
+    first: str | None = None
+    others = False
+    stuck = 0
+    wrapped = False
+    for _ in range(max_steps):
+        adb(["shell", "input", "keyevent", "KEYCODE_TAB"])
+        sleep(settle)
+        n = focused_node(parse(dump_tree(adb, density)))
+        key = node_key(n) if n else None
+        steps.append({"key": key, "label": n.announced[:80] if n else "",
+                      "cls": n.cls if n else "", "bounds": list(n.bounds) if n else []})
+        if key is None:
+            continue
+        if first is None:
+            first = key
+        elif key != first:
+            others = True
+        elif others:
+            wrapped = True
+            break
+        prev = [s["key"] for s in steps[:-1] if s["key"]]
+        stuck = stuck + 1 if prev and prev[-1] == key else 0
+        if stuck >= 3:
+            break
+    return {"steps": steps, "wrapped": wrapped, "stuck": stuck >= 3 and not wrapped,
+            "max_steps": max_steps}
+
+
+def focus_sibling(tree_path: str) -> str | None:
+    """The keyboard focus trace captured next to a tree dump, if any."""
+    p = pathlib.Path(tree_path)
+    stem = p.name[:-len(".xml")] if p.name.endswith(".xml") else p.stem
+    trace = p.with_name(stem + ".focus.json")
+    return str(trace) if trace.exists() else None
 
 
 def siblings(tree_path: str) -> tuple[str | None, str | None]:

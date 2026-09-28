@@ -3,8 +3,9 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
+from typing import Any
 
-from . import contrast, resize
+from . import contrast, keyboard, patterns, resize
 from .findings import JOURNEY, SEMANTIC, STRUCTURAL, Finding
 from .imaging import Image
 from .judge import HeuristicJudge, Judge
@@ -144,12 +145,14 @@ def audit(
     *,
     image: Image | None = None,
     scaled: Screen | None = None,
+    focus_trace: dict[str, Any] | None = None,
 ) -> Audit:
     """Run every check that the inputs allow.
 
     ``image`` is a screenshot taken with the tree (enables contrast checks).
     ``scaled`` is a capture of the same screen at 200% font scale (enables the
-    resize-text check).
+    resize-text check). ``focus_trace`` is the Tab sequence recorded on the device
+    (enables measured keyboard checks, replacing the inferred focus order).
     """
     j = judge or HeuristicJudge()
     notes: list[str] = []
@@ -162,8 +165,28 @@ def audit(
         f, n = resize.compare(screen, scaled)
         findings += f
         notes += n
-    findings += _semantic(screen, j) + _journey(screen, j)
-    return Audit(findings, notes)
+    findings += patterns.check(screen)
+    semantic = _semantic(screen, j)
+    if focus_trace is not None:
+        f, n = keyboard.analyze(screen, focus_trace)
+        findings += f
+        notes += n
+        # measured focus order replaces the order inferred from the tree
+        semantic = [x for x in semantic if x.wcag != "2.4.3"]
+    findings += semantic + _journey(screen, j)
+    return Audit(_dedupe(findings), notes)
+
+
+def _dedupe(findings: list[Finding]) -> list[Finding]:
+    """Keep one finding per element and criterion (the first, most specific one)."""
+    seen: set[tuple[str, str]] = set()
+    out: list[Finding] = []
+    for f in findings:
+        key = (f.element, f.wcag)
+        if key not in seen:
+            seen.add(key)
+            out.append(f)
+    return out
 
 
 def run(screen: Screen, judge: Judge | None = None) -> list[Finding]:
