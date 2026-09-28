@@ -2,6 +2,35 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVer.
 
+## [0.3.0] - 2026-09-29
+### Added
+- Keyboard focus measured on the device: `capture --keyboard` presses Tab through
+  the screen and records the real focus sequence. Reports focus order (2.4.3),
+  controls Tab never reaches (2.1.1), and focus traps (2.1.2). When present, it
+  replaces the focus order inferred from the tree.
+- Multi-screen capture: `journey` replays a scripted task (launch, tap, type,
+  scroll, back, capture); `explore` opens each control on a screen once and
+  captures new screens, skipping controls that look consequential.
+- `report` audits every capture in a folder, with a combined summary and one
+  merged SARIF file.
+- Checks that mirror Google's Accessibility Test Framework for any installed
+  app: duplicate labels, unclear purpose ("click here", 2.4.4 / 2.4.6), label
+  repeating the role, nested duplicate clickable areas, content descriptions on
+  editable fields. Platform findings link to the matching ATF check.
+- Accuracy tooling: `report --review-sheet` writes findings to a CSV for manual
+  verdicts; `score` computes precision and recall per check kind.
+- Field study on open-source F-Droid apps (transit, health, government,
+  scheduling), run on an emulator by a manual workflow; results publish to the
+  `field-study` branch for review.
+- README section comparing A11yJourney with ATF, Accessibility Scanner, Compose
+  and Espresso checks, Android Studio UI Check, commercial suites, and the
+  research it builds on (AccessiText, dVermin, SUDFinder, Latte, Groundhog,
+  ScreenAudit).
+
+### Changed
+- Findings are de-duplicated per element and criterion.
+- Synthetic benchmark: recall 88.9%, precision 66.7% (was 85.2% and 67.6%).
+
 ## [0.2.1] - 2026-09-25
 ### Fixed
 - False positives on Jetpack Compose apps, found by auditing a real Compose app

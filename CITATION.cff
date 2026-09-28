@@ -14,8 +14,8 @@ authors:
     email: sunnykmehta@gmail.com
 repository-code: "https://github.com/mehtasunny/a11yjourney"
 license: MIT
-version: 0.2.1
-date-released: 2026-09-28
+version: 0.3.0
+date-released: 2026-09-29
 doi: 10.5281/zenodo.23006687
 identifiers:
   - type: doi

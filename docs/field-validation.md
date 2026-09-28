@@ -1,5 +1,10 @@
 # Field validation on real apps
 
+> The automated part of this protocol now runs in CI: see [field/README.md](../field/README.md)
+> and `.github/workflows/field-study.yml`. Review sheets
+> (`a11yjourney report FOLDER --review-sheet review.csv`) and `a11yjourney score`
+> implement the confirmation and reporting steps below.
+
 Synthetic benchmarks show that the checks work as designed. They do not show
 that the tool is useful. This protocol is how A11yJourney is tested on real,
 openly licensed Android apps, and how results are reported without

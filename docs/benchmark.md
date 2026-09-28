@@ -35,13 +35,15 @@ Offline heuristic judge, 4 synthetic screens, 27 labeled issues:
 
 | Screen | Labeled issues | Presence-only recall | Full-engine recall |
 |---|---|---|---|
-| checkout | 7 | 57.1% | 57.1% |
+| checkout | 7 | 57.1% | 71.4% |
 | login | 11 | 63.6% | 100.0% |
 | player | 4 | 50.0% | 100.0% |
 | settings | 5 | 60.0% | 80.0% |
-| **all** | **27** | **59.3%** | **85.2%** |
+| **all** | **27** | **59.3%** | **88.9%** |
 
-Full-engine precision on the same corpus is 67.6%.
+Full-engine precision on the same corpus is 66.7%. (Version 0.2 scored 85.2% recall
+and 67.6% precision; the change comes from the unclear-purpose check added in 0.3,
+which now flags the checkout screen's "click here" button.)
 
 ## Limits, stated plainly
 
@@ -51,9 +53,7 @@ Full-engine precision on the same corpus is 67.6%.
 * The contrast and resize checks need screenshots and paired captures, which
   the seed corpus does not include yet. They are covered by unit tests and the
   synthetic example in `examples/transit/`.
-* The checkout case shows two real gaps. The heuristic judge passes a vague
-  label ("click here") that a person would fail; a model judge is expected to
-  do better, but that has not been measured yet. And the focus-order check
+* The checkout case shows a real gap. The focus-order check
   names the first element reached out of order (`cardNumber`), while the
   ground truth names the element that is misplaced ("Enter payment details"),
   so a real defect is found but scored as a miss.

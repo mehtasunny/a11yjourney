@@ -34,7 +34,8 @@ def build_parser() -> argparse.ArgumentParser:
         description="Accessibility auditing for native Android apps: structural, contrast, "
                     "large-text, semantic, and journey checks mapped to WCAG.",
         epilog="Other commands: capture (one screen from a device), journey (replay a "
-               "scripted task), explore (open each control once), report (audit a folder). "
+               "scripted task), explore (open each control once), report (audit a folder), "
+               "score (precision and recall from reviewed sheets). "
                "Run `a11yjourney COMMAND --help` for each.",
     )
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")

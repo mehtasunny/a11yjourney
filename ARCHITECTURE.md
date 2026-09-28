@@ -5,7 +5,10 @@ A11yJourney is a small, layered pipeline with one deliberately swappable seam
 
 ```
 connected phone (adb)
+   journey.py        scripted journeys, or cautious exploration, across screens
+        |
    capture.py        uiautomator dump + screencap + second dump at font scale 2.0
+                     + optional Tab walk recording keyboard focus (NAME.focus.json)
         |
    NAME.xml   NAME.png   NAME.large.xml   NAME.json (manifest)
         |
@@ -15,6 +18,8 @@ connected phone (adb)
         |   +-- structural   names, field labels, target size (with 2.5.8 spacing rule)
         |   +-- contrast.py  text 1.4.3 and icon 1.4.11, estimated from screenshot pixels
         |   +-- resize.py    1.4.4, comparing normal and 200% font-scale trees
+        |   +-- patterns.py  ATF-equivalent checks judged from the tree
+        |   +-- keyboard.py  2.4.3, 2.1.1, 2.1.2 from the measured Tab sequence
         |   +-- semantic     meaningful labels, focus order          ----+
         |   +-- journey      can the primary action be identified    ----+---> Judge
         |
@@ -25,6 +30,10 @@ connected phone (adb)
 
 | Module | Responsibility |
 |---|---|
+| `journey.py` | Journey scripts (launch, tap, type, scroll, back, capture) and `explore`, which opens each control once and skips consequential-looking ones. |
+| `patterns.py` | Checks mirroring Google's ATF: duplicate labels, unclear purpose, role repeated in label, duplicate clickable bounds, editable content descriptions. |
+| `keyboard.py` | Analyzes the measured Tab sequence: unreachable controls, traps, and order against the visual layout. |
+| `review.py` | Review sheets for manual verdicts and precision/recall scoring. |
 | `capture.py` | Runs adb, stamps screen density into the dump, restores the font scale afterwards. adb is injected as a function so it can be tested without a device. |
 | `model.py` | Parses `uiautomator dump` XML. `Node.announced` approximates what TalkBack says: own name, a field's hint, or descendant text for unlabeled containers. |
 | `imaging.py` | Standard-library PNG decoder and encoder, and the WCAG luminance and contrast formulas. |
