@@ -5,6 +5,7 @@ transit, and government apps that new U.S. accessibility rules now cover.**
 
 [![ci](https://github.com/mehtasunny/a11yjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/mehtasunny/a11yjourney/actions)
 [![python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23006687.svg)](https://doi.org/10.5281/zenodo.23006687)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 A11yJourney captures a screen from a connected Android phone and reports the
