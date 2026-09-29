@@ -197,11 +197,16 @@ def _explore_main(argv: list[str]) -> int:
     p.add_argument("--keyboard", action="store_true",
                    help="Also measure keyboard focus on each captured screen.")
     p.add_argument("--allow-risky", action="store_true",
-                   help="Also tap controls labeled like delete, pay, send, sign out.")
+                   help="Also tap controls labeled like delete, pay, send, sign out, and "
+                        "switches, checkboxes, and other controls that change a setting.")
+    p.add_argument("--package",
+                   help="Only explore screens of this app; screens from other apps "
+                        "(permission prompts, system settings) are never tapped.")
     args = p.parse_args(argv)
     try:
         session = Session(adb_runner(args.serial, args.adb), pathlib.Path(args.out))
-        result = explore(session, args.max_screens, args.allow_risky, args.keyboard)
+        result = explore(session, args.max_screens, args.allow_risky, args.keyboard,
+                         package=args.package or "")
     except (JourneyError, CaptureError) as exc:
         sys.stderr.write(f"error: {exc}\n")
         return 2

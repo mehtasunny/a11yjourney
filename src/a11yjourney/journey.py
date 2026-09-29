@@ -208,21 +208,38 @@ def _return_home(session: Session, home: str, package: str) -> bool:
     return False
 
 
+_STATEFUL = ("Switch", "CheckBox", "ToggleButton", "RadioButton", "SeekBar", "CompoundButton")
+
+
 def explore(
     session: Session,
     max_screens: int = 8,
     allow_risky: bool = False,
     keyboard: bool = False,
+    package: str = "",
 ) -> dict[str, Any]:
-    """Open each control on the current screen once and capture where it leads."""
+    """Open each control on the current screen once and capture where it leads.
+
+    Only controls inside the app being explored are tapped. If ``package`` is given and
+    the screen belongs to another app (a permission prompt or a system settings page),
+    that screen is captured but nothing on it is tapped.
+    """
     start = session.screen()
     home = signature(start)
     seen = {home}
     captured = [session.capture("screen-00-start", keyboard=keyboard)]
     visits: list[dict[str, Any]] = []
+    app = package or start.package
+    if package and start.package and start.package != package:
+        visits.append({"control": "(start screen)",
+                       "result": f"belongs to {start.package}, not {package}; not explored"})
+        result = {"start": home, "captures": captured, "visits": visits}
+        (session.out_dir / "explore.json").write_text(json.dumps(result, indent=2) + "\n")
+        return result
     candidates = [n for n in start.nodes
                   if n.actionable and n.visible and n.enabled and not n.editable
-                  and not n.clipped and n.announced]
+                  and not n.clipped and n.announced
+                  and (allow_risky or n.cls not in _STATEFUL)]
     for n in candidates:
         if len(captured) >= max_screens:
             visits.append({"control": n.announced, "result": "stopped: screen limit"})
@@ -233,10 +250,13 @@ def explore(
         session.tap_node(n)
         now = session.screen()
         sig = signature(now)
-        if sig == home:
+        if app and now.package and now.package != app:
+            visits.append({"control": n.announced,
+                           "result": f"opened another app ({now.package}); not captured"})
+        elif sig == home:
             visits.append({"control": n.announced, "result": "no new screen"})
             continue
-        if sig in seen:
+        elif sig in seen:
             visits.append({"control": n.announced, "result": "already captured"})
         else:
             seen.add(sig)

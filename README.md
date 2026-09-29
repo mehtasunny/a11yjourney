@@ -89,8 +89,10 @@ back
 ```
 
 `explore` taps real controls. It never types, skips controls whose labels suggest
-an action with consequences (delete, pay, send, sign out, and similar), and stops
-if it cannot get back to where it started. Use a test device and a test account.
+an action with consequences (delete, pay, send, sign out, and similar) and controls
+that change a setting (switches, checkboxes), never taps anything on another app's
+screen when given `--package`, and relaunches the app if Back leaves it. Use a test
+device and a test account.
 
 Part of the report for the example screen:
 

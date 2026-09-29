@@ -170,3 +170,40 @@ def test_explore_relaunches_when_back_leaves_the_app(tmp_path):
     visits = [v["result"] for v in result["visits"]]
     assert "could not return; stopped" not in visits
     assert dev.stack == ["home"]
+
+
+class PackagedDevice(FakeDevice):
+    """Screens carry a package name; some belong to other apps."""
+
+    packages = {"home": "org.example", "clinic": "org.example", "trip": "com.android.settings",
+                "deleted": "org.example", "settings": "com.android.settings"}
+
+    def xml(self):
+        root = '<node class="android.widget.FrameLayout"'
+        pkg = self.packages.get(self.stack[-1], "org.example")
+        return super().xml().replace(root, root.replace("<node", f'<node package="{pkg}"'), 1)
+
+
+def test_explore_does_not_capture_other_apps_or_tap_toggles(tmp_path):
+    SCREENS["home"][0]["goto"] = "clinic"
+    toggle = {"cls": "Switch", "text": "Reminders", "rid": "remind", "clickable": True,
+              "bounds": (40, 1000, 1040, 1150), "goto": "clinic"}
+    SCREENS["home"].append(toggle)
+    try:
+        result = explore(_session(tmp_path, PackagedDevice()), max_screens=6,
+                         package="org.example")
+    finally:
+        SCREENS["home"].remove(toggle)
+    visits = {v["control"]: v["result"] for v in result["visits"]}
+    assert "Reminders" not in visits
+    assert visits["Trip planner"].startswith("opened another app")
+
+
+def test_explore_leaves_a_foreign_start_screen_alone(tmp_path):
+    dev = PackagedDevice()
+    dev.stack = ["settings"]
+    SCREENS["settings"] = [{"cls": "Switch", "text": "Allowed", "clickable": True,
+                            "bounds": (0, 100, 1080, 250), "goto": "home"}]
+    result = explore(_session(tmp_path, dev), package="org.example")
+    assert "not explored" in result["visits"][0]["result"]
+    assert dev.stack == ["settings"]

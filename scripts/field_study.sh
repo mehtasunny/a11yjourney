@@ -21,7 +21,7 @@ for pkg in $(grep -v '^#' field/apps.txt | awk 'NF {print $1}'); do
   adb shell monkey -p "$pkg" -c android.intent.category.LAUNCHER 1 > /dev/null 2>&1
   sleep 8
   dir="$OUT/$pkg"
-  if timeout 900 a11yjourney explore --out "$dir" --max-screens 3 --keyboard > "$dir.explore.log" 2>&1; then
+  if timeout 900 a11yjourney explore --out "$dir" --max-screens 3 --keyboard --package "$pkg" > "$dir.explore.log" 2>&1; then
     a11yjourney report "$dir" --format json --review-sheet "$dir/review.csv" > "$dir/report.json" || true
     a11yjourney report "$dir" > "$dir/report.txt" || true
     echo "- $pkg $code: $(grep -c '' "$dir/review.csv" | awk '{print $1-1}') findings to review" >> "$OUT/RUN.md"

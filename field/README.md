@@ -10,6 +10,15 @@ opens it, and runs `a11yjourney explore` (a few screens, measured keyboard focus
 normal and 200% text). It writes captures, reports, and a review sheet per app to the
 `field-study` branch.
 
+## Runs so far
+
+- **2026-09-29, first full run:** all six apps installed and explored on an Android 14
+  emulator, 44 findings written to review sheets on the `field-study` branch. The
+  runs before it exposed problems in the tool itself (list items sharing an id, Tab
+  cycles starting mid-screen, emoji contrast, exploration following a permission prompt
+  into system settings); each is fixed with a regression test (see CHANGELOG 0.3.0).
+  Awaiting manual review.
+
 ## Why the numbers are not published yet
 
 A finding is only right or wrong once a person has checked it. Precision and recall

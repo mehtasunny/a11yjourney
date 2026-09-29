@@ -41,6 +41,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVe
 - Contrast was estimated for emoji (such as flags) and for text cut down to a sliver
   behind the keyboard. Both are now skipped and counted in the notes.
 - `explore` stopped when Back left the app; it now relaunches the app and continues.
+- On one app, `explore` followed a permission prompt into system settings and tapped
+  toggles there. It now skips switches, checkboxes, and similar controls, and with
+  `--package` it never taps anything on another app's screen.
 - The field study processed only the first app, because adb read the rest of the
   list from standard input. adb now gets no standard input.
 
