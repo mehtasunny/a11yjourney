@@ -2,6 +2,14 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVer.
 
+## [0.3.1] - 2026-09-29
+### Fixed
+- `explore` could follow a permission prompt into system settings and tap toggles
+  there. It now skips switches, checkboxes, and similar controls, and with
+  `--package` never taps anything on another app's screen.
+- CITATION.cff no longer carries a DOI field, which kept the 0.3.0 release from
+  being archived on Zenodo. The DOI badge in the README is unchanged.
+
 ## [0.3.0] - 2026-09-29
 ### Added
 - Keyboard focus measured on the device: `capture --keyboard` presses Tab through

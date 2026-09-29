@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+cff-version: 0.3.1
 message: "If you use this software, please cite it using these metadata."
 title: "A11yJourney: accessibility checks for native Android apps"
 abstract: >-
@@ -14,16 +14,8 @@ authors:
     email: sunnykmehta@gmail.com
 repository-code: "https://github.com/mehtasunny/a11yjourney"
 license: MIT
-version: 0.3.0
+version: 0.3.1
 date-released: 2026-09-29
-doi: 10.5281/zenodo.23006687
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.23006687
-    description: All versions (always resolves to the latest)
-  - type: doi
-    value: 10.5281/zenodo.23006688
-    description: Version 0.2.1
 keywords:
   - accessibility
   - android
