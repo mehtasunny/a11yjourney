@@ -1,0 +1,39 @@
+[
+  {
+    "target": "field-study/com.governikus.ausweisapp2/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 0,
+      "advisory": 1,
+      "structural": 1,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176",
+        "message": "Target is 141x38dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      }
+    ],
+    "notes": [
+      "target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "resize: no text elements matched between the two captures; skipped",
+      "keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged",
+      "keyboard: measured 3 focus stops with Tab",
+      "inputs: tree, screenshot field-study/com.governikus.ausweisapp2/screen-00-start.png, large-text field-study/com.governikus.ausweisapp2/screen-00-start.large.xml, keyboard focus field-study/com.governikus.ausweisapp2/screen-00-start.focus.json"
+    ]
+  }
+]

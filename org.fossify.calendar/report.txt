@@ -1,0 +1,77 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            3         3           2
+screen-01-change-view                      3         6           3
+screen-02-more-options                     0         0           0
+
+A11yJourney report: field-study/org.fossify.calendar/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+3 conformance findings  |  3 advisory  |  0 need semantic judgment  |  2 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [STRUCTURAL] SERIOUS  WCAG 3.3.2 Labels or Instructions, Level A
+        top_toolbar_search: Input field has no programmatic label.
+  [VISUAL] SERIOUS  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        top_toolbar_search: Text contrast is about 2.6:1 (#888A92 on #DDE0F1); WCAG AA needs 4.5:1, or 3.0:1 for large text.
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        top_toolbar_search: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        top_toolbar_search_icon: Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        More options: Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        month_view_background: Target is 45x78dp, under the 48dp Android minimum.
+
+Notes:
+  - target size: 4 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged
+  - keyboard: measured 7 focus stops with Tab
+  - inputs: tree, screenshot field-study/org.fossify.calendar/screen-00-start.png, large-text field-study/org.fossify.calendar/screen-00-start.large.xml, keyboard focus field-study/org.fossify.calendar/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/org.fossify.calendar/screen-01-change-view.xml
+Judged against WCAG 2.1 Level AA
+3 conformance findings  |  6 advisory  |  0 need semantic judgment  |  3 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Daily view: Text contrast is about 4.4:1 (#5D698B on #EBE5F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Weekly view: Text contrast is about 4.4:1 (#5D698B on #ECE6F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Yearly view: Text contrast is about 4.4:1 (#5D698B on #EBE6F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Daily view: Target is 224x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Weekly view: Target is 224x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Monthly view: Target is 224x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Monthly and daily view: Target is 224x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Yearly view: Target is 224x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Simple event list: Target is 224x44dp, under the 48dp Android minimum.
+
+Notes:
+  - resize: the two captures have different widths (rotation?); skipped
+  - keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged
+  - keyboard: measured 7 focus stops with Tab
+  - inputs: tree, screenshot field-study/org.fossify.calendar/screen-01-change-view.png, large-text field-study/org.fossify.calendar/screen-01-change-view.large.xml, keyboard focus field-study/org.fossify.calendar/screen-01-change-view.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/org.fossify.calendar/screen-02-more-options.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - resize: the two captures have different widths (rotation?); skipped
+  - inputs: tree, screenshot field-study/org.fossify.calendar/screen-02-more-options.png, large-text field-study/org.fossify.calendar/screen-02-more-options.large.xml, keyboard focus field-study/org.fossify.calendar/screen-02-more-options.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

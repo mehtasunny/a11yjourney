@@ -1,0 +1,40 @@
+{
+  "steps": [
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        280,
+        32,
+        320,
+        80
+      ]
+    },
+    {
+      "key": "id:fabAdd|Add",
+      "label": "Add",
+      "cls": "FloatingActionButton",
+      "bounds": [
+        248,
+        568,
+        304,
+        624
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        280,
+        32,
+        320,
+        80
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

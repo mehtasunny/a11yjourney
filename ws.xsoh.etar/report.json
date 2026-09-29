@@ -1,0 +1,36 @@
+[
+  {
+    "target": "field-study/ws.xsoh.etar/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 1,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 1
+    },
+    "findings": [
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Alarms & reminders",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      }
+    ],
+    "notes": [
+      "keyboard: measured 8 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/ws.xsoh.etar/screen-00-start.png, large-text field-study/ws.xsoh.etar/screen-00-start.large.xml, keyboard focus field-study/ws.xsoh.etar/screen-00-start.focus.json"
+    ]
+  }
+]

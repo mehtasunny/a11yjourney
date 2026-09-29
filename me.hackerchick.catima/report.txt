@@ -1,0 +1,43 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            0         1           0
+screen-01-more-options                     0         0           0
+screen-02-add                              1         0           1
+
+A11yJourney report: field-study/me.hackerchick.catima/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  1 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        More options: Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+
+Notes:
+  - keyboard: measured 2 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/me.hackerchick.catima/screen-00-start.png, large-text field-study/me.hackerchick.catima/screen-00-start.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/me.hackerchick.catima/screen-01-more-options.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - resize: the two captures have different widths (rotation?); skipped
+  - inputs: tree, screenshot field-study/me.hackerchick.catima/screen-01-more-options.png, large-text field-study/me.hackerchick.catima/screen-01-more-options.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-01-more-options.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/me.hackerchick.catima/screen-02-add.xml
+Judged against WCAG 2.1 Level AA
+1 conformance findings  |  0 advisory  |  0 need semantic judgment  |  1 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [RESIZE] SERIOUS  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        camera_error_message: At 200% font size this text overlaps 'fabOtherOptions', which it did not do at normal size.
+
+Notes:
+  - keyboard: measured 4 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/me.hackerchick.catima/screen-02-add.png, large-text field-study/me.hackerchick.catima/screen-02-add.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-02-add.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

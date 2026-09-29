@@ -1,0 +1,25 @@
+{
+  "start": "cf9cf2a0d27c",
+  "captures": [
+    "field-study/com.futsch1.medtimer/screen-00-start.xml",
+    "field-study/com.futsch1.medtimer/screen-01-skip.xml"
+  ],
+  "visits": [
+    {
+      "control": "Welcome to MedTimer!",
+      "result": "no new screen"
+    },
+    {
+      "control": "MedTimer is a free and open source medication reminder app with a focus on privacy.\n\nIt requires permission to show notifications for medication reminders.",
+      "result": "no new screen"
+    },
+    {
+      "control": "SKIP",
+      "result": "captured screen-01-skip"
+    },
+    {
+      "control": "SKIP",
+      "result": "could not return; stopped"
+    }
+  ]
+}

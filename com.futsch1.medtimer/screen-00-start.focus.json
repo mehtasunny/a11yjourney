@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "key": "id:title|Welcome to MedTimer!",
+      "label": "Welcome to MedTimer!",
+      "cls": "TextView",
+      "bounds": [
+        0,
+        24,
+        320,
+        129
+      ]
+    },
+    {
+      "key": "id:description|MedTimer is a free and open source medic",
+      "label": "MedTimer is a free and open source medication reminder app with a focus on priva",
+      "cls": "TextView",
+      "bounds": [
+        0,
+        392,
+        320,
+        550
+      ]
+    },
+    {
+      "key": "id:skip|SKIP",
+      "label": "SKIP",
+      "cls": "Button",
+      "bounds": [
+        12,
+        580,
+        90,
+        628
+      ]
+    },
+    {
+      "key": "id:next|NEXT",
+      "label": "NEXT",
+      "cls": "ImageButton",
+      "bounds": [
+        260,
+        581,
+        308,
+        629
+      ]
+    },
+    {
+      "key": "id:title|Welcome to MedTimer!",
+      "label": "Welcome to MedTimer!",
+      "cls": "TextView",
+      "bounds": [
+        0,
+        24,
+        320,
+        129
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

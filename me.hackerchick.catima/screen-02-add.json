@@ -1,0 +1,16 @@
+{
+  "name": "screen-02-add",
+  "captured_at": "2026-09-29T19:19:31+00:00",
+  "device": "sdk_gphone64_x86_64",
+  "android": "14",
+  "density": 1.0,
+  "font_scale_default": "1.0",
+  "font_scale_large": "2.0",
+  "keyboard_focus_measured": true,
+  "files": [
+    "screen-02-add.xml",
+    "screen-02-add.png",
+    "screen-02-add.large.xml",
+    "screen-02-add.focus.json"
+  ]
+}

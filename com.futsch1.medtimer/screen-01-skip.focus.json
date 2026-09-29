@@ -1,0 +1,267 @@
+{
+  "steps": [
+    {
+      "key": "Button:More options",
+      "label": "More options",
+      "cls": "Button",
+      "bounds": [
+        268,
+        32,
+        316,
+        80
+      ]
+    },
+    {
+      "key": "Button:OK",
+      "label": "OK",
+      "cls": "Button",
+      "bounds": [
+        238,
+        248,
+        296,
+        296
+      ]
+    },
+    {
+      "key": "Button@(238, 508, 296, 552)",
+      "label": "",
+      "cls": "Button",
+      "bounds": [
+        238,
+        508,
+        296,
+        552
+      ]
+    },
+    {
+      "key": "Button@(0, 536, 48, 560)",
+      "label": "",
+      "cls": "Button",
+      "bounds": [
+        0,
+        536,
+        48,
+        560
+      ]
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": "Button@(272, 536, 320, 560)",
+      "label": "",
+      "cls": "Button",
+      "bounds": [
+        272,
+        536,
+        320,
+        560
+      ]
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": null,
+      "label": "",
+      "cls": "",
+      "bounds": []
+    },
+    {
+      "key": "Button@(127, 552, 304, 560)",
+      "label": "",
+      "cls": "Button",
+      "bounds": [
+        127,
+        552,
+        304,
+        560
+      ]
+    },
+    {
+      "key": "View:Overview",
+      "label": "Overview",
+      "cls": "View",
+      "bounds": [
+        0,
+        560,
+        102,
+        640
+      ]
+    },
+    {
+      "key": "View:Medicine",
+      "label": "Medicine",
+      "cls": "View",
+      "bounds": [
+        110,
+        560,
+        211,
+        640
+      ]
+    },
+    {
+      "key": "View:Analysis",
+      "label": "Analysis",
+      "cls": "View",
+      "bounds": [
+        219,
+        560,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "Button:More options",
+      "label": "More options",
+      "cls": "Button",
+      "bounds": [
+        268,
+        32,
+        316,
+        80
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

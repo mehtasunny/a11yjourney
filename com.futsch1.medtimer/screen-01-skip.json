@@ -1,0 +1,16 @@
+{
+  "name": "screen-01-skip",
+  "captured_at": "2026-09-29T19:10:06+00:00",
+  "device": "sdk_gphone64_x86_64",
+  "android": "14",
+  "density": 1.0,
+  "font_scale_default": "1.0",
+  "font_scale_large": "2.0",
+  "keyboard_focus_measured": true,
+  "files": [
+    "screen-01-skip.xml",
+    "screen-01-skip.png",
+    "screen-01-skip.large.xml",
+    "screen-01-skip.focus.json"
+  ]
+}

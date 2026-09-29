@@ -1,0 +1,26 @@
+{
+  "start": "3941367c8822",
+  "captures": [
+    "field-study/org.fossify.calendar/screen-00-start.xml",
+    "field-study/org.fossify.calendar/screen-01-change-view.xml",
+    "field-study/org.fossify.calendar/screen-02-more-options.xml"
+  ],
+  "visits": [
+    {
+      "control": "Search",
+      "result": "no new screen"
+    },
+    {
+      "control": "Change view",
+      "result": "captured screen-01-change-view"
+    },
+    {
+      "control": "More options",
+      "result": "captured screen-02-more-options"
+    },
+    {
+      "control": "30 August",
+      "result": "stopped: screen limit"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "target": "field-study/me.hackerchick.catima/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 0,
+      "advisory": 1,
+      "structural": 1,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "More options",
+        "message": "Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      }
+    ],
+    "notes": [
+      "keyboard: measured 2 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/me.hackerchick.catima/screen-00-start.png, large-text field-study/me.hackerchick.catima/screen-00-start.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-00-start.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/me.hackerchick.catima/screen-01-more-options.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "resize: the two captures have different widths (rotation?); skipped",
+      "inputs: tree, screenshot field-study/me.hackerchick.catima/screen-01-more-options.png, large-text field-study/me.hackerchick.catima/screen-01-more-options.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-01-more-options.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/me.hackerchick.catima/screen-02-add.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 1,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 1
+    },
+    "findings": [
+      {
+        "kind": "RESIZE",
+        "severity": "serious",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "camera_error_message",
+        "message": "At 200% font size this text overlaps 'fabOtherOptions', which it did not do at normal size."
+      }
+    ],
+    "notes": [
+      "keyboard: measured 4 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/me.hackerchick.catima/screen-02-add.png, large-text field-study/me.hackerchick.catima/screen-02-add.large.xml, keyboard focus field-study/me.hackerchick.catima/screen-02-add.focus.json"
+    ]
+  }
+]

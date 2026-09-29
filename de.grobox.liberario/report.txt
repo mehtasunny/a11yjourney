@@ -1,0 +1,66 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            3         0           3
+screen-01-europe                           4         0           4
+screen-02-north-america                    4         0           4
+
+A11yJourney report: field-study/de.grobox.liberario/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+3 conformance findings  |  0 advisory  |  0 need semantic judgment  |  3 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Choose Area: Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        firstRunTextView: Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Choose Area: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+
+Notes:
+  - target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 3 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/de.grobox.liberario/screen-00-start.png, large-text field-study/de.grobox.liberario/screen-00-start.large.xml, keyboard focus field-study/de.grobox.liberario/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/de.grobox.liberario/screen-01-europe.xml
+Judged against WCAG 2.1 Level AA
+4 conformance findings  |  0 advisory  |  0 need semantic judgment  |  4 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Choose Area: Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        firstRunTextView: Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Choose Area: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+  [KEYBOARD] SERIOUS  WCAG 2.1.1 Keyboard, Level A  (estimate, confirm on device)
+        list_item_transport_country: Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.
+
+Notes:
+  - target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 3 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/de.grobox.liberario/screen-01-europe.png, large-text field-study/de.grobox.liberario/screen-01-europe.large.xml, keyboard focus field-study/de.grobox.liberario/screen-01-europe.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/de.grobox.liberario/screen-02-north-america.xml
+Judged against WCAG 2.1 Level AA
+4 conformance findings  |  0 advisory  |  0 need semantic judgment  |  4 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        Choose Area: Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        firstRunTextView: Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Choose Area: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+  [KEYBOARD] SERIOUS  WCAG 2.1.1 Keyboard, Level A  (estimate, confirm on device)
+        list_item_transport_country: Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.
+
+Notes:
+  - target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 3 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/de.grobox.liberario/screen-02-north-america.png, large-text field-study/de.grobox.liberario/screen-02-north-america.large.xml, keyboard focus field-study/de.grobox.liberario/screen-02-north-america.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

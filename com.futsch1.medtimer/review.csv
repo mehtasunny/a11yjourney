@@ -1,0 +1,11 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+com.futsch1.medtimer,screen-00-start,title,1.4.4,Resize Text,True,RESIZE,moderate,True,"Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.",,
+com.futsch1.medtimer,screen-00-start,description,1.4.4,Resize Text,True,RESIZE,moderate,True,"Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.",,
+com.futsch1.medtimer,screen-01-skip,Button,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,Button is actionable but has no accessible name.,,
+com.futsch1.medtimer,screen-01-skip,Button,android-touch-target,Android touch target guidance (48dp),False,STRUCTURAL,moderate,False,"Target is 58x44dp, under the 48dp Android minimum.",,
+com.futsch1.medtimer,screen-01-skip,Button,2.5.5,Target Size (Enhanced),False,STRUCTURAL,moderate,False,Target is 48x24dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).,,
+com.futsch1.medtimer,screen-01-skip,Button,2.5.8,Target Size (Minimum),False,STRUCTURAL,serious,False,"Target is 177x8dp, under 24dp, and too close to other targets for the spacing exception.",,
+com.futsch1.medtimer,screen-01-skip,OK,1.4.4,Resize Text,True,RESIZE,serious,True,"Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.",,
+com.futsch1.medtimer,screen-01-skip,Exact reminders are disabled,1.4.4,Resize Text,True,RESIZE,serious,True,"Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.",,
+com.futsch1.medtimer,screen-01-skip,"Reminders might be raised a few minutes later than scheduled. If you need exact reminders (at the cost of slightly increased battery consumption), enable this in the notification settings.",1.4.4,Resize Text,True,RESIZE,serious,True,"Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.",,
+com.futsch1.medtimer,screen-01-skip,Button,1.1.1,Non-text Content,True,JOURNEY,critical,False,Primary action is not identifiable by a screen-reader user; the task cannot be completed even if every element looks valid.,,

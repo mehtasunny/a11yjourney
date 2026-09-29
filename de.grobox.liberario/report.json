@@ -1,0 +1,203 @@
+[
+  {
+    "target": "field-study/de.grobox.liberario/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 3,
+      "conformance": 3,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 3
+    },
+    "findings": [
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "firstRunTextView",
+        "message": "Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      }
+    ],
+    "notes": [
+      "target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 3 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/de.grobox.liberario/screen-00-start.png, large-text field-study/de.grobox.liberario/screen-00-start.large.xml, keyboard focus field-study/de.grobox.liberario/screen-00-start.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/de.grobox.liberario/screen-01-europe.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 4,
+      "conformance": 4,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 4
+    },
+    "findings": [
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "firstRunTextView",
+        "message": "Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      },
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.1",
+        "criterion": "Keyboard",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "list_item_transport_country",
+        "message": "Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it."
+      }
+    ],
+    "notes": [
+      "target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 3 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/de.grobox.liberario/screen-01-europe.png, large-text field-study/de.grobox.liberario/screen-01-europe.large.xml, keyboard focus field-study/de.grobox.liberario/screen-01-europe.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/de.grobox.liberario/screen-02-north-america.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 4,
+      "conformance": 4,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 4
+    },
+    "findings": [
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text contrast is about 3.7:1 (#FFFEFE on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "firstRunTextView",
+        "message": "Text contrast is about 3.6:1 (#FFFDFD on #F44336); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Choose Area",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      },
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.1",
+        "criterion": "Keyboard",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "list_item_transport_country",
+        "message": "Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it."
+      }
+    ],
+    "notes": [
+      "target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 3 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/de.grobox.liberario/screen-02-north-america.png, large-text field-study/de.grobox.liberario/screen-02-north-america.large.xml, keyboard focus field-study/de.grobox.liberario/screen-02-north-america.focus.json"
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+ws.xsoh.etar,screen-00-start,Alarms & reminders,1.4.4,Resize Text,True,RESIZE,moderate,True,"Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.",,

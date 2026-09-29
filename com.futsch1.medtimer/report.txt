@@ -1,0 +1,51 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            2         0           2
+screen-01-skip                             5         3           3
+
+A11yJourney report: field-study/com.futsch1.medtimer/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+2 conformance findings  |  0 advisory  |  0 need semantic judgment  |  2 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        title: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        description: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+
+Notes:
+  - keyboard: measured 4 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/com.futsch1.medtimer/screen-00-start.png, large-text field-study/com.futsch1.medtimer/screen-00-start.large.xml, keyboard focus field-study/com.futsch1.medtimer/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: field-study/com.futsch1.medtimer/screen-01-skip.xml
+Judged against WCAG 2.1 Level AA
+5 conformance findings  |  3 advisory  |  1 need semantic judgment  |  3 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [STRUCTURAL] SERIOUS  WCAG 4.1.2 Name, Role, Value, Level A
+        Button: Button is actionable but has no accessible name.
+  [RESIZE] SERIOUS  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        OK: Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.
+  [RESIZE] SERIOUS  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Exact reminders are disabled: Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.
+  [RESIZE] SERIOUS  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Reminders might be raised a few minutes later than scheduled. If you need exact reminders (at the cost of slightly increased battery consumption), enable this in the notification settings.: Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it.
+  [JOURNEY] CRITICAL  WCAG 1.1.1 Non-text Content, Level A
+        Button: Primary action is not identifiable by a screen-reader user; the task cannot be completed even if every element looks valid.
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Button: Target is 58x44dp, under the 48dp Android minimum.
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        Button: Target is 48x24dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+  [STRUCTURAL] SERIOUS  WCAG 2.5.8 Target Size (Minimum), Level AA, added in WCAG 2.2
+        Button: Target is 177x8dp, under 24dp, and too close to other targets for the spacing exception.
+
+Notes:
+  - target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 9 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot field-study/com.futsch1.medtimer/screen-01-skip.png, large-text field-study/com.futsch1.medtimer/screen-01-skip.large.xml, keyboard focus field-study/com.futsch1.medtimer/screen-01-skip.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

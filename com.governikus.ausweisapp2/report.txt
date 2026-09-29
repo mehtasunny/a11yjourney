@@ -1,0 +1,20 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            0         1           0
+
+A11yJourney report: field-study/com.governikus.ausweisapp2/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  1 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176: Target is 141x38dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+
+Notes:
+  - target size: 1 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - resize: no text elements matched between the two captures; skipped
+  - keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged
+  - keyboard: measured 3 focus stops with Tab
+  - inputs: tree, screenshot field-study/com.governikus.ausweisapp2/screen-00-start.png, large-text field-study/com.governikus.ausweisapp2/screen-00-start.large.xml, keyboard focus field-study/com.governikus.ausweisapp2/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

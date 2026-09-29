@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "key": "ImageButton:Navigate up",
+      "label": "Navigate up",
+      "cls": "ImageButton",
+      "bounds": [
+        0,
+        28,
+        56,
+        84
+      ]
+    },
+    {
+      "key": "id:action_toggle_flashlight|Turn flashlight on",
+      "label": "Turn flashlight on",
+      "cls": "Button",
+      "bounds": [
+        272,
+        32,
+        320,
+        80
+      ]
+    },
+    {
+      "key": "id:camera_error_clickable_area|Couldn't access the camera Your device d",
+      "label": "Couldn't access the camera Your device does not seem to have a camera. If it doe",
+      "cls": "LinearLayout",
+      "bounds": [
+        10,
+        98,
+        310,
+        407
+      ]
+    },
+    {
+      "key": "id:fabOtherOptions|More options",
+      "label": "More options",
+      "cls": "Button",
+      "bounds": [
+        146,
+        568,
+        304,
+        624
+      ]
+    },
+    {
+      "key": "ImageButton:Navigate up",
+      "label": "Navigate up",
+      "cls": "ImageButton",
+      "bounds": [
+        0,
+        28,
+        56,
+        84
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

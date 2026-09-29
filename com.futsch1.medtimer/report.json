@@ -1,0 +1,167 @@
+[
+  {
+    "target": "field-study/com.futsch1.medtimer/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 2,
+      "conformance": 2,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 2
+    },
+    "findings": [
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "title",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "description",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      }
+    ],
+    "notes": [
+      "keyboard: measured 4 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/com.futsch1.medtimer/screen-00-start.png, large-text field-study/com.futsch1.medtimer/screen-00-start.large.xml, keyboard focus field-study/com.futsch1.medtimer/screen-00-start.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/com.futsch1.medtimer/screen-01-skip.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 8,
+      "conformance": 5,
+      "advisory": 3,
+      "structural": 4,
+      "beyond_static": 1,
+      "needs_review": 3
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "serious",
+        "wcag": "4.1.2",
+        "criterion": "Name, Role, Value",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": false,
+        "element": "Button",
+        "message": "Button is actionable but has no accessible name."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Button",
+        "message": "Target is 58x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Button",
+        "message": "Target is 48x24dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "serious",
+        "wcag": "2.5.8",
+        "criterion": "Target Size (Minimum)",
+        "level": "AA",
+        "since": "2.2",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Button",
+        "message": "Target is 177x8dp, under 24dp, and too close to other targets for the spacing exception."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "serious",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "OK",
+        "message": "Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "serious",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Exact reminders are disabled",
+        "message": "Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "serious",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Reminders might be raised a few minutes later than scheduled. If you need exact reminders (at the cost of slightly increased battery consumption), enable this in the notification settings.",
+        "message": "Text is no longer on screen at 200% font size and the screen does not scroll, so users cannot reach it."
+      },
+      {
+        "kind": "JOURNEY",
+        "severity": "critical",
+        "wcag": "1.1.1",
+        "criterion": "Non-text Content",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": false,
+        "element": "Button",
+        "message": "Primary action is not identifiable by a screen-reader user; the task cannot be completed even if every element looks valid."
+      }
+    ],
+    "notes": [
+      "target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 9 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot field-study/com.futsch1.medtimer/screen-01-skip.png, large-text field-study/com.futsch1.medtimer/screen-01-skip.large.xml, keyboard focus field-study/com.futsch1.medtimer/screen-01-skip.focus.json"
+    ]
+  }
+]

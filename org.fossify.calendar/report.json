@@ -1,0 +1,251 @@
+[
+  {
+    "target": "field-study/org.fossify.calendar/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 6,
+      "conformance": 3,
+      "advisory": 3,
+      "structural": 4,
+      "beyond_static": 0,
+      "needs_review": 2
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "serious",
+        "wcag": "3.3.2",
+        "criterion": "Labels or Instructions",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": false,
+        "element": "top_toolbar_search",
+        "message": "Input field has no programmatic label."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "top_toolbar_search_icon",
+        "message": "Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "More options",
+        "message": "Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "month_view_background",
+        "message": "Target is 45x78dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "serious",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "top_toolbar_search",
+        "message": "Text contrast is about 2.6:1 (#888A92 on #DDE0F1); WCAG AA needs 4.5:1, or 3.0:1 for large text."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "top_toolbar_search",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      }
+    ],
+    "notes": [
+      "target size: 4 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged",
+      "keyboard: measured 7 focus stops with Tab",
+      "inputs: tree, screenshot field-study/org.fossify.calendar/screen-00-start.png, large-text field-study/org.fossify.calendar/screen-00-start.large.xml, keyboard focus field-study/org.fossify.calendar/screen-00-start.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/org.fossify.calendar/screen-01-change-view.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 9,
+      "conformance": 3,
+      "advisory": 6,
+      "structural": 6,
+      "beyond_static": 0,
+      "needs_review": 3
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Daily view",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Weekly view",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Monthly view",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Monthly and daily view",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Yearly view",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Simple event list",
+        "message": "Target is 224x44dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Daily view",
+        "message": "Text contrast is about 4.4:1 (#5D698B on #EBE5F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Weekly view",
+        "message": "Text contrast is about 4.4:1 (#5D698B on #ECE6F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Yearly view",
+        "message": "Text contrast is about 4.4:1 (#5D698B on #EBE6F0); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      }
+    ],
+    "notes": [
+      "resize: the two captures have different widths (rotation?); skipped",
+      "keyboard: stopped after 40 Tab presses before focus cycled back to the start; reachability not judged",
+      "keyboard: measured 7 focus stops with Tab",
+      "inputs: tree, screenshot field-study/org.fossify.calendar/screen-01-change-view.png, large-text field-study/org.fossify.calendar/screen-01-change-view.large.xml, keyboard focus field-study/org.fossify.calendar/screen-01-change-view.focus.json"
+    ]
+  },
+  {
+    "target": "field-study/org.fossify.calendar/screen-02-more-options.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "resize: the two captures have different widths (rotation?); skipped",
+      "inputs: tree, screenshot field-study/org.fossify.calendar/screen-02-more-options.png, large-text field-study/org.fossify.calendar/screen-02-more-options.large.xml, keyboard focus field-study/org.fossify.calendar/screen-02-more-options.focus.json"
+    ]
+  }
+]

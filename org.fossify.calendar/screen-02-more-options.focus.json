@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "key": "ListView:Go to date Print Manage holidays Add contact birthdays Add c",
+      "label": "Go to date Print Manage holidays Add contact birthdays Add contact anniversaries",
+      "cls": "ListView",
+      "bounds": [
+        62,
+        80,
+        290,
+        416
+      ]
+    },
+    {
+      "key": "ListView:Go to date Print Manage holidays Add contact birthdays Add c",
+      "label": "Go to date Print Manage holidays Add contact birthdays Add contact anniversaries",
+      "cls": "ListView",
+      "bounds": [
+        62,
+        80,
+        290,
+        416
+      ]
+    },
+    {
+      "key": "ListView:Go to date Print Manage holidays Add contact birthdays Add c",
+      "label": "Go to date Print Manage holidays Add contact birthdays Add contact anniversaries",
+      "cls": "ListView",
+      "bounds": [
+        62,
+        80,
+        290,
+        416
+      ]
+    },
+    {
+      "key": "ListView:Go to date Print Manage holidays Add contact birthdays Add c",
+      "label": "Go to date Print Manage holidays Add contact birthdays Add contact anniversaries",
+      "cls": "ListView",
+      "bounds": [
+        62,
+        80,
+        290,
+        416
+      ]
+    }
+  ],
+  "wrapped": false,
+  "stuck": true,
+  "max_steps": 40
+}

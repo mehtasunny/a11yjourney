@@ -1,0 +1,447 @@
+{
+  "steps": [
+    {
+      "key": "id:toolbar_container|Search Change view More options",
+      "label": "Search Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Search",
+      "label": "Search",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    },
+    {
+      "key": "id:toolbar_container|Back Change view More options",
+      "label": "Back Change view More options",
+      "cls": "RelativeLayout",
+      "bounds": [
+        16,
+        32,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search_icon|Back",
+      "label": "Back",
+      "cls": "ImageView",
+      "bounds": [
+        16,
+        32,
+        56,
+        80
+      ]
+    },
+    {
+      "key": "id:top_toolbar_search",
+      "label": "",
+      "cls": "EditText",
+      "bounds": [
+        56,
+        32,
+        196,
+        80
+      ]
+    },
+    {
+      "key": "id:change_view|Change view",
+      "label": "Change view",
+      "cls": "Button",
+      "bounds": [
+        212,
+        32,
+        260,
+        80
+      ]
+    },
+    {
+      "key": "ImageView:More options",
+      "label": "More options",
+      "cls": "ImageView",
+      "bounds": [
+        260,
+        32,
+        300,
+        80
+      ]
+    }
+  ],
+  "wrapped": false,
+  "stuck": false,
+  "max_steps": 40
+}

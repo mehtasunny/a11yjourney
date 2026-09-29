@@ -1,0 +1,18 @@
+{
+  "start": "f4b5a7b6537c",
+  "captures": [
+    "field-study/de.grobox.liberario/screen-00-start.xml",
+    "field-study/de.grobox.liberario/screen-01-europe.xml",
+    "field-study/de.grobox.liberario/screen-02-north-america.xml"
+  ],
+  "visits": [
+    {
+      "control": "Europe",
+      "result": "captured screen-01-europe"
+    },
+    {
+      "control": "North America",
+      "result": "captured screen-02-north-america"
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "steps": [
+    {
+      "key": "ViewGroup@(0, 0, 320, 640)",
+      "label": "",
+      "cls": "ViewGroup",
+      "bounds": [
+        0,
+        0,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        568,
+        230,
+        606
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.GContinueButton_QMLTYPE_106|Start setup",
+      "label": "Start setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        601,
+        230,
+        639
+      ]
+    },
+    {
+      "key": "id:QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176|Skip setup",
+      "label": "Skip setup",
+      "cls": "Button",
+      "bounds": [
+        89,
+        552,
+        230,
+        590
+      ]
+    }
+  ],
+  "wrapped": false,
+  "stuck": false,
+  "max_steps": 40
+}

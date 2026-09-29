@@ -1,0 +1,2 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+com.governikus.ausweisapp2,screen-00-start,QGuiApplication.App_QMLTYPE_0.ApplicationWindowContentControl.TabBarView_QMLTYPE_348.GFlickableColumnLayout_QMLTYPE_67.SecondaryButton_QMLTYPE_176,2.5.5,Target Size (Enhanced),False,STRUCTURAL,moderate,False,Target is 141x38dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).,,

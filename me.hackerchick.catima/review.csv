@@ -1,0 +1,3 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+me.hackerchick.catima,screen-00-start,More options,2.5.5,Target Size (Enhanced),False,STRUCTURAL,moderate,False,Target is 40x48dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).,,
+me.hackerchick.catima,screen-02-add,camera_error_message,1.4.4,Resize Text,True,RESIZE,serious,True,"At 200% font size this text overlaps 'fabOtherOptions', which it did not do at normal size.",,

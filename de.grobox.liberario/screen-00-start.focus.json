@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "key": "id:list_item_transport_continent|Asia",
+      "label": "Asia",
+      "cls": "ViewGroup",
+      "bounds": [
+        0,
+        194,
+        320,
+        258
+      ]
+    },
+    {
+      "key": "id:list_item_transport_continent|Europe",
+      "label": "Europe",
+      "cls": "ViewGroup",
+      "bounds": [
+        0,
+        258,
+        320,
+        322
+      ]
+    },
+    {
+      "key": "id:list_item_transport_continent|North America",
+      "label": "North America",
+      "cls": "ViewGroup",
+      "bounds": [
+        0,
+        322,
+        320,
+        386
+      ]
+    },
+    {
+      "key": "id:list_item_transport_continent|Asia",
+      "label": "Asia",
+      "cls": "ViewGroup",
+      "bounds": [
+        0,
+        194,
+        320,
+        258
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

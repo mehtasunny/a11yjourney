@@ -1,0 +1,16 @@
+{
+  "name": "screen-02-north-america",
+  "captured_at": "2026-09-29T19:07:29+00:00",
+  "device": "sdk_gphone64_x86_64",
+  "android": "14",
+  "density": 1.0,
+  "font_scale_default": "1.0",
+  "font_scale_large": "2.0",
+  "keyboard_focus_measured": true,
+  "files": [
+    "screen-02-north-america.xml",
+    "screen-02-north-america.png",
+    "screen-02-north-america.large.xml",
+    "screen-02-north-america.focus.json"
+  ]
+}

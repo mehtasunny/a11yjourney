@@ -1,0 +1,12 @@
+{
+  "start": "096475277ed6",
+  "captures": [
+    "field-study/ws.xsoh.etar/screen-00-start.xml"
+  ],
+  "visits": [
+    {
+      "control": "(start screen)",
+      "result": "belongs to com.android.settings, not ws.xsoh.etar; not explored"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "start": "0c56ed77ed15",
+  "captures": [
+    "field-study/me.hackerchick.catima/screen-00-start.xml",
+    "field-study/me.hackerchick.catima/screen-01-more-options.xml",
+    "field-study/me.hackerchick.catima/screen-02-add.xml"
+  ],
+  "visits": [
+    {
+      "control": "More options",
+      "result": "captured screen-01-more-options"
+    },
+    {
+      "control": "Add",
+      "result": "captured screen-02-add"
+    }
+  ]
+}
