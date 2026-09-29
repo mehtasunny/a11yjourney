@@ -145,3 +145,28 @@ def test_report_audits_a_folder(tmp_path, capsys):
     uris = {r["locations"][0]["physicalLocation"]["artifactLocation"]["uri"]
             for r in doc["runs"][0]["results"]}
     assert any(u.endswith("clinic.xml") for u in uris)
+
+
+class ExpandingDevice(FakeDevice):
+    """Tapping a row expands a list in place; Back then leaves the app entirely."""
+
+    def xml(self):
+        root = '<node class="android.widget.FrameLayout"'
+        return super().xml().replace(root, root.replace("<node", '<node package="org.example"'), 1)
+
+    def __call__(self, args):
+        cmd = " ".join(args)
+        if cmd == "shell input keyevent KEYCODE_BACK":
+            self.stack = ["launcher"]
+            return b""
+        return super().__call__(args)
+
+
+def test_explore_relaunches_when_back_leaves_the_app(tmp_path):
+    SCREENS["launcher"] = [{"cls": "TextView", "text": "Home screen", "bounds": (0, 0, 100, 100)}]
+    SCREENS["home"][0]["goto"] = "clinic"
+    dev = ExpandingDevice()
+    result = explore(_session(tmp_path, dev), max_screens=5)
+    visits = [v["result"] for v in result["visits"]]
+    assert "could not return; stopped" not in visits
+    assert dev.stack == ["home"]

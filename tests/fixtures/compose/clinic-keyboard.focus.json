@@ -1,0 +1,139 @@
+{
+  "steps": [
+    {
+      "key": "EditText:Month",
+      "label": "Month",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        267,
+        304,
+        331
+      ]
+    },
+    {
+      "key": "EditText:Day",
+      "label": "Day",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        339,
+        304,
+        403
+      ]
+    },
+    {
+      "key": "EditText:Year",
+      "label": "Year",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        379,
+        304,
+        443
+      ]
+    },
+    {
+      "key": "EditText:Mobile phone number We text you when the doctor is ready",
+      "label": "Mobile phone number We text you when the doctor is ready",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        359,
+        304,
+        443
+      ]
+    },
+    {
+      "key": "RadioButton:9:00 AM",
+      "label": "9:00 AM",
+      "cls": "RadioButton",
+      "bounds": [
+        16,
+        395,
+        112,
+        443
+      ]
+    },
+    {
+      "key": "RadioButton:10:00 AM",
+      "label": "10:00 AM",
+      "cls": "RadioButton",
+      "bounds": [
+        16,
+        467,
+        121,
+        515
+      ]
+    },
+    {
+      "key": "RadioButton:10:30 AM",
+      "label": "10:30 AM",
+      "cls": "RadioButton",
+      "bounds": [
+        129,
+        467,
+        234,
+        515
+      ]
+    },
+    {
+      "key": "RadioButton:1:30 PM",
+      "label": "1:30 PM",
+      "cls": "RadioButton",
+      "bounds": [
+        125,
+        523,
+        221,
+        571
+      ]
+    },
+    {
+      "key": "Button:Check in",
+      "label": "Check in",
+      "cls": "Button",
+      "bounds": [
+        16,
+        592,
+        304,
+        640
+      ]
+    },
+    {
+      "key": "Button:Preview the session timeout warning",
+      "label": "Preview the session timeout warning",
+      "cls": "Button",
+      "bounds": [
+        16,
+        592,
+        304,
+        640
+      ]
+    },
+    {
+      "key": "EditText:Full name (required)",
+      "label": "Full name (required)",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        16,
+        304,
+        80
+      ]
+    },
+    {
+      "key": "EditText:Month",
+      "label": "Month",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        144,
+        304,
+        208
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

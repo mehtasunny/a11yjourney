@@ -27,6 +27,8 @@ _MIN_PIXELS = 64
 _BG_SHARE = 0.40  # background must cover this share of the bounds
 _FG_SHARE = 0.005  # a foreground color must cover at least this share
 _ICON_MAX_DP = 96.0
+_MIN_TEXT_DP = 8.0  # smaller regions are clipped slivers, not readable text
+_NO_TEXT_RATIO = 1.3  # below this, the "foreground" is almost always background noise
 
 
 def _hex(c: RGB) -> str:
@@ -84,13 +86,17 @@ def check(screen: Screen, image: Image) -> tuple[list[Finding], list[str]]:
     for n in screen.nodes:
         if not n.enabled or not n.visible or n.password:
             continue
-        is_text = bool(n.text.strip())
+        # emoji and symbols (flags, icons drawn as text) have no single text color
+        is_text = any(ch.isalnum() for ch in n.text)
         is_icon = _is_icon_control(n)
         if not (is_text or is_icon):
             continue
+        if n.h_dp < _MIN_TEXT_DP or n.w_dp < _MIN_TEXT_DP:
+            skipped += 1  # cut down to a sliver, for example behind the keyboard
+            continue
         result = estimate(image.region(*n.bounds))
-        if result is None:
-            skipped += 1
+        if result is None or result[2] < _NO_TEXT_RATIO:
+            skipped += 1  # nothing distinguishable from the background was measured
             continue
         fg, bg, ratio = result
         colors = f"{_hex(fg)} on {_hex(bg)}"

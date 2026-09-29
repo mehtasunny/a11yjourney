@@ -22,7 +22,8 @@ from .wcag import Severity
 def node_key(n: Node) -> str:
     """A stable name for an element across captures (bounds change as screens scroll)."""
     if n.rid:
-        return f"id:{n.rid}"
+        # list items share one resource id, so add the label to tell them apart
+        return f"id:{n.rid}|{n.announced[:40]}" if n.announced else f"id:{n.rid}"
     if n.announced:
         return f"{n.cls}:{n.announced[:60]}"
     return f"{n.cls}@{n.bounds}"
@@ -76,6 +77,11 @@ def analyze(screen: Screen, trace: dict[str, Any]) -> tuple[list[Finding], list[
     visual = [n for n in screen.visual_order() if node_key(n) in by_key]
     rank = {node_key(n): i for i, n in enumerate(visual)}
     measured = [k for k in order if k in rank]
+    if wrapped and measured:
+        # a full cycle has no natural start (focus may already have been somewhere when
+        # the walk began), so start it at the element that comes first on screen
+        start = min(range(len(measured)), key=lambda i: rank[measured[i]])
+        measured = measured[start:] + measured[:start]
     for a, b in zip(measured, measured[1:], strict=False):
         na, nb = by_key[a], by_key[b]
         if rank[b] < rank[a] and not _same_row(na, nb) and nb.bounds[3] <= na.bounds[1]:

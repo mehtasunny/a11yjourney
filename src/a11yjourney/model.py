@@ -97,6 +97,7 @@ class Screen:
     density_known: bool = True
     width: int = 0
     height: int = 0
+    package: str = ""
 
     def focus_order(self) -> list[Node]:
         """Nodes in the order a screen reader traverses them (tree order)."""
@@ -212,8 +213,10 @@ def parse(xml_text: str, density: float | None = None) -> Screen:
     # anything touching the bottom of the screen is probably cut off there too
     final = tuple(replace(n, clipped=True) if n.bounds[3] >= height and height else n
                   for n in nodes)
+    first = root.find("node")
+    package = (first.get("package", "") if first is not None else "") or ""
     return Screen(nodes=final, density=dens, density_known=known,
-                  width=width, height=height)
+                  width=width, height=height, package=package)
 
 
 def load(path: str, density: float | None = None) -> Screen:

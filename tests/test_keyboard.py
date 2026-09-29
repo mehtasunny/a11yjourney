@@ -21,7 +21,7 @@ def _trace(keys, wrapped=True, stuck=False):
 
 
 def test_full_cycle_in_visual_order_is_clean():
-    f, notes = analyze(_screen(), _trace(["id:name", "id:phone", "id:go", "id:name"]))
+    f, notes = analyze(_screen(), _trace(["id:name", "id:phone", "id:go|Check in", "id:name"]))
     assert f == []
     assert any("cycle complete" in n for n in notes)
 
@@ -38,7 +38,7 @@ def test_focus_trap():
 
 
 def test_measured_order_that_jumps_up():
-    f, _ = analyze(_screen(), _trace(["id:name", "id:go", "id:phone", "id:name"]))
+    f, _ = analyze(_screen(), _trace(["id:name", "id:go|Check in", "id:phone", "id:name"]))
     assert ("2.4.3", "phone") in [(x.wcag, x.element) for x in f]
 
 
@@ -50,7 +50,8 @@ def test_no_focus_at_all():
 def test_measured_trace_replaces_inferred_focus_order():
     screen = _screen()
     inferred = [x for x in audit(screen).findings if x.wcag == "2.4.3"]
-    measured = audit(screen, focus_trace=_trace(["id:name", "id:phone", "id:go", "id:name"]))
+    trace = _trace(["id:name", "id:phone", "id:go|Check in", "id:name"])
+    measured = audit(screen, focus_trace=trace)
     assert not [x for x in measured.findings if x.wcag == "2.4.3" and x.kind != "KEYBOARD"]
     assert inferred == [] or inferred[0].kind == "SEMANTIC"
 
@@ -82,7 +83,7 @@ class TabAdb:
 def test_focus_walk_detects_a_full_cycle():
     trace = focus_walk(TabAdb(["name", "phone", "go"]), 3.0, sleep=lambda _s: None)
     keys = [s["key"] for s in trace["steps"]]
-    assert keys == ["id:name", "id:phone", "id:go", "id:name"]
+    assert keys == ["id:name", "id:phone", "id:go|Check in", "id:name"]
     assert trace["wrapped"] and not trace["stuck"]
 
 
@@ -95,3 +96,13 @@ def test_focus_walk_detects_a_trap():
 def test_node_key_prefers_resource_id():
     n = _screen().nodes[1]
     assert node_key(n) == "id:name"
+
+
+def test_list_items_sharing_an_id_are_told_apart():
+    screen = parse(tree([
+        {"cls": "TextView", "text": "Asia", "rid": "item", "clickable": True,
+         "bounds": (0, 100, 1080, 250)},
+        {"cls": "TextView", "text": "Europe", "rid": "item", "clickable": True,
+         "bounds": (0, 260, 1080, 410)},
+    ]))
+    assert node_key(screen.nodes[1]) != node_key(screen.nodes[2])

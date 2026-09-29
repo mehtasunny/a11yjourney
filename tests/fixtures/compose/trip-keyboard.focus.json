@@ -1,0 +1,106 @@
+{
+  "steps": [
+    {
+      "key": "EditText:To",
+      "label": "To",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        201,
+        304,
+        265
+      ]
+    },
+    {
+      "key": "Button:Plan trip",
+      "label": "Plan trip",
+      "cls": "Button",
+      "bounds": [
+        16,
+        281,
+        304,
+        329
+      ]
+    },
+    {
+      "key": "Button:Refresh departures",
+      "label": "Refresh departures",
+      "cls": "Button",
+      "bounds": [
+        256,
+        353,
+        304,
+        401
+      ]
+    },
+    {
+      "key": "Button:Route 7 to Downtown, arriving in 4 minutes",
+      "label": "Route 7 to Downtown, arriving in 4 minutes",
+      "cls": "Button",
+      "bounds": [
+        16,
+        489,
+        304,
+        541
+      ]
+    },
+    {
+      "key": "Button:Route 44 to University District, arriving in 9 minutes, Dela",
+      "label": "Route 44 to University District, arriving in 9 minutes, Delayed",
+      "cls": "Button",
+      "bounds": [
+        16,
+        542,
+        304,
+        602
+      ]
+    },
+    {
+      "key": "Button:Route 12 to Harbor Station, arriving in 15 minutes",
+      "label": "Route 12 to Harbor Station, arriving in 15 minutes",
+      "cls": "Button",
+      "bounds": [
+        16,
+        588,
+        304,
+        640
+      ]
+    },
+    {
+      "key": "Button:Route 3 to Uptown, scheduled at 6:15 PM",
+      "label": "Route 3 to Uptown, scheduled at 6:15 PM",
+      "cls": "Button",
+      "bounds": [
+        16,
+        588,
+        304,
+        640
+      ]
+    },
+    {
+      "key": "EditText:From",
+      "label": "From",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        53,
+        304,
+        117
+      ]
+    },
+    {
+      "key": "EditText:To",
+      "label": "To",
+      "cls": "EditText",
+      "bounds": [
+        16,
+        133,
+        304,
+        197
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

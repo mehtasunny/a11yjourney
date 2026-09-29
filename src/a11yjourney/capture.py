@@ -45,7 +45,8 @@ def adb_runner(serial: str | None = None, adb: str = "adb") -> Adb:
     def run(args: list[str]) -> bytes:
         cmd = [adb] + (["-s", serial] if serial else []) + args
         try:
-            done = subprocess.run(cmd, capture_output=True, timeout=60, check=False)
+            done = subprocess.run(cmd, capture_output=True, timeout=60, check=False,
+                                  stdin=subprocess.DEVNULL)
         except FileNotFoundError as exc:
             raise CaptureError(
                 f"'{adb}' not found. Install Android platform-tools and put adb on PATH."
@@ -200,6 +201,10 @@ def focus_walk(
         stuck = stuck + 1 if prev and prev[-1] == key else 0
         if stuck >= 3:
             break
+    # Pressing keys takes the device out of touch mode, and the next app launched would
+    # then focus its first field and open the keyboard. A tap on the status bar (which
+    # does nothing on its own) puts the device back in touch mode.
+    adb(["shell", "input", "tap", "10", "1"])
     return {"steps": steps, "wrapped": wrapped, "stuck": stuck >= 3 and not wrapped,
             "max_steps": max_steps}
 

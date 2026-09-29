@@ -6,7 +6,8 @@ mkdir -p "$OUT"
 echo "# Field study run $(date -u +%Y-%m-%dT%H:%MZ)" > "$OUT/RUN.md"
 adb shell getprop ro.build.version.release | sed 's/^/Android /' >> "$OUT/RUN.md"
 
-grep -v '^#' field/apps.txt | awk 'NF {print $1}' | while read -r pkg; do
+# a for loop, not `while read`: adb reads stdin and would swallow the rest of the list
+for pkg in $(grep -v '^#' field/apps.txt | awk 'NF {print $1}'); do
   echo "== $pkg"
   code=$(curl -sf "https://f-droid.org/api/v1/packages/$pkg" \
     | python3 -c 'import json,sys; print(json.load(sys.stdin)["suggestedVersionCode"])') \

@@ -31,6 +31,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVe
 - Findings are de-duplicated per element and criterion.
 - Synthetic benchmark: recall 88.9%, precision 66.7% (was 85.2% and 67.6%).
 
+### Fixed (found by the first runs on real apps and the Compose demo)
+- List items sharing one resource id were treated as one element, so moving through
+  a list with Tab looked like a keyboard trap. Elements are now keyed by id and label.
+- A measured Tab cycle that began partway down the screen was read as focus jumping
+  up. Cycles are now rotated to start at the first element on screen.
+- The Tab walk left the device out of touch mode, so the next app launched with its
+  first field focused and the keyboard open. The walk now ends with a harmless tap.
+- Contrast was estimated for emoji (such as flags) and for text cut down to a sliver
+  behind the keyboard. Both are now skipped and counted in the notes.
+- `explore` stopped when Back left the app; it now relaunches the app and continues.
+- The field study processed only the first app, because adb read the rest of the
+  list from standard input. adb now gets no standard input.
+
 ## [0.2.1] - 2026-09-25
 ### Fixed
 - False positives on Jetpack Compose apps, found by auditing a real Compose app

@@ -196,6 +196,18 @@ def _slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:30] or "screen"
 
 
+def _return_home(session: Session, home: str, package: str) -> bool:
+    """Go back to the start screen: Back up to twice, then relaunch the app."""
+    for _ in range(2):
+        session.back()
+        if signature(session.screen()) == home:
+            return True
+    if package:
+        session.launch(package)
+        return signature(session.screen()) == home
+    return False
+
+
 def explore(
     session: Session,
     max_screens: int = 8,
@@ -231,11 +243,7 @@ def explore(
             name = f"screen-{len(captured):02d}-{_slug(n.announced)}"
             captured.append(session.capture(name, keyboard=keyboard))
             visits.append({"control": n.announced, "result": f"captured {name}"})
-        for _ in range(2):
-            session.back()
-            if signature(session.screen()) == home:
-                break
-        else:
+        if not _return_home(session, home, start.package):
             visits.append({"control": n.announced, "result": "could not return; stopped"})
             break
     result = {"start": home, "captures": captured, "visits": visits}

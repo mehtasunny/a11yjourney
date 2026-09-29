@@ -65,3 +65,16 @@ def test_mismatched_screenshot_is_skipped_with_note():
     screen = parse(tree([{"text": "Hi", "bounds": (0, 0, 900, 60)}], width=1080, height=2160))
     r = audit(screen, image=_image([]))
     assert any("contrast checks skipped" in n for n in r.notes)
+
+
+def test_emoji_text_is_not_judged_for_contrast():
+    r = _audit([{"text": "\U0001F1EA\U0001F1FA", "rid": "flag", "bounds": (20, 20, 320, 70)}],
+               [(30, 30, 300, 60, (0xEA, 0x39, 0x45), True)])
+    assert not [x for x in r.findings if x.wcag == "1.4.3"]
+
+
+def test_sliver_of_text_behind_the_keyboard_is_skipped():
+    r = _audit([{"text": "Day", "rid": "day", "bounds": (20, 20, 120, 25)}],
+               [(20, 20, 120, 25, (0xF4, 0xF4, 0xF4), False)])
+    assert not [x for x in r.findings if x.wcag == "1.4.3"]
+    assert any("skipped" in n for n in r.notes)

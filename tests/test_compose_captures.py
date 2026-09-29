@@ -59,3 +59,14 @@ def test_side_by_side_fields_of_different_heights_read_left_to_right():
     order = [n.announced for n in screen.visual_order() if n.editable]
     labels = [re.sub(r"\s.*", "", o) for o in order]
     assert labels[1:4] == ["Month", "Day", "Year"]
+
+
+def test_measured_tab_cycle_that_starts_mid_screen_is_not_misread():
+    # Captured on an emulator: focus was already on the first field when the Tab walk
+    # began, so the recorded cycle starts at "Month" and wraps back to the top.
+    import json
+    for name in ("clinic-keyboard", "trip-keyboard"):
+        screen = load(str(FIX / f"{name}.xml"))
+        trace = json.loads((FIX / f"{name}.focus.json").read_text())
+        found = [f for f in audit(screen, focus_trace=trace).findings if f.kind == "KEYBOARD"]
+        assert found == [], (name, found)
