@@ -21,17 +21,23 @@ run() { # name, command...
   local name="$1"; shift
   if timeout 600 "$@" > "$OUT/$name.log" 2>&1; then log "- $name: ok"; else log "- $name: failed ($(tail -1 "$OUT/$name.log"))"; fi
 }
-cap() { a11yjourney capture --name "$1" --out "$OUT/screens" --keyboard; }
+cap() { echo a11yjourney capture --name "$1" --out "$OUT/screens" --keyboard; }
+# First launch asks "Are you in the Puget Sound region?"; answer Yes when it is showing.
+answer_region() { a11yjourney journey "$HERE/journeys/region-yes.txt" --out "$OUT/.region" > /dev/null 2>&1 || true; }
 # 1. Home (map and chrome)
-run home cap home
+answer_region
+run home $(cap home)
 # 2. Stop arrivals through the app's own deep link
 adb shell am start -W -a android.intent.action.VIEW -d "onebusaway://view-stop?stopID=1_75403" "$PKG" >/dev/null 2>&1
 sleep 15
-run arrivals cap arrivals
+answer_region
+run arrivals $(cap arrivals)
 # 3 and 4. Scripted journeys
 adb shell am force-stop "$PKG"
+adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 10; answer_region
 run settings a11yjourney journey "$HERE/journeys/settings.txt" --out "$OUT/settings"
 adb shell am force-stop "$PKG"
+adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 10; answer_region
 run feedback a11yjourney journey "$HERE/journeys/feedback.txt" --out "$OUT/feedback"
 # 5. Bounded exploration from the stop arrivals screen
 adb shell am force-stop "$PKG"

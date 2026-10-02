@@ -1,0 +1,3 @@
+# Answer the first-launch region question
+tap YES
+wait 5
