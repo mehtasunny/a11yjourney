@@ -1,0 +1,304 @@
+{
+  "steps": [
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        32,
+        52,
+        80
+      ]
+    },
+    {
+      "key": "View:Your region Puget Sound",
+      "label": "Your region Puget Sound",
+      "cls": "View",
+      "bounds": [
+        0,
+        128,
+        320,
+        196
+      ]
+    },
+    {
+      "key": "View:Automatic region Set your current transit region based on yo",
+      "label": "Automatic region Set your current transit region based on your current location",
+      "cls": "View",
+      "bounds": [
+        0,
+        196,
+        320,
+        284
+      ]
+    },
+    {
+      "key": "RadioButton:List",
+      "label": "List",
+      "cls": "RadioButton",
+      "bounds": [
+        147,
+        368,
+        225,
+        416
+      ]
+    },
+    {
+      "key": "RadioButton:Map",
+      "label": "Map",
+      "cls": "RadioButton",
+      "bounds": [
+        225,
+        368,
+        304,
+        416
+      ]
+    },
+    {
+      "key": "View:Remember selected stop for 4 hours",
+      "label": "Remember selected stop for 4 hours",
+      "cls": "View",
+      "bounds": [
+        0,
+        428,
+        320,
+        496
+      ]
+    },
+    {
+      "key": "RadioButton:Time",
+      "label": "Time",
+      "cls": "RadioButton",
+      "bounds": [
+        127,
+        580,
+        215,
+        628
+      ]
+    },
+    {
+      "key": "RadioButton:Route",
+      "label": "Route",
+      "cls": "RadioButton",
+      "bounds": [
+        215,
+        580,
+        304,
+        628
+      ]
+    },
+    {
+      "key": "View:Show departed buses Include buses that just left as negative",
+      "label": "Show departed buses Include buses that just left as negative arrival times",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Hide all alerts When selected, by default all service alerts",
+      "label": "Hide all alerts When selected, by default all service alerts will be collapsed i",
+      "cls": "View",
+      "bounds": [
+        0,
+        492,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Show zoom controls Display zoom controls on map",
+      "label": "Show zoom controls Display zoom controls on map",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Compact stop icons Use smaller stop markers without vehicle ",
+      "label": "Compact stop icons Use smaller stop markers without vehicle symbols",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Show bike and scooter button Display the bike and scooter la",
+      "label": "Show bike and scooter button Display the bike and scooter layer button on the ma",
+      "cls": "View",
+      "bounds": [
+        0,
+        528,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Show weather view Display the weather view on the map",
+      "label": "Show weather view Display the weather view on the map",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Show available studies Join studies to help improve your tra",
+      "label": "Show available studies Join studies to help improve your transit and app experie",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Left hand mode Flips placement of some buttons to the left s",
+      "label": "Left hand mode Flips placement of some buttons to the left side of the screen",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Preferred distance units Automatic",
+      "label": "Preferred distance units Automatic",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Preferred temperature unit Automatic",
+      "label": "Preferred temperature unit Automatic",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:App Theme System Default",
+      "label": "App Theme System Default",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Trip plan notifications (beta) After planning a trip, send n",
+      "label": "Trip plan notifications (beta) After planning a trip, send notifications if the ",
+      "cls": "View",
+      "bounds": [
+        0,
+        532,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Save to storage Saves your starred and recent stops and rout",
+      "label": "Save to storage Saves your starred and recent stops and routes",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Restore from storage Restores from a previous backup. After ",
+      "label": "Restore from storage Restores from a previous backup. After selecting this optio",
+      "cls": "View",
+      "bounds": [
+        0,
+        472,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Advanced Dig deeper into the nuts and bolts",
+      "label": "Advanced Dig deeper into the nuts and bolts",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Send anonymous usage data Help us improve the app",
+      "label": "Send anonymous usage data Help us improve the app",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Donate Support the OneBusAway open-source project",
+      "label": "Donate Support the OneBusAway open-source project",
+      "cls": "View",
+      "bounds": [
+        0,
+        552,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:About Version, contributor, and license information",
+      "label": "About Version, contributor, and license information",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        32,
+        52,
+        80
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

@@ -1,0 +1,40 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "do": "launch com.joulespersecond.seattlebusbot"
+    },
+    {
+      "step": 2,
+      "do": "wait 8"
+    },
+    {
+      "step": 3,
+      "do": "tap Open navigation drawer"
+    },
+    {
+      "step": 4,
+      "do": "wait 3"
+    },
+    {
+      "step": 5,
+      "do": "capture drawer"
+    },
+    {
+      "step": 6,
+      "do": "tap Settings"
+    },
+    {
+      "step": 7,
+      "do": "wait 5"
+    },
+    {
+      "step": 8,
+      "do": "capture settings keyboard"
+    }
+  ],
+  "captures": [
+    "oba-audit/patched/settings/drawer.xml",
+    "oba-audit/patched/settings/settings.xml"
+  ]
+}

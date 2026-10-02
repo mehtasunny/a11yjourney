@@ -1,0 +1,73 @@
+[
+  {
+    "target": "oba-audit/baseline/screens/arrivals.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 1,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 1
+    },
+    "findings": [
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.2",
+        "criterion": "No Keyboard Trap",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Close",
+        "message": "Keyboard focus stays on this element when Tab is pressed again, so keyboard users cannot move past it."
+      }
+    ],
+    "notes": [
+      "keyboard: measured 1 focus stops with Tab",
+      "inputs: tree, screenshot oba-audit/baseline/screens/arrivals.png, large-text oba-audit/baseline/screens/arrivals.large.xml, keyboard focus oba-audit/baseline/screens/arrivals.focus.json"
+    ]
+  },
+  {
+    "target": "oba-audit/baseline/screens/home.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 1,
+      "conformance": 1,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 1
+    },
+    "findings": [
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.2",
+        "criterion": "No Keyboard Trap",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Close",
+        "message": "Keyboard focus stays on this element when Tab is pressed again, so keyboard users cannot move past it."
+      }
+    ],
+    "notes": [
+      "target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "contrast: 5 element(s) skipped (no uniform background or too small to measure)",
+      "resize: no text elements matched between the two captures; skipped",
+      "keyboard: measured 1 focus stops with Tab",
+      "inputs: tree, screenshot oba-audit/baseline/screens/home.png, large-text oba-audit/baseline/screens/home.large.xml, keyboard focus oba-audit/baseline/screens/home.focus.json"
+    ]
+  }
+]

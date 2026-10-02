@@ -1,0 +1,15 @@
+{
+  "name": "drawer",
+  "captured_at": "2026-10-02T09:26:24+00:00",
+  "device": "sdk_gphone64_x86_64",
+  "android": "14",
+  "density": 1.0,
+  "font_scale_default": "1.0",
+  "font_scale_large": "2.0",
+  "keyboard_focus_measured": false,
+  "files": [
+    "drawer.xml",
+    "drawer.png",
+    "drawer.large.xml"
+  ]
+}

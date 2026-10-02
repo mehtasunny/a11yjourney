@@ -1,0 +1,39 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                            2         1           1
+screen-01-67-northgate-station-roosevelt           1         0           0
+
+A11yJourney report: oba-audit/baseline/explore/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+2 conformance findings  |  1 advisory  |  0 need semantic judgment  |  1 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [STRUCTURAL] SERIOUS  WCAG 4.1.2 Name, Role, Value, Level A
+        View: View is actionable but has no accessible name.
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        10:18 AM: Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        View: Target is 34x52dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+
+Notes:
+  - keyboard: measured 11 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/baseline/explore/screen-00-start.png, large-text oba-audit/baseline/explore/screen-00-start.large.xml, keyboard focus oba-audit/baseline/explore/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.xml
+Judged against WCAG 2.1 Level AA
+1 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [STRUCTURAL] SERIOUS  WCAG 4.1.2 Name, Role, Value, Level A
+        View: View is actionable but has no accessible name.
+
+Notes:
+  - target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 34 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.png, large-text oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.large.xml, keyboard focus oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

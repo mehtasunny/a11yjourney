@@ -1,0 +1,24 @@
+[
+  {
+    "target": "oba-audit/baseline/feedback/report-types.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "resize: the two captures have different widths (rotation?); skipped",
+      "keyboard: measured 2 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot oba-audit/baseline/feedback/report-types.png, large-text oba-audit/baseline/feedback/report-types.large.xml, keyboard focus oba-audit/baseline/feedback/report-types.focus.json"
+    ]
+  }
+]

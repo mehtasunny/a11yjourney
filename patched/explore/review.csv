@@ -1,0 +1,6 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+explore,screen-00-start,View,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,View is actionable but has no accessible name.,,
+explore,screen-00-start,View,2.5.5,Target Size (Enhanced),False,STRUCTURAL,moderate,False,Target is 34x52dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).,,
+explore,screen-00-start,67 Northgate Station Roosevelt Station 40min 10:18 AM,2.1.1,Keyboard,True,KEYBOARD,serious,True,"Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.",,
+explore,screen-00-start,40min 10:18 AM,2.1.1,Keyboard,True,KEYBOARD,serious,True,"Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.",,
+explore,screen-01-67-northgate-station-roosevelt,View,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,View is actionable but has no accessible name.,,

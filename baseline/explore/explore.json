@@ -1,0 +1,17 @@
+{
+  "start": "c6ebd8281408",
+  "captures": [
+    "oba-audit/baseline/explore/screen-00-start.xml",
+    "oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.xml"
+  ],
+  "visits": [
+    {
+      "control": "67 Northgate Station Roosevelt Station 48min 10:18\u202fAM",
+      "result": "captured screen-01-67-northgate-station-roosevelt"
+    },
+    {
+      "control": "67 Northgate Station Roosevelt Station 48min 10:18\u202fAM",
+      "result": "could not return; stopped"
+    }
+  ]
+}

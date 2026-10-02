@@ -1,0 +1,139 @@
+{
+  "steps": [
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    },
+    {
+      "key": "Button:Search",
+      "label": "Search",
+      "cls": "Button",
+      "bounds": [
+        124,
+        98,
+        172,
+        146
+      ]
+    },
+    {
+      "key": "Button:Add star to stop",
+      "label": "Add star to stop",
+      "cls": "Button",
+      "bounds": [
+        172,
+        98,
+        220,
+        146
+      ]
+    },
+    {
+      "key": "Button:Map",
+      "label": "Map",
+      "cls": "Button",
+      "bounds": [
+        220,
+        98,
+        268,
+        146
+      ]
+    },
+    {
+      "key": "Button:Bus options",
+      "label": "Bus options",
+      "cls": "Button",
+      "bounds": [
+        268,
+        98,
+        316,
+        146
+      ]
+    },
+    {
+      "key": "RadioButton:Time",
+      "label": "Time",
+      "cls": "RadioButton",
+      "bounds": [
+        128,
+        223,
+        216,
+        271
+      ]
+    },
+    {
+      "key": "RadioButton:Route",
+      "label": "Route",
+      "cls": "RadioButton",
+      "bounds": [
+        216,
+        223,
+        305,
+        271
+      ]
+    },
+    {
+      "key": "View:67 Northgate Station Roosevelt Station 39min 10:18\u202fAM",
+      "label": "67 Northgate Station Roosevelt Station 39min 10:18\u202fAM",
+      "cls": "View",
+      "bounds": [
+        12,
+        310,
+        308,
+        404
+      ]
+    },
+    {
+      "key": "View:39min 10:18\u202fAM",
+      "label": "39min 10:18\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        344,
+        198,
+        396
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        300,
+        50,
+        348
+      ]
+    },
+    {
+      "key": "Button:Load more",
+      "label": "Load more",
+      "cls": "Button",
+      "bounds": [
+        214,
+        411,
+        292,
+        459
+      ]
+    },
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

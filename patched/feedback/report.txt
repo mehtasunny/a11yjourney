@@ -1,0 +1,14 @@
+screen                           conformance  advisory  to confirm
+report-types                               0         0           0
+
+A11yJourney report: oba-audit/patched/feedback/report-types.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - resize: the two captures have different widths (rotation?); skipped
+  - keyboard: measured 2 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/patched/feedback/report-types.png, large-text oba-audit/patched/feedback/report-types.large.xml, keyboard focus oba-audit/patched/feedback/report-types.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

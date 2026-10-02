@@ -1,0 +1,16 @@
+{
+  "name": "home",
+  "captured_at": "2026-10-02T09:24:23+00:00",
+  "device": "sdk_gphone64_x86_64",
+  "android": "14",
+  "density": 1.0,
+  "font_scale_default": "null",
+  "font_scale_large": "2.0",
+  "keyboard_focus_measured": true,
+  "files": [
+    "home.xml",
+    "home.png",
+    "home.large.xml",
+    "home.focus.json"
+  ]
+}

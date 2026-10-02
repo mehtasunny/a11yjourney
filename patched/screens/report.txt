@@ -1,0 +1,32 @@
+screen                           conformance  advisory  to confirm
+arrivals                                   1         0           1
+home                                       1         0           1
+
+A11yJourney report: oba-audit/patched/screens/arrivals.xml
+Judged against WCAG 2.1 Level AA
+1 conformance findings  |  0 advisory  |  0 need semantic judgment  |  1 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [KEYBOARD] SERIOUS  WCAG 2.1.2 No Keyboard Trap, Level A  (estimate, confirm on device)
+        Close: Keyboard focus stays on this element when Tab is pressed again, so keyboard users cannot move past it.
+
+Notes:
+  - keyboard: measured 1 focus stops with Tab
+  - inputs: tree, screenshot oba-audit/patched/screens/arrivals.png, large-text oba-audit/patched/screens/arrivals.large.xml, keyboard focus oba-audit/patched/screens/arrivals.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/patched/screens/home.xml
+Judged against WCAG 2.1 Level AA
+1 conformance findings  |  0 advisory  |  0 need semantic judgment  |  1 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [KEYBOARD] SERIOUS  WCAG 2.1.2 No Keyboard Trap, Level A  (estimate, confirm on device)
+        Close: Keyboard focus stays on this element when Tab is pressed again, so keyboard users cannot move past it.
+
+Notes:
+  - keyboard: measured 1 focus stops with Tab
+  - inputs: tree, screenshot oba-audit/patched/screens/home.png, large-text oba-audit/patched/screens/home.large.xml, keyboard focus oba-audit/patched/screens/home.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

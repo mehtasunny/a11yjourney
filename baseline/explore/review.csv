@@ -1,0 +1,5 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+explore,screen-00-start,View,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,View is actionable but has no accessible name.,,
+explore,screen-00-start,View,2.5.5,Target Size (Enhanced),False,STRUCTURAL,moderate,False,Target is 34x52dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).,,
+explore,screen-00-start,10:18 AM,1.4.3,Contrast (Minimum),True,VISUAL,moderate,True,"Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).",,
+explore,screen-01-67-northgate-station-roosevelt,View,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,View is actionable but has no accessible name.,,

@@ -1,0 +1,40 @@
+{
+  "steps": [
+    {
+      "key": "Button:NO",
+      "label": "NO",
+      "cls": "Button",
+      "bounds": [
+        152,
+        330,
+        210,
+        378
+      ]
+    },
+    {
+      "key": "Button:YES",
+      "label": "YES",
+      "cls": "Button",
+      "bounds": [
+        218,
+        330,
+        276,
+        378
+      ]
+    },
+    {
+      "key": "Button:NO",
+      "label": "NO",
+      "cls": "Button",
+      "bounds": [
+        152,
+        330,
+        210,
+        378
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

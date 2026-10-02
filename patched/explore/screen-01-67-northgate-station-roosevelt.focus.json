@@ -1,0 +1,392 @@
+{
+  "steps": [
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        32,
+        52,
+        80
+      ]
+    },
+    {
+      "key": "Button:Show on map",
+      "label": "Show on map",
+      "cls": "Button",
+      "bounds": [
+        172,
+        32,
+        220,
+        80
+      ]
+    },
+    {
+      "key": "Button:Refresh",
+      "label": "Refresh",
+      "cls": "Button",
+      "bounds": [
+        220,
+        32,
+        268,
+        80
+      ]
+    },
+    {
+      "key": "Button:Trajectory",
+      "label": "Trajectory",
+      "cls": "Button",
+      "bounds": [
+        268,
+        32,
+        316,
+        80
+      ]
+    },
+    {
+      "key": "View:Current stop East Stevens Way NE & Benton Ln 3:18\u202fAM",
+      "label": "Current stop East Stevens Way NE & Benton Ln 3:18\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        88,
+        320,
+        156
+      ]
+    },
+    {
+      "key": "View:Stevens Way & Rainier Vista NE 3:19\u202fAM",
+      "label": "Stevens Way & Rainier Vista NE 3:19\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        156,
+        320,
+        224
+      ]
+    },
+    {
+      "key": "View:W Stevens Way & Okanogan Ln NE 3:19\u202fAM",
+      "label": "W Stevens Way & Okanogan Ln NE 3:19\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        224,
+        320,
+        292
+      ]
+    },
+    {
+      "key": "View:West Stevens Way NE & George Washington Ln 3:21\u202fAM",
+      "label": "West Stevens Way NE & George Washington Ln 3:21\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        292,
+        320,
+        360
+      ]
+    },
+    {
+      "key": "View:Brooklyn Ave NE & NE Campus Pkwy - Bay 3 3:23\u202fAM",
+      "label": "Brooklyn Ave NE & NE Campus Pkwy - Bay 3 3:23\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        360,
+        320,
+        428
+      ]
+    },
+    {
+      "key": "View:11th Ave NE & NE 42nd St 3:24\u202fAM",
+      "label": "11th Ave NE & NE 42nd St 3:24\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        428,
+        320,
+        496
+      ]
+    },
+    {
+      "key": "View:11th Ave NE & NE 45th St 3:25\u202fAM",
+      "label": "11th Ave NE & NE 45th St 3:25\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        496,
+        320,
+        564
+      ]
+    },
+    {
+      "key": "View:11th Ave NE & NE 50th St 3:26\u202fAM",
+      "label": "11th Ave NE & NE 50th St 3:26\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        564,
+        320,
+        632
+      ]
+    },
+    {
+      "key": "View:11th Ave NE & NE 55th St 3:27\u202fAM",
+      "label": "11th Ave NE & NE 55th St 3:27\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:11th Ave NE & NE Ravenna Blvd 3:28\u202fAM",
+      "label": "11th Ave NE & NE Ravenna Blvd 3:28\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:12th Ave NE & NE 61st St 3:28\u202fAM",
+      "label": "12th Ave NE & NE 61st St 3:28\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Station - Bay 3 3:30\u202fAM",
+      "label": "Roosevelt Station - Bay 3 3:30\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:12th Ave NE & NE 70th St 3:31\u202fAM",
+      "label": "12th Ave NE & NE 70th St 3:31\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:NE 75th St & 12th Ave NE 3:32\u202fAM",
+      "label": "NE 75th St & 12th Ave NE 3:32\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 75th St 3:33\u202fAM",
+      "label": "Roosevelt Way NE & NE 75th St 3:33\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 80th St 3:33\u202fAM",
+      "label": "Roosevelt Way NE & NE 80th St 3:33\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 85th St 3:34\u202fAM",
+      "label": "Roosevelt Way NE & NE 85th St 3:34\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 90th St 3:35\u202fAM",
+      "label": "Roosevelt Way NE & NE 90th St 3:35\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 92nd St 3:36\u202fAM",
+      "label": "Roosevelt Way NE & NE 92nd St 3:36\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 95th St 3:36\u202fAM",
+      "label": "Roosevelt Way NE & NE 95th St 3:36\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 100th St 3:37\u202fAM",
+      "label": "Roosevelt Way NE & NE 100th St 3:37\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 103rd St 3:38\u202fAM",
+      "label": "Roosevelt Way NE & NE 103rd St 3:38\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 105th St 3:38\u202fAM",
+      "label": "Roosevelt Way NE & NE 105th St 3:38\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Roosevelt Way NE & NE 108th St 3:39\u202fAM",
+      "label": "Roosevelt Way NE & NE 108th St 3:39\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:NE Northgate Way & Roosevelt Way NE 3:39\u202fAM",
+      "label": "NE Northgate Way & Roosevelt Way NE 3:39\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:5th Ave NE & NE Northgate Way 3:40\u202fAM",
+      "label": "5th Ave NE & NE Northgate Way 3:40\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:5th Ave NE & NE 106th St 3:41\u202fAM",
+      "label": "5th Ave NE & NE 106th St 3:41\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:5th Ave NE & NE 103rd St 3:42\u202fAM",
+      "label": "5th Ave NE & NE 103rd St 3:42\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:NE 100th St & 4th Ave NE 3:42\u202fAM",
+      "label": "NE 100th St & 4th Ave NE 3:42\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "View:Northgate Station - Bay 1 3:44\u202fAM",
+      "label": "Northgate Station - Bay 1 3:44\u202fAM",
+      "cls": "View",
+      "bounds": [
+        0,
+        572,
+        320,
+        640
+      ]
+    },
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        32,
+        52,
+        80
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}
