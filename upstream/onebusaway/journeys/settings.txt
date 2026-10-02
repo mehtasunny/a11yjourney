@@ -1,0 +1,9 @@
+# Home, navigation drawer, Settings
+launch com.joulespersecond.seattlebusbot
+wait 8
+tap Open navigation drawer
+wait 3
+capture drawer
+tap Settings
+wait 5
+capture settings keyboard

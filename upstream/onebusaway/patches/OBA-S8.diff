@@ -1,0 +1,59 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/routeinfo/RouteInfoScreen.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/routeinfo/RouteInfoScreen.kt
+index 1d18c4d..cc22843 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/routeinfo/RouteInfoScreen.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/routeinfo/RouteInfoScreen.kt
+@@ -44,6 +44,8 @@ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.res.painterResource
+ import androidx.compose.ui.res.stringResource
++import androidx.compose.ui.semantics.heading
++import androidx.compose.ui.semantics.semantics
+ import androidx.compose.ui.text.style.TextAlign
+ import androidx.compose.ui.tooling.preview.Preview
+ import androidx.compose.ui.unit.dp
+@@ -200,6 +202,11 @@ private fun RouteHeaderPreview() {
+     }
+ }
+ 
++/**
++ * A direction's collapsible header. It is a heading, so a screen reader's heading navigation can step
++ * from one direction to the next, and the chevron's description carries the show/hide wording, since
++ * the glyph swap alone isn't announced.
++ */
+ @Composable
+ internal fun DirectionHeader(name: String, expanded: Boolean, onClick: () -> Unit) {
+     HorizontalDivider()
+@@ -207,6 +214,7 @@ internal fun DirectionHeader(name: String, expanded: Boolean, onClick: () -> Uni
+         modifier = Modifier
+             .fillMaxWidth()
+             .clickable(onClick = onClick)
++            .semantics { heading() }
+             .background(MaterialTheme.colorScheme.surfaceContainerLow)
+             .padding(horizontal = 16.dp, vertical = 20.dp),
+         verticalAlignment = Alignment.CenterVertically
+@@ -222,7 +230,9 @@ internal fun DirectionHeader(name: String, expanded: Boolean, onClick: () -> Uni
+             } else {
+                 AppIcons.KeyboardArrowDown
+             },
+-            contentDescription = null
++            contentDescription = stringResource(
++                if (expanded) R.string.route_info_hide_stops else R.string.route_info_show_stops
++            )
+         )
+     }
+ }
+diff --git a/onebusaway-android/src/main/res/values/strings.xml b/onebusaway-android/src/main/res/values/strings.xml
+index 7e54818..829d2f7 100644
+--- a/onebusaway-android/src/main/res/values/strings.xml
++++ b/onebusaway-android/src/main/res/values/strings.xml
+@@ -382,6 +382,10 @@
+     <!-- Arrival Time Style B -->
+ 
+     <!-- Route Info  -->
++    <!-- Content descriptions for the chevron on a route's direction header (Route info), which shows or
++         hides that direction's stop list -->
++    <string name="route_info_show_stops">Show stops</string>
++    <string name="route_info_hide_stops">Hide stops</string>
+     <string name="route_info_no_shape_data">Sorry, map information isn’t available for this route
+     </string>
+     <!-- Route map header: open the menu choosing which direction of the route is shown -->

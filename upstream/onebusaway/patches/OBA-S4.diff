@@ -1,0 +1,16 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
+index bb1a667..e478f45 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
+@@ -574,7 +574,10 @@ internal fun EtaPill(
+                     CorrectedClockTime(
+                         clock = clock,
+                         fontSize = clockTimeSize,
+-                        color = Color.White.copy(alpha = 0.8f),
++                        // Full white: the on-fill tier is darkened just far enough for white text to
++                        // clear 4.5:1 (#2043), and this 12sp line is small text. At 80% alpha it
++                        // measured about 3.6:1 on every fill.
++                        color = Color.White,
+                         // Same trim the ETA line gets, so a corrected pill's two clock lines stack as
+                         // tightly as the single line did rather than gaining a line box each.
+                         style = remember(baseTextStyle, clockTimeSize) { tightLineStyle(baseTextStyle, clockTimeSize) },

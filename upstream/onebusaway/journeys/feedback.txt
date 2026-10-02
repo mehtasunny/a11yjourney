@@ -1,0 +1,11 @@
+# Home, navigation drawer, Send feedback, Contact Customer Service
+launch com.joulespersecond.seattlebusbot
+wait 8
+tap Open navigation drawer
+wait 3
+tap Send feedback
+wait 5
+capture report-types keyboard
+tap Contact Customer Service
+wait 8
+capture customer-service keyboard

@@ -1,0 +1,95 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/survey/SurveyOverlay.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/survey/SurveyOverlay.kt
+index 6cb99c1..79e5ac6 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/survey/SurveyOverlay.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/survey/SurveyOverlay.kt
+@@ -16,15 +16,18 @@
+ package org.onebusaway.android.ui.survey
+ 
+ import android.widget.Toast
+-import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.layout.Arrangement
+ import androidx.compose.foundation.layout.Box
+ import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Row
+ import androidx.compose.foundation.layout.fillMaxSize
+ import androidx.compose.foundation.layout.fillMaxWidth
++import androidx.compose.foundation.layout.heightIn
+ import androidx.compose.foundation.layout.padding
+ import androidx.compose.foundation.rememberScrollState
++import androidx.compose.foundation.selection.selectable
++import androidx.compose.foundation.selection.selectableGroup
++import androidx.compose.foundation.selection.toggleable
+ import androidx.compose.foundation.verticalScroll
+ import androidx.compose.material3.AlertDialog
+ import androidx.compose.material3.Button
+@@ -49,6 +52,7 @@ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.platform.LocalContext
+ import androidx.compose.ui.res.stringResource
++import androidx.compose.ui.semantics.Role
+ import androidx.compose.ui.text.font.FontWeight
+ import androidx.compose.ui.unit.dp
+ import androidx.lifecycle.Lifecycle
+@@ -272,13 +276,17 @@ private fun SurveyQuestionInput(
+     when (question.content.type) {
+         SurveyUtils.RADIO_BUTTON_QUESTION -> {
+             val selected = state.textRadioAnswers[id]
+-            Column {
++            Column(Modifier.selectableGroup()) {
+                 question.content.options.orEmpty().forEach { option ->
+-                    OptionRow(option, onClick = { callbacks.onTextOrRadio(id, option) }) {
+-                        RadioButton(
++                    OptionRow(
++                        option,
++                        Modifier.selectable(
+                             selected = selected == option,
++                            role = Role.RadioButton,
+                             onClick = { callbacks.onTextOrRadio(id, option) }
+                         )
++                    ) {
++                        RadioButton(selected = selected == option, onClick = null)
+                     }
+                 }
+             }
+@@ -294,12 +302,13 @@ private fun SurveyQuestionInput(
+                 question.content.options.orEmpty().forEach { option ->
+                     OptionRow(
+                         option,
+-                        onClick = { callbacks.onToggleCheckbox(id, option, option !in selected) }
+-                    ) {
+-                        Checkbox(
+-                            checked = option in selected,
+-                            onCheckedChange = { callbacks.onToggleCheckbox(id, option, it) }
++                        Modifier.toggleable(
++                            value = option in selected,
++                            role = Role.Checkbox,
++                            onValueChange = { callbacks.onToggleCheckbox(id, option, it) }
+                         )
++                    ) {
++                        Checkbox(checked = option in selected, onCheckedChange = null)
+                     }
+                 }
+             }
+@@ -320,13 +329,19 @@ private fun SurveyQuestionInput(
+     }
+ }
+ 
+-/** A clickable option row: a leading [content] (radio button / checkbox) + its [text] label. */
++/**
++ * An option row: a leading [content] (radio button / checkbox) + its [text] label. The row carries the
++ * [modifier] that makes it selectable / toggleable, and the control takes a null callback, so the label,
++ * the control and its state read as one radio button or checkbox to accessibility services. The
++ * minimum height keeps the 48dp target the control's own click used to provide.
++ */
+ @Composable
+-private fun OptionRow(text: String, onClick: () -> Unit, content: @Composable () -> Unit) {
++private fun OptionRow(text: String, modifier: Modifier, content: @Composable () -> Unit) {
+     Row(
+         Modifier
+             .fillMaxWidth()
+-            .clickable(onClick = onClick),
++            .heightIn(min = 48.dp)
++            .then(modifier),
+         verticalAlignment = Alignment.CenterVertically
+     ) {
+         content()
