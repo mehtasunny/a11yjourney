@@ -17,7 +17,11 @@ normal and 200% text). It writes captures, reports, and a review sheet per app t
   runs before it exposed problems in the tool itself (list items sharing an id, Tab
   cycles starting mid-screen, emoji contrast, exploration following a permission prompt
   into system settings); each is fixed with a regression test (see CHANGELOG 0.3.0).
-  Awaiting manual review.
+  Superseded by the rerun below.
+- **2026-09-29, rerun with 0.3.1:** exploration now stays inside the app under test and
+  skips system toggles. 6 apps, 13 screens, 40 findings (26 WCAG 2.1 AA, 14 advisory)
+  in the review sheets on the `field-study` branch, which this run replaced. Awaiting
+  manual review.
 
 ## Why the numbers are not published yet
 
