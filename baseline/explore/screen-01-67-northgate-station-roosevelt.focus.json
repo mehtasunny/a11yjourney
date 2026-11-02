@@ -1,0 +1,271 @@
+{
+  "steps": [
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    },
+    {
+      "key": "Button:Search",
+      "label": "Search",
+      "cls": "Button",
+      "bounds": [
+        124,
+        98,
+        172,
+        146
+      ]
+    },
+    {
+      "key": "Button:Add star to stop",
+      "label": "Add star to stop",
+      "cls": "Button",
+      "bounds": [
+        172,
+        98,
+        220,
+        146
+      ]
+    },
+    {
+      "key": "Button:Map",
+      "label": "Map",
+      "cls": "Button",
+      "bounds": [
+        220,
+        98,
+        268,
+        146
+      ]
+    },
+    {
+      "key": "Button:Bus options",
+      "label": "Bus options",
+      "cls": "Button",
+      "bounds": [
+        268,
+        98,
+        316,
+        146
+      ]
+    },
+    {
+      "key": "View:67 Northgate Station Roosevelt Station Show earlier arrivals",
+      "label": "67 Northgate Station Roosevelt Station Show earlier arrivals 45min 12:31\u202fAM 1hr ",
+      "cls": "View",
+      "bounds": [
+        12,
+        253,
+        308,
+        361
+      ]
+    },
+    {
+      "key": "View:Show earlier arrivals",
+      "label": "Show earlier arrivals",
+      "cls": "View",
+      "bounds": [
+        93,
+        287,
+        109,
+        353
+      ]
+    },
+    {
+      "key": "View:45min 12:31\u202fAM",
+      "label": "45min 12:31\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        287,
+        198,
+        353
+      ]
+    },
+    {
+      "key": "View:1hr 0min 12:46\u202fAM",
+      "label": "1hr 0min 12:46\u202fAM",
+      "cls": "View",
+      "bounds": [
+        186,
+        287,
+        264,
+        353
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        243,
+        50,
+        291
+      ]
+    },
+    {
+      "key": "View:72 University District Show earlier arrivals 45min 12:32\u202fAM ",
+      "label": "72 University District Show earlier arrivals 45min 12:32\u202fAM 54min 12:41\u202fAM Show ",
+      "cls": "View",
+      "bounds": [
+        12,
+        367,
+        308,
+        475
+      ]
+    },
+    {
+      "key": "View:Show earlier arrivals",
+      "label": "Show earlier arrivals",
+      "cls": "View",
+      "bounds": [
+        93,
+        401,
+        127,
+        467
+      ]
+    },
+    {
+      "key": "View:35min 12:22\u202fAM",
+      "label": "35min 12:22\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        401,
+        198,
+        467
+      ]
+    },
+    {
+      "key": "View:45min 12:32\u202fAM",
+      "label": "45min 12:32\u202fAM",
+      "cls": "View",
+      "bounds": [
+        204,
+        401,
+        264,
+        467
+      ]
+    },
+    {
+      "key": "View:54min 12:41\u202fAM",
+      "label": "54min 12:41\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        401,
+        264,
+        467
+      ]
+    },
+    {
+      "key": "View:1hr 4min 12:51\u202fAM",
+      "label": "1hr 4min 12:51\u202fAM",
+      "cls": "View",
+      "bounds": [
+        186,
+        401,
+        264,
+        467
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        357,
+        50,
+        405
+      ]
+    },
+    {
+      "key": "View:77 Bitter Lake Pinehurst Station Show earlier arrivals 46min",
+      "label": "77 Bitter Lake Pinehurst Station Show earlier arrivals 46min 12:33\u202fAM 1hr 1min 1",
+      "cls": "View",
+      "bounds": [
+        12,
+        481,
+        308,
+        589
+      ]
+    },
+    {
+      "key": "View:Show earlier arrivals",
+      "label": "Show earlier arrivals",
+      "cls": "View",
+      "bounds": [
+        93,
+        515,
+        109,
+        581
+      ]
+    },
+    {
+      "key": "View:46min 12:33\u202fAM",
+      "label": "46min 12:33\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        515,
+        198,
+        581
+      ]
+    },
+    {
+      "key": "View:1hr 1min 12:48\u202fAM",
+      "label": "1hr 1min 12:48\u202fAM",
+      "cls": "View",
+      "bounds": [
+        186,
+        515,
+        264,
+        581
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        471,
+        50,
+        519
+      ]
+    },
+    {
+      "key": "Button:Load more",
+      "label": "Load more",
+      "cls": "Button",
+      "bounds": [
+        214,
+        596,
+        292,
+        640
+      ]
+    },
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

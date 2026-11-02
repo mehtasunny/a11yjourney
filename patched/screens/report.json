@@ -1,0 +1,44 @@
+[
+  {
+    "target": "oba-audit/patched/screens/arrivals.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails",
+      "inputs: tree, screenshot oba-audit/patched/screens/arrivals.png, large-text oba-audit/patched/screens/arrivals.large.xml, keyboard focus oba-audit/patched/screens/arrivals.focus.json"
+    ]
+  },
+  {
+    "target": "oba-audit/patched/screens/home.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails",
+      "inputs: tree, screenshot oba-audit/patched/screens/home.png, large-text oba-audit/patched/screens/home.large.xml, keyboard focus oba-audit/patched/screens/home.focus.json"
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "target": "oba-audit/patched/settings/drawer.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "target size: 3 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "inputs: tree, screenshot oba-audit/patched/settings/drawer.png, large-text oba-audit/patched/settings/drawer.large.xml"
+    ]
+  },
+  {
+    "target": "oba-audit/patched/settings/settings.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "keyboard: measured 26 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot oba-audit/patched/settings/settings.png, large-text oba-audit/patched/settings/settings.large.xml, keyboard focus oba-audit/patched/settings/settings.focus.json"
+    ]
+  }
+]

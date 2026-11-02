@@ -1,0 +1,47 @@
+[
+  {
+    "target": "oba-audit/baseline/screens/arrivals.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails",
+      "inputs: tree, screenshot oba-audit/baseline/screens/arrivals.png, large-text oba-audit/baseline/screens/arrivals.large.xml, keyboard focus oba-audit/baseline/screens/arrivals.focus.json"
+    ]
+  },
+  {
+    "target": "oba-audit/baseline/screens/home.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 0,
+      "conformance": 0,
+      "advisory": 0,
+      "structural": 0,
+      "beyond_static": 0,
+      "needs_review": 0
+    },
+    "findings": [],
+    "notes": [
+      "target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "contrast: 5 element(s) skipped (no uniform background or too small to measure)",
+      "resize: no text elements matched between the two captures; skipped",
+      "keyboard: focus stayed on an element that is not in this capture (a dialog or popup probably opened during the walk); capture again to judge 2.1.2",
+      "inputs: tree, screenshot oba-audit/baseline/screens/home.png, large-text oba-audit/baseline/screens/home.large.xml, keyboard focus oba-audit/baseline/screens/home.focus.json"
+    ]
+  }
+]

@@ -1,0 +1,348 @@
+{
+  "steps": [
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    },
+    {
+      "key": "Button:Search",
+      "label": "Search",
+      "cls": "Button",
+      "bounds": [
+        124,
+        98,
+        172,
+        146
+      ]
+    },
+    {
+      "key": "Button:Add star to stop",
+      "label": "Add star to stop",
+      "cls": "Button",
+      "bounds": [
+        172,
+        98,
+        220,
+        146
+      ]
+    },
+    {
+      "key": "Button:Map",
+      "label": "Map",
+      "cls": "Button",
+      "bounds": [
+        220,
+        98,
+        268,
+        146
+      ]
+    },
+    {
+      "key": "Button:Bus options",
+      "label": "Bus options",
+      "cls": "Button",
+      "bounds": [
+        268,
+        98,
+        316,
+        146
+      ]
+    },
+    {
+      "key": "RadioButton:Time",
+      "label": "Time",
+      "cls": "RadioButton",
+      "bounds": [
+        128,
+        223,
+        216,
+        271
+      ]
+    },
+    {
+      "key": "RadioButton:Route",
+      "label": "Route",
+      "cls": "RadioButton",
+      "bounds": [
+        216,
+        223,
+        305,
+        271
+      ]
+    },
+    {
+      "key": "View:67 Northgate Station Roosevelt Station 9min Scheduled 12:00\u202f",
+      "label": "67 Northgate Station Roosevelt Station 9min Scheduled 12:00\u202fAM, now expected 12:",
+      "cls": "View",
+      "bounds": [
+        12,
+        310,
+        308,
+        418
+      ]
+    },
+    {
+      "key": "View:9min Scheduled 12:00\u202fAM, now expected 12:03\u202fAM 12:00\u202fAM 12:0",
+      "label": "9min Scheduled 12:00\u202fAM, now expected 12:03\u202fAM 12:00\u202fAM 12:03\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        344,
+        196,
+        410
+      ]
+    },
+    {
+      "key": "View:24min Scheduled 12:16\u202fAM, now expected 12:18\u202fAM 12:16\u202fAM 12:",
+      "label": "24min Scheduled 12:16\u202fAM, now expected 12:18\u202fAM 12:16\u202fAM 12:18\u202fAM",
+      "cls": "View",
+      "bounds": [
+        202,
+        344,
+        264,
+        410
+      ]
+    },
+    {
+      "key": "View:39min Scheduled 12:31\u202fAM, now expected 12:33\u202fAM 12:31\u202fAM 12:",
+      "label": "39min Scheduled 12:31\u202fAM, now expected 12:33\u202fAM 12:31\u202fAM 12:33\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        344,
+        264,
+        410
+      ]
+    },
+    {
+      "key": "View:44min Scheduled 1:02\u202fAM, now expected 12:38\u202fAM 1:02\u202fAM 12:38",
+      "label": "44min Scheduled 1:02\u202fAM, now expected 12:38\u202fAM 1:02\u202fAM 12:38\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        344,
+        264,
+        410
+      ]
+    },
+    {
+      "key": "View:52min 12:46\u202fAM",
+      "label": "52min 12:46\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        344,
+        264,
+        410
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        300,
+        50,
+        348
+      ]
+    },
+    {
+      "key": "View:72 University District 7min Scheduled 11:52\u202fPM, now expected",
+      "label": "72 University District 7min Scheduled 11:52\u202fPM, now expected 12:01\u202fAM 11:52\u202fPM 1",
+      "cls": "View",
+      "bounds": [
+        12,
+        424,
+        308,
+        532
+      ]
+    },
+    {
+      "key": "View:7min Scheduled 11:52\u202fPM, now expected 12:01\u202fAM 11:52\u202fPM 12:0",
+      "label": "7min Scheduled 11:52\u202fPM, now expected 12:01\u202fAM 11:52\u202fPM 12:01\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        458,
+        196,
+        524
+      ]
+    },
+    {
+      "key": "View:10min Scheduled 12:02\u202fAM, now expected 12:04\u202fAM 12:02\u202fAM 12:",
+      "label": "10min Scheduled 12:02\u202fAM, now expected 12:04\u202fAM 12:02\u202fAM 12:04\u202fAM",
+      "cls": "View",
+      "bounds": [
+        202,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "View:18min 12:12\u202fAM",
+      "label": "18min 12:12\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "View:28min 12:22\u202fAM",
+      "label": "28min 12:22\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "View:38min 12:32\u202fAM",
+      "label": "38min 12:32\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "View:47min 12:41\u202fAM",
+      "label": "47min 12:41\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "View:57min 12:51\u202fAM",
+      "label": "57min 12:51\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        458,
+        264,
+        524
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        414,
+        50,
+        462
+      ]
+    },
+    {
+      "key": "View:77 Bitter Lake Pinehurst Station 19min Scheduled 12:03\u202fAM, n",
+      "label": "77 Bitter Lake Pinehurst Station 19min Scheduled 12:03\u202fAM, now expected 12:14\u202fAM",
+      "cls": "View",
+      "bounds": [
+        12,
+        532,
+        308,
+        640
+      ]
+    },
+    {
+      "key": "View:19min Scheduled 12:03\u202fAM, now expected 12:14\u202fAM 12:03\u202fAM 12:",
+      "label": "19min Scheduled 12:03\u202fAM, now expected 12:14\u202fAM 12:03\u202fAM 12:14\u202fAM",
+      "cls": "View",
+      "bounds": [
+        127,
+        566,
+        198,
+        632
+      ]
+    },
+    {
+      "key": "View:32min Scheduled 12:18\u202fAM, now expected 12:27\u202fAM 12:18\u202fAM 12:",
+      "label": "32min Scheduled 12:18\u202fAM, now expected 12:27\u202fAM 12:18\u202fAM 12:27\u202fAM",
+      "cls": "View",
+      "bounds": [
+        204,
+        566,
+        264,
+        632
+      ]
+    },
+    {
+      "key": "View:39min Scheduled 12:33\u202fAM, now expected 12:34\u202fAM 12:33\u202fAM 12:",
+      "label": "39min Scheduled 12:33\u202fAM, now expected 12:34\u202fAM 12:33\u202fAM 12:34\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        566,
+        264,
+        632
+      ]
+    },
+    {
+      "key": "View:53min 12:48\u202fAM",
+      "label": "53min 12:48\u202fAM",
+      "cls": "View",
+      "bounds": [
+        207,
+        566,
+        264,
+        632
+      ]
+    },
+    {
+      "key": "Button:Add star to route",
+      "label": "Add star to route",
+      "cls": "Button",
+      "bounds": [
+        2,
+        522,
+        50,
+        570
+      ]
+    },
+    {
+      "key": "Button:Load more",
+      "label": "Load more",
+      "cls": "Button",
+      "bounds": [
+        214,
+        596,
+        292,
+        640
+      ]
+    },
+    {
+      "key": "Button:Navigate up",
+      "label": "Navigate up",
+      "cls": "Button",
+      "bounds": [
+        4,
+        98,
+        52,
+        146
+      ]
+    }
+  ],
+  "wrapped": true,
+  "stuck": false,
+  "max_steps": 40
+}

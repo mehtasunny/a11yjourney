@@ -1,0 +1,27 @@
+screen                           conformance  advisory  to confirm
+arrivals                                   0         0           0
+home                                       0         0           0
+
+A11yJourney report: oba-audit/baseline/screens/arrivals.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails
+  - inputs: tree, screenshot oba-audit/baseline/screens/arrivals.png, large-text oba-audit/baseline/screens/arrivals.large.xml, keyboard focus oba-audit/baseline/screens/arrivals.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/baseline/screens/home.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - target size: 2 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - contrast: 5 element(s) skipped (no uniform background or too small to measure)
+  - resize: no text elements matched between the two captures; skipped
+  - keyboard: focus stayed on an element that is not in this capture (a dialog or popup probably opened during the walk); capture again to judge 2.1.2
+  - inputs: tree, screenshot oba-audit/baseline/screens/home.png, large-text oba-audit/baseline/screens/home.large.xml, keyboard focus oba-audit/baseline/screens/home.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

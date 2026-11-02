@@ -1,0 +1,24 @@
+screen                           conformance  advisory  to confirm
+drawer                                     0         0           0
+settings                                   0         0           0
+
+A11yJourney report: oba-audit/patched/settings/drawer.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - target size: 3 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - inputs: tree, screenshot oba-audit/patched/settings/drawer.png, large-text oba-audit/patched/settings/drawer.large.xml
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/patched/settings/settings.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - keyboard: measured 26 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/patched/settings/settings.png, large-text oba-audit/patched/settings/settings.large.xml, keyboard focus oba-audit/patched/settings/settings.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

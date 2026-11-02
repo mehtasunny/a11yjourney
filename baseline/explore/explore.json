@@ -1,0 +1,17 @@
+{
+  "start": "7ba7d5061ef1",
+  "captures": [
+    "oba-audit/baseline/explore/screen-00-start.xml",
+    "oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.xml"
+  ],
+  "visits": [
+    {
+      "control": "67 Northgate Station Roosevelt Station NOW 19min Scheduled 12:00\u202fAM, now expected 12:03\u202fAM 12:00\u202fAM 12:03\u202fAM Show later arrivals",
+      "result": "captured screen-01-67-northgate-station-roosevelt"
+    },
+    {
+      "control": "67 Northgate Station Roosevelt Station NOW 19min Scheduled 12:00\u202fAM, now expected 12:03\u202fAM 12:00\u202fAM 12:03\u202fAM Show later arrivals",
+      "result": "could not return; stopped"
+    }
+  ]
+}

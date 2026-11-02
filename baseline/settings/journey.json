@@ -1,0 +1,54 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "do": "launch com.joulespersecond.seattlebusbot"
+    },
+    {
+      "step": 2,
+      "do": "wait 8"
+    },
+    {
+      "step": 3,
+      "do": "tap YES",
+      "skipped": "no element labeled \"YES\" on the current screen"
+    },
+    {
+      "step": 4,
+      "do": "wait 3"
+    },
+    {
+      "step": 5,
+      "do": "tap Close",
+      "skipped": "no element labeled \"Close\" on the current screen"
+    },
+    {
+      "step": 6,
+      "do": "tap Open navigation drawer"
+    },
+    {
+      "step": 7,
+      "do": "wait 3"
+    },
+    {
+      "step": 8,
+      "do": "capture drawer"
+    },
+    {
+      "step": 9,
+      "do": "tap Settings"
+    },
+    {
+      "step": 10,
+      "do": "wait 5"
+    },
+    {
+      "step": 11,
+      "do": "capture settings keyboard"
+    }
+  ],
+  "captures": [
+    "oba-audit/baseline/settings/drawer.xml",
+    "oba-audit/baseline/settings/settings.xml"
+  ]
+}

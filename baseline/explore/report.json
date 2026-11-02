@@ -1,0 +1,350 @@
+[
+  {
+    "target": "oba-audit/baseline/explore/screen-00-start.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 14,
+      "conformance": 13,
+      "advisory": 1,
+      "structural": 1,
+      "beyond_static": 2,
+      "needs_review": 13
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "android-touch-target",
+        "criterion": "Android touch target guidance (48dp)",
+        "level": "platform",
+        "since": null,
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Show later arrivals",
+        "message": "Target is 44x66dp, under the 48dp Android minimum."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "serious",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:00\u202fAM",
+        "message": "Text contrast is about 2.9:1 (#A8CEF6 on #006EE5); WCAG AA needs 4.5:1, or 3.0:1 for large text."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:03\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CBE1FA on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "serious",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:42\u202fPM",
+        "message": "Text contrast is about 2.7:1 (#99C5F4 on #006EE5); WCAG AA needs 4.5:1, or 3.0:1 for large text."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:43\u202fPM",
+        "message": "Text contrast is about 3.6:1 (#CBE1FA on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "serious",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:52\u202fPM",
+        "message": "Text contrast is about 2.7:1 (#99C5F4 on #006EE5); WCAG AA needs 4.5:1, or 3.0:1 for large text."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:54\u202fPM",
+        "message": "Text contrast is about 3.6:1 (#CBE1FA on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "serious",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:48\u202fPM",
+        "message": "Text contrast is about 2.9:1 (#A8CEF6 on #006EE5); WCAG AA needs 4.5:1, or 3.0:1 for large text."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "11:49\u202fPM",
+        "message": "Text contrast is about 3.6:1 (#CBE1FA on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:13\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CBE1FA on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "SEMANTIC",
+        "severity": "moderate",
+        "wcag": "2.4.6",
+        "criterion": "Headings and Labels",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Show later arrivals",
+        "message": "3 controls are announced as 'Show later arrivals'. If they do different things, screen-reader users cannot tell them apart."
+      },
+      {
+        "kind": "SEMANTIC",
+        "severity": "moderate",
+        "wcag": "2.4.6",
+        "criterion": "Headings and Labels",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Add star to route",
+        "message": "3 controls are announced as 'Add star to route'. If they do different things, screen-reader users cannot tell them apart."
+      },
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.1",
+        "criterion": "Keyboard",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "67 Northgate Station Roosevelt Station NOW 19min Scheduled 1",
+        "message": "Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it."
+      },
+      {
+        "kind": "KEYBOARD",
+        "severity": "serious",
+        "wcag": "2.1.1",
+        "criterion": "Keyboard",
+        "level": "A",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Show later arrivals",
+        "message": "Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it."
+      }
+    ],
+    "notes": [
+      "inactive: 3 disabled element(s) that cannot take focus were not checked for a name or target size",
+      "target size: 7 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 17 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot oba-audit/baseline/explore/screen-00-start.png, large-text oba-audit/baseline/explore/screen-00-start.large.xml, keyboard focus oba-audit/baseline/explore/screen-00-start.focus.json"
+    ]
+  },
+  {
+    "target": "oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.xml",
+    "profile": {
+      "key": "wcag21-aa",
+      "wcag": "2.1",
+      "level": "AA"
+    },
+    "summary": {
+      "total": 11,
+      "conformance": 9,
+      "advisory": 2,
+      "structural": 2,
+      "beyond_static": 2,
+      "needs_review": 9
+    },
+    "findings": [
+      {
+        "kind": "STRUCTURAL",
+        "severity": "serious",
+        "wcag": "2.5.8",
+        "criterion": "Target Size (Minimum)",
+        "level": "AA",
+        "since": "2.2",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Show earlier arrivals",
+        "message": "Target is 16x66dp, under 24dp, and too close to other targets for the spacing exception."
+      },
+      {
+        "kind": "STRUCTURAL",
+        "severity": "moderate",
+        "wcag": "2.5.5",
+        "criterion": "Target Size (Enhanced)",
+        "level": "AAA",
+        "since": "2.1",
+        "in_scope": false,
+        "needs_review": false,
+        "element": "Show earlier arrivals",
+        "message": "Target is 34x66dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:31\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:46\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:32\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:41\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:33\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE7CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "VISUAL",
+        "severity": "moderate",
+        "wcag": "1.4.3",
+        "criterion": "Contrast (Minimum)",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "12:48\u202fAM",
+        "message": "Text contrast is about 3.6:1 (#CEE6CB on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold)."
+      },
+      {
+        "kind": "RESIZE",
+        "severity": "moderate",
+        "wcag": "1.4.4",
+        "criterion": "Resize Text",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Northgate Station Roosevelt Station",
+        "message": "Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device."
+      },
+      {
+        "kind": "SEMANTIC",
+        "severity": "moderate",
+        "wcag": "2.4.6",
+        "criterion": "Headings and Labels",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Show earlier arrivals",
+        "message": "3 controls are announced as 'Show earlier arrivals'. If they do different things, screen-reader users cannot tell them apart."
+      },
+      {
+        "kind": "SEMANTIC",
+        "severity": "moderate",
+        "wcag": "2.4.6",
+        "criterion": "Headings and Labels",
+        "level": "AA",
+        "since": "2.0",
+        "in_scope": true,
+        "needs_review": true,
+        "element": "Add star to route",
+        "message": "3 controls are announced as 'Add star to route'. If they do different things, screen-reader users cannot tell them apart."
+      }
+    ],
+    "notes": [
+      "inactive: 3 disabled element(s) that cannot take focus were not checked for a name or target size",
+      "target size: 7 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them",
+      "keyboard: measured 13 focus stops with Tab, cycle complete",
+      "inputs: tree, screenshot oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.png, large-text oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.large.xml, keyboard focus oba-audit/baseline/explore/screen-01-67-northgate-station-roosevelt.focus.json"
+    ]
+  }
+]

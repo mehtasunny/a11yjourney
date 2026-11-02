@@ -1,0 +1,36 @@
+## New tests
+
+org.onebusaway.android.ui.arrivals.EtaPillStatusDescriptionTest:...
+org.onebusaway.android.ui.settings.SwitchPreferenceItemSemanticsTest:.
+
+Time: 2.425
+
+OK (4 tests)
+
+
+## Existing arrivals and settings UI tests
+
+org.onebusaway.android.ui.arrivals.ArrivalAlertIndicatorTest:.
+org.onebusaway.android.ui.arrivals.ArrivalDisplayModeTest:.....
+org.onebusaway.android.ui.arrivals.EtaPillFocusOutlineTest:...
+org.onebusaway.android.ui.arrivals.EtaPillStatusDescriptionTest:...
+org.onebusaway.android.ui.arrivals.EtaStripCorrectedClockRenderTest:...
+org.onebusaway.android.ui.arrivals.EtaStripDuplicateArrivalsRenderTest:.
+org.onebusaway.android.ui.arrivals.EtaStripRenderTest:.
+org.onebusaway.android.ui.arrivals.RouteArrivalRowLongPressTest:..
+org.onebusaway.android.ui.arrivals.SwipeToHideTest:..
+org.onebusaway.android.ui.arrivals.UndoSnackbarTest:.
+
+Time: 12.62
+
+OK (22 tests)
+
+
+
+org.onebusaway.android.ui.settings.SwitchPreferenceItemSemanticsTest:.
+
+Time: 1.004
+
+OK (1 test)
+
+

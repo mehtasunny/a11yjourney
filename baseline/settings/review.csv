@@ -1,0 +1,2 @@
+app,screen,element,wcag,criterion,in_scope,kind,severity,needs_review,message,verdict,reviewer_notes
+settings,settings,View,4.1.2,"Name, Role, Value",True,STRUCTURAL,serious,False,View is actionable but has no accessible name.,,

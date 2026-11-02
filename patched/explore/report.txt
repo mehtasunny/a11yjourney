@@ -1,0 +1,70 @@
+screen                           conformance  advisory  to confirm
+screen-00-start                           10         1          10
+screen-01-67-northgate-station-roosevelt           5         1           5
+
+A11yJourney report: oba-audit/patched/explore/screen-00-start.xml
+Judged against WCAG 2.1 Level AA
+10 conformance findings  |  1 advisory  |  2 need semantic judgment  |  10 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:00 AM: Text contrast is about 3.6:1 (#CAE1F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:16 AM: Text contrast is about 3.6:1 (#CAE1F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        11:52 PM: Text contrast is about 3.6:1 (#CBE2F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:02 AM: Text contrast is about 3.6:1 (#CAE1F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:03 AM: Text contrast is about 3.6:1 (#CBE1F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:18 AM: Text contrast is about 3.6:1 (#CBE2F9 on #006EE5); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [SEMANTIC] MODERATE  WCAG 2.4.6 Headings and Labels, Level AA  (estimate, confirm on device)
+        Show later arrivals: 3 controls are announced as 'Show later arrivals'. If they do different things, screen-reader users cannot tell them apart.
+  [SEMANTIC] MODERATE  WCAG 2.4.6 Headings and Labels, Level AA  (estimate, confirm on device)
+        Add star to route: 3 controls are announced as 'Add star to route'. If they do different things, screen-reader users cannot tell them apart.
+  [KEYBOARD] SERIOUS  WCAG 2.1.1 Keyboard, Level A  (estimate, confirm on device)
+        67 Northgate Station Roosevelt Station 10min Scheduled 12:00: Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.
+  [KEYBOARD] SERIOUS  WCAG 2.1.1 Keyboard, Level A  (estimate, confirm on device)
+        Show later arrivals: Pressing Tab cycles through the screen without ever reaching this control, so keyboard and switch users cannot activate it.
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  Android touch target guidance (48dp)
+        Show later arrivals: Target is 44x66dp, under the 48dp Android minimum.
+
+Notes:
+  - inactive: 3 disabled element(s) that cannot take focus were not checked for a name or target size
+  - target size: 7 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 16 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/patched/explore/screen-00-start.png, large-text oba-audit/patched/explore/screen-00-start.large.xml, keyboard focus oba-audit/patched/explore/screen-00-start.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/patched/explore/screen-01-67-northgate-station-roosevelt.xml
+Judged against WCAG 2.1 Level AA
+5 conformance findings  |  1 advisory  |  2 need semantic judgment  |  5 to confirm by hand
+
+Conformance findings (WCAG 2.1 Level AA):
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:31 AM: Text contrast is about 3.6:1 (#CDE5CA on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [VISUAL] MODERATE  WCAG 1.4.3 Contrast (Minimum), Level AA  (estimate, confirm on device)
+        12:33 AM: Text contrast is about 3.6:1 (#CDE5CA on #108500); this passes only if the text is large-scale (WCAG's 18pt, or 14pt bold).
+  [RESIZE] MODERATE  WCAG 1.4.4 Resize Text, Level AA  (estimate, confirm on device)
+        Northgate Station Roosevelt Station: Text box did not grow at 200% font size, so the text is likely clipped or truncated. Confirm on the device.
+  [SEMANTIC] MODERATE  WCAG 2.4.6 Headings and Labels, Level AA  (estimate, confirm on device)
+        Show earlier arrivals: 3 controls are announced as 'Show earlier arrivals'. If they do different things, screen-reader users cannot tell them apart.
+  [SEMANTIC] MODERATE  WCAG 2.4.6 Headings and Labels, Level AA  (estimate, confirm on device)
+        Add star to route: 3 controls are announced as 'Add star to route'. If they do different things, screen-reader users cannot tell them apart.
+
+Advisory (beyond WCAG 2.1 Level AA, still worth fixing):
+  [STRUCTURAL] MODERATE  WCAG 2.5.5 Target Size (Enhanced), Level AAA, added in WCAG 2.1
+        Show earlier arrivals: Target is 34x66dp; below 44dp it is hard to hit for people with tremors or limited dexterity (Android guidance is 48dp).
+
+Notes:
+  - inactive: 3 disabled element(s) that cannot take focus were not checked for a name or target size
+  - target size: 7 element(s) cut off at the edge of the screen or a scrolling area were not measured; scroll and capture again to check them
+  - keyboard: measured 13 focus stops with Tab, cycle complete
+  - inputs: tree, screenshot oba-audit/patched/explore/screen-01-67-northgate-station-roosevelt.png, large-text oba-audit/patched/explore/screen-01-67-northgate-station-roosevelt.large.xml, keyboard focus oba-audit/patched/explore/screen-01-67-northgate-station-roosevelt.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+

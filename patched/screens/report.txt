@@ -1,0 +1,24 @@
+screen                           conformance  advisory  to confirm
+arrivals                                   0         0           0
+home                                       0         0           0
+
+A11yJourney report: oba-audit/patched/screens/arrivals.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails
+  - inputs: tree, screenshot oba-audit/patched/screens/arrivals.png, large-text oba-audit/patched/screens/arrivals.large.xml, keyboard focus oba-audit/patched/screens/arrivals.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
+A11yJourney report: oba-audit/patched/screens/home.xml
+Judged against WCAG 2.1 Level AA
+0 conformance findings  |  0 advisory  |  0 need semantic judgment  |  0 to confirm by hand
+
+Notes:
+  - keyboard: the screen has a single control, so focus staying on it is expected (for example a one-button dialog); not a trap unless Back or Escape also fails
+  - inputs: tree, screenshot oba-audit/patched/screens/home.png, large-text oba-audit/patched/screens/home.large.xml, keyboard focus oba-audit/patched/screens/home.focus.json
+
+Automated checks find likely problems; they cannot certify conformance.
+
