@@ -23,7 +23,13 @@ run() { # name, command...
 }
 cap() { echo a11yjourney capture --name "$1" --out "$OUT/screens" --keyboard; }
 # First launch asks "Are you in the Puget Sound region?"; answer Yes when it is showing.
-answer_region() { a11yjourney journey "$HERE/journeys/region-yes.txt" --out "$OUT/.region" > /dev/null 2>&1 || true; }
+answer_region() {
+  for _ in 1 2 3; do
+    a11yjourney journey "$HERE/journeys/region-yes.txt" --out "$OUT/.region" > /dev/null 2>&1 && return 0
+    sleep 6
+  done
+  return 0
+}
 # 1. Home (map and chrome)
 answer_region
 run home $(cap home)
@@ -37,7 +43,7 @@ adb shell am force-stop "$PKG"
 adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 10; answer_region
 run settings a11yjourney journey "$HERE/journeys/settings.txt" --out "$OUT/settings"
 adb shell am force-stop "$PKG"
-adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 10; answer_region
+adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 20; answer_region
 run feedback a11yjourney journey "$HERE/journeys/feedback.txt" --out "$OUT/feedback"
 # 5. Bounded exploration from the stop arrivals screen
 adb shell am force-stop "$PKG"
