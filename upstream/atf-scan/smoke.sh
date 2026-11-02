@@ -7,5 +7,26 @@ adb logcat -c
 adb shell am instrument -w -e class io.github.mehtasunny.atfscan.ScanTest -e screen settings \
   io.github.mehtasunny.atfscan.test/androidx.test.runner.AndroidJUnitRunner | tail -5 | sed 's/^/::notice title=instrument::/'
 adb logcat -d -s ATFSCAN:I -v raw | grep '^{' | head -40 | sed 's/^/::notice title=ATFSCAN::/'
-adb logcat -d | grep -iE "atfscan|AndroidRuntime|Exception" | head -20 | sed 's/^/::warning title=logcat::/'
+
+# The same scan on OneBusAway (published build): arrivals and Settings
+PKG=com.joulespersecond.seattlebusbot
+pip install -q -e . >/dev/null 2>&1
+adb emu geo fix -122.3361 47.6080 >/dev/null 2>&1
+adb install -r -g apks/baseline.apk >/dev/null && adb shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
+sleep 25
+printf 'try tap YES\nwait 3\ntry tap Close\nwait 2\n' > /tmp/dismiss.txt
+a11yjourney journey /tmp/dismiss.txt --out /tmp/j >/dev/null 2>&1
+scan() {
+  adb logcat -c
+  adb shell am instrument -w -e class io.github.mehtasunny.atfscan.ScanTest -e screen "$1" \
+    io.github.mehtasunny.atfscan.test/androidx.test.runner.AndroidJUnitRunner >/dev/null 2>&1
+  adb logcat -d -s ATFSCAN:I -v raw | grep '^{' | head -30 | sed "s/^/::notice title=OBA $1::/"
+}
+scan oba-home
+adb shell am start -W -a android.intent.action.VIEW -d "onebusaway://view-stop?stopID=1_75403" $PKG >/dev/null 2>&1
+sleep 15; a11yjourney journey /tmp/dismiss.txt --out /tmp/j >/dev/null 2>&1
+scan oba-arrivals
+printf 'tap Navigate up\nwait 3\ntry tap Close\ntap Open navigation drawer\nwait 3\ntap Settings\nwait 5\n' > /tmp/settings.txt
+a11yjourney journey /tmp/settings.txt --out /tmp/j2 > /tmp/j2.log 2>&1 || tail -1 /tmp/j2.log | sed 's/^/::warning title=settings journey::/'
+scan oba-settings
 exit 0
