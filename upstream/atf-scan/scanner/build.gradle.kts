@@ -27,4 +27,6 @@ dependencies {
     androidTestImplementation(
         "com.google.android.apps.common.testing.accessibility.framework:accessibility-test-framework:4.1.1",
     )
+    // ATF's public API returns Guava collections but does not expose Guava to compilers
+    androidTestImplementation("com.google.guava:guava:33.3.1-android")
 }
