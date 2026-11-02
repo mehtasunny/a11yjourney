@@ -3,7 +3,7 @@ name: oba-audit
 # before and after the proposed accessibility patches in upstream/onebusaway/patches.
 on:
   push:
-    branches: [upstream-oba]
+    branches: [upstream-oba, oba-audit-2026-11]
   workflow_dispatch:
 
 permissions:
