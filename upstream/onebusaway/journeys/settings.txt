@@ -1,7 +1,9 @@
 # Home, navigation drawer, Settings
 launch com.joulespersecond.seattlebusbot
 wait 8
-# keep going if the region question is not shown
+try tap YES
+wait 3
+try tap Close
 tap Open navigation drawer
 wait 3
 capture drawer

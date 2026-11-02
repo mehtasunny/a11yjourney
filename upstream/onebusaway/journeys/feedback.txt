@@ -1,12 +1,16 @@
 # Home, navigation drawer, Send feedback, Contact Customer Service
 launch com.joulespersecond.seattlebusbot
 wait 8
-# keep going if the region question is not shown
+try tap YES
+wait 3
+try tap Close
 tap Open navigation drawer
 wait 3
 tap Send feedback
 wait 5
+try tap YES
 capture report-types keyboard
 tap Contact Customer Service
 wait 8
+try tap YES
 capture customer-service keyboard
