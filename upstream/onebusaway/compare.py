@@ -1,6 +1,9 @@
 """Compare baseline and patched audit folders; write SUMMARY.md and print GitHub annotations."""
-import json, sys
+
+import json
+import sys
 from pathlib import Path
+
 
 def findings(root: Path):
     out = {}
@@ -13,15 +16,31 @@ def findings(root: Path):
         for s in screens:
             name = s.get("target") or rep.parent.name
             for f in s.get("findings", []):
-                key = (rep.parent.name, Path(str(name)).stem.replace(".large", ""), f.get("wcag", ""), f.get("element", "")[:60])
+                key = (
+                    rep.parent.name,
+                    Path(str(name)).stem.replace(".large", ""),
+                    f.get("wcag", ""),
+                    f.get("element", "")[:60],
+                )
                 out[key] = f
     return out
 
+
 base, patched, out = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 b, p = findings(base), findings(patched)
-gone = sorted(set(b) - set(p)); new = sorted(set(p) - set(b)); same = sorted(set(b) & set(p))
-lines = ["# OneBusAway audit summary", "", f"Baseline findings: {len(b)}", f"Patched findings: {len(p)}",
-         f"Resolved by the patches: {len(gone)}", f"New in patched build: {len(new)}", f"Unchanged: {len(same)}", ""]
+gone = sorted(set(b) - set(p))
+new = sorted(set(p) - set(b))
+same = sorted(set(b) & set(p))
+lines = [
+    "# OneBusAway audit summary",
+    "",
+    f"Baseline findings: {len(b)}",
+    f"Patched findings: {len(p)}",
+    f"Resolved by the patches: {len(gone)}",
+    f"New in patched build: {len(new)}",
+    f"Unchanged: {len(same)}",
+    "",
+]
 for title, keys, src in (("Resolved", gone, b), ("New", new, p), ("Unchanged", same, p)):
     lines += [f"## {title}", ""]
     for k in keys:
@@ -29,7 +48,8 @@ for title, keys, src in (("Resolved", gone, b), ("New", new, p), ("Unchanged", s
         lines.append(f"- [{k[0]}/{k[1]}] {k[2]} {k[3]}: {f.get('message', '')[:200]}")
     lines.append("")
 out.write_text("\n".join(lines))
-print(f"::notice title=OBA audit::baseline {len(b)}, patched {len(p)}, resolved {len(gone)}, new {len(new)}")
+counts = f"baseline {len(b)}, patched {len(p)}, resolved {len(gone)}, new {len(new)}"
+print(f"::notice title=OBA audit::{counts}")
 for k in same + new:
     f = p[k]
-    print(f"::warning title=OBA {k[0]}/{k[1]} {k[2]}::{k[3]} | {f.get('message','')[:300]}")
+    print(f"::warning title=OBA {k[0]}/{k[1]} {k[2]}::{k[3]} | {f.get('message', '')[:300]}")
