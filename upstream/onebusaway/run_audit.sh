@@ -30,21 +30,35 @@ answer_region() {
   done
   return 0
 }
+# Google's Accessibility Test Framework on the screen that is showing, as a second opinion.
+# Needs the scanner APKs from upstream/atf-scan installed (ci_audit.sh does this).
+atf_scan() {
+  adb logcat -c
+  adb shell am instrument -w -e class io.github.mehtasunny.atfscan.ScanTest -e screen "$1" \
+    io.github.mehtasunny.atfscan.test/androidx.test.runner.AndroidJUnitRunner > "$OUT/atf-$1.log" 2>&1
+  mkdir -p "$OUT/atf"
+  adb logcat -d -s ATFSCAN:I -v raw | grep '^{' > "$OUT/atf/$1.jsonl" || true
+  log "- atf $1: $(grep -c '"check"' "$OUT/atf/$1.jsonl" 2>/dev/null || echo 0) results"
+}
 # 1. Home (map and chrome)
 answer_region
 run home $(cap home)
+atf_scan home
 # 2. Stop arrivals through the app's own deep link
 adb shell am start -W -a android.intent.action.VIEW -d "onebusaway://view-stop?stopID=1_75403" "$PKG" >/dev/null 2>&1
 sleep 15
 answer_region
 run arrivals $(cap arrivals)
+atf_scan arrivals
 # 3 and 4. Scripted journeys
 adb shell am force-stop "$PKG"
 adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 10; answer_region
 run settings a11yjourney journey "$HERE/journeys/settings.txt" --out "$OUT/settings"
+atf_scan settings
 adb shell am force-stop "$PKG"
 adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; sleep 20; answer_region
 run feedback a11yjourney journey "$HERE/journeys/feedback.txt" --out "$OUT/feedback"
+atf_scan customer-service
 # 5. Bounded exploration from the stop arrivals screen
 adb shell am force-stop "$PKG"
 adb shell am start -W -a android.intent.action.VIEW -d "onebusaway://view-stop?stopID=1_75403" "$PKG" >/dev/null 2>&1
