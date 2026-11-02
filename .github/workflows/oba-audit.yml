@@ -92,17 +92,24 @@ jobs:
           java-version: 21
           distribution: temurin
       - uses: gradle/actions/setup-gradle@v6.3.0
-      - name: Lint
+      - name: Lint, published and patched
         working-directory: oba
         run: |
+          # OneBusAway's own nightly lint can fail on upstream code, so only lint errors that the
+          # patches add count against them.
+          summarize() { f=$(find onebusaway-android/build/reports -name 'lint-results*.txt' | head -1); [ -n "$f" ] && grep -E ": (Error|Warning): " "$f" | sed -E 's/:[0-9]+: /: /' | sort -u; }
+          ./gradlew :onebusaway-android:lintObaGoogleDebug -PwarningsAsErrors=true > ../lint-base.log 2>&1 || true
+          summarize > ../lint-base.txt || true
           for p in ../tool/upstream/onebusaway/patches/OBA-S*.diff; do git apply "$p"; done
-          if ./gradlew :onebusaway-android:lintObaGoogleDebug -PwarningsAsErrors=true > ../lint.log 2>&1; then
-            echo "::notice title=lint::ok"
-          else
-            f=$(find onebusaway-android/build/reports -name 'lint-results*.txt' | head -1)
-            { [ -n "$f" ] && grep -E "Error|Warning" "$f" || tail -30 ../lint.log; } | head -40 | while read -r l; do echo "::error title=lint::$l"; done
+          ./gradlew :onebusaway-android:lintObaGoogleDebug -PwarningsAsErrors=true > ../lint.log 2>&1 || true
+          summarize > ../lint-patched.txt || true
+          comm -23 ../lint-patched.txt ../lint-base.txt > ../lint-new.txt
+          while read -r l; do echo "::notice title=lint (already on OneBusAway main)::$l"; done < ../lint-base.txt
+          if [ -s ../lint-new.txt ]; then
+            while read -r l; do echo "::error title=lint (added by patches)::$l"; done < ../lint-new.txt
             exit 1
           fi
+          echo "::notice title=lint::no new lint findings from the patches"
 
   audit:
     name: Audit on emulator (baseline vs patched)
