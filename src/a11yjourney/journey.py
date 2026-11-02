@@ -153,6 +153,11 @@ def run_journey(session: Session, steps: list[list[str]]) -> list[str]:
     """Run each step in order; return the paths of the trees it captured."""
     captured: list[str] = []
     for n, step in enumerate(steps, 1):
+        optional = step[0].lower() == "try" and len(step) > 1
+        if optional:
+            # `try STEP`: run the step if it can be done, otherwise carry on (for
+            # prompts that only sometimes appear, such as a first-launch question)
+            step = step[1:]
         op, args = step[0].lower(), step[1:]
         try:
             if op == "launch":
@@ -178,6 +183,9 @@ def run_journey(session: Session, steps: list[list[str]]) -> list[str]:
         except (IndexError, ValueError) as exc:
             raise JourneyError(f"step {n} ({' '.join(step)}): missing or bad argument") from exc
         except (JourneyError, CaptureError) as exc:
+            if optional:
+                session.log.append({"step": n, "do": " ".join(step), "skipped": str(exc)})
+                continue
             raise JourneyError(f"step {n} ({' '.join(step)}): {exc}") from exc
         session.log.append({"step": n, "do": " ".join(step)})
     (session.out_dir / "journey.json").write_text(

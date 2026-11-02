@@ -12,6 +12,7 @@ Android computes separately; that is still approximated from the tree (see
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from .findings import KEYBOARD, Finding
@@ -27,6 +28,11 @@ def node_key(n: Node) -> str:
     if n.announced:
         return f"{n.cls}:{n.announced[:60]}"
     return f"{n.cls}@{n.bounds}"
+
+
+def _match_key(key: str) -> str:
+    """The key with numbers blanked, so live text ("48min" then "40min") still matches."""
+    return re.sub(r"\d+", "#", key)
 
 
 def focused_node(screen: Screen) -> Node | None:
@@ -50,13 +56,14 @@ def analyze(screen: Screen, trace: dict[str, Any]) -> tuple[list[Finding], list[
 
     order: list[str] = []
     for s in steps:
-        if s["key"] not in order:
-            order.append(s["key"])
+        k = _match_key(s["key"])
+        if k not in order:
+            order.append(k)
     wrapped = bool(trace.get("wrapped"))
     stuck = bool(trace.get("stuck"))
     out: list[Finding] = []
 
-    by_key = {node_key(n): n for n in targets}
+    by_key = {_match_key(node_key(n)): n for n in targets}
     if wrapped:
         for key, n in by_key.items():
             if key not in order:
@@ -66,6 +73,17 @@ def analyze(screen: Screen, trace: dict[str, Any]) -> tuple[list[Finding], list[
                     "control, so keyboard and switch users cannot activate it.", review=True))
     elif stuck:
         last = steps[-1]
+        last_key = _match_key(last["key"])
+        if last_key not in by_key:
+            notes.append("keyboard: focus stayed on an element that is not in this capture "
+                         "(a dialog or popup probably opened during the walk); capture again "
+                         "to judge 2.1.2")
+            return out, notes
+        if len(by_key) == 1:
+            notes.append("keyboard: the screen has a single control, so focus staying on it "
+                         "is expected (for example a one-button dialog); not a trap unless "
+                         "Back or Escape also fails")
+            return out, notes
         out.append(Finding(
             KEYBOARD, "2.1.2", Severity.SERIOUS, last.get("label") or last["key"],
             "Keyboard focus stays on this element when Tab is pressed again, so keyboard "
@@ -74,8 +92,8 @@ def analyze(screen: Screen, trace: dict[str, Any]) -> tuple[list[Finding], list[
         notes.append(f"keyboard: stopped after {len(steps)} Tab presses before focus "
                      "cycled back to the start; reachability not judged")
 
-    visual = [n for n in screen.visual_order() if node_key(n) in by_key]
-    rank = {node_key(n): i for i, n in enumerate(visual)}
+    visual = [n for n in screen.visual_order() if _match_key(node_key(n)) in by_key]
+    rank = {_match_key(node_key(n)): i for i, n in enumerate(visual)}
     measured = [k for k in order if k in rank]
     if wrapped and measured:
         # a full cycle has no natural start (focus may already have been somewhere when

@@ -2,6 +2,29 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/), versioning SemVer.
 
+## [0.4.0] - 2026-11-02
+### Added
+- Journey scripts accept `try STEP`, which runs the step when it can and carries on
+  when it can't, for prompts that only sometimes appear (a first-launch question,
+  a "What's new" dialog).
+
+### Fixed
+Three kinds of false positive found while auditing OneBusAway for Android, each with
+a regression test built from the real captures (`tests/fixtures/oba`):
+- A one-button dialog was reported as a keyboard trap (2.1.2). Focus staying on the
+  only control of a screen is now noted, not reported.
+- A keyboard trap was reported when a dialog opened during the Tab walk and focus
+  sat on a control that is not in the captured tree. That case is now noted, with
+  advice to capture again.
+- Live text that changed between the capture and the Tab walk ("48min" then
+  "40min") made controls look unreachable (2.1.1). Focus stops are now matched with
+  numbers ignored.
+- Disabled elements that cannot take focus were reported as unnamed (4.1.2) and as
+  small targets. They are skipped and counted in the notes.
+- `CITATION.cff` had its `cff-version` overwritten with the package version in
+  0.3.1, which made the file invalid and is the likely reason Zenodo did not archive
+  the 0.3.x releases. It is back to `1.2.0`.
+
 ## [0.3.1] - 2026-09-29
 ### Fixed
 - `explore` could follow a permission prompt into system settings and tap toggles

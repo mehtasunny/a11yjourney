@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "key": "Button:Close",
+      "label": "Close",
+      "cls": "Button",
+      "bounds": [
+        234,
+        474,
+        296,
+        522
+      ]
+    },
+    {
+      "key": "Button:Close",
+      "label": "Close",
+      "cls": "Button",
+      "bounds": [
+        234,
+        474,
+        296,
+        522
+      ]
+    },
+    {
+      "key": "Button:Close",
+      "label": "Close",
+      "cls": "Button",
+      "bounds": [
+        234,
+        474,
+        296,
+        522
+      ]
+    },
+    {
+      "key": "Button:Close",
+      "label": "Close",
+      "cls": "Button",
+      "bounds": [
+        234,
+        474,
+        296,
+        522
+      ]
+    }
+  ],
+  "wrapped": false,
+  "stuck": true,
+  "max_steps": 40
+}

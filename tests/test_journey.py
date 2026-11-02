@@ -115,6 +115,21 @@ def test_journey_reports_the_failing_step(tmp_path):
                     parse_steps('capture home nolarge\ntap "Nope"'))
 
 
+def test_try_step_is_skipped_when_it_cannot_run(tmp_path):
+    dev = FakeDevice()
+    captured = run_journey(_session(tmp_path, dev),
+                           parse_steps('try tap "Not now"\ncapture home nolarge'))
+    assert [c.rsplit("/", 1)[-1] for c in captured] == ["home.xml"]
+    log = json.loads((tmp_path / "journey.json").read_text())["steps"]
+    assert log[0]["do"] == "tap Not now" and "skipped" in log[0]
+
+
+def test_try_step_runs_when_it_can(tmp_path):
+    dev = FakeDevice()
+    run_journey(_session(tmp_path, dev), parse_steps('try tap "Clinic check-in"'))
+    assert dev.stack != ["home"]
+
+
 def test_explore_captures_new_screens_and_skips_risky_controls(tmp_path):
     dev = FakeDevice()
     result = explore(_session(tmp_path, dev), max_screens=5)

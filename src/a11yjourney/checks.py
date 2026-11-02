@@ -77,8 +77,16 @@ def _target_size(n: Node, targets: list[Node], density: float) -> Finding | None
 
 def _structural(screen: Screen, notes: list[str]) -> list[Finding]:
     out: list[Finding] = []
-    targets = [n for n in screen.nodes if n.actionable and n.visible]
+    # A disabled element that cannot take focus is not offered to TalkBack or the
+    # keyboard (OneBusAway's inactive pager arrows were reported here before 0.4).
+    inert = [n for n in screen.nodes if n.actionable and not n.enabled and not n.focusable]
+    if inert:
+        notes.append(f"inactive: {len(inert)} disabled element(s) that cannot take focus "
+                     "were not checked for a name or target size")
+    targets = [n for n in screen.nodes if n.actionable and n.visible and n not in inert]
     for n in screen.nodes:
+        if n in inert:
+            continue
         if n.actionable and not n.announced and not n.editable:
             out.append(Finding(STRUCTURAL, "4.1.2", Severity.SERIOUS, n.ident,
                                f"{n.cls} is actionable but has no accessible name."))

@@ -20,7 +20,7 @@ It is a command-line tool with no required dependencies, and it writes text,
 JSON, or SARIF, so results can show up on pull requests through GitHub code
 scanning.
 
-> **Status: v0.3.0, early.** The checks below work and are covered by tests,
+> **Status: v0.4.0, early.** The checks below work and are covered by tests,
 > a small synthetic benchmark, and real Jetpack Compose captures. A study on
 > open-source apps is set up but not yet reviewed, so there are no accuracy
 > numbers for real apps yet (see [field/README.md](field/README.md)). Until
@@ -80,6 +80,7 @@ A journey script is one step per line:
 
 ```
 launch com.example.transit/.MainActivity
+try tap "Not now"          # optional: skipped if the prompt is not showing
 capture home keyboard
 tap "Plan trip"
 capture planner
@@ -216,6 +217,14 @@ F-Droid in transit, health, government, and scheduling, run on an emulator by
 a device, adding any problem the tool missed; `a11yjourney score` then reports
 precision and recall per check. Results will be published once reviewed. Until
 then this project makes no accuracy claim about real apps.
+
+**OneBusAway.** The `upstream-oba` branch audits
+[OneBusAway for Android](https://github.com/OneBusAway/onebusaway-android), an open-source
+transit app, before and after a set of proposed accessibility fixes. On the emulator the tool
+confirmed two of the problems found by reading the code (a 3.6:1 clock time on the arrival
+pills and an unnamed switch in Settings) and found one the code review had missed (the stop
+name squeezed into a narrow column of the title bar). It also produced four false positives;
+0.4.0 fixes them, with the real captures kept as regression tests.
 
 ## How it works
 
