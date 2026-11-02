@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 env:
-  OBA_SHA: 476cf183c2647a8a7d725da021edf92731e8279e
+  OBA_SHA: 27c5818fcabf1fcfb021124eb27094f8a2232a72
 
 jobs:
   build:

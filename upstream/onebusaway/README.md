@@ -4,7 +4,7 @@ This folder holds an accessibility audit of [OneBusAway for Android](https://git
 an open-source real-time transit app, and proposed fixes for the problems found.
 
 - `patches/`: proposed fixes, one file per finding (OBA-S1 to OBA-S9), written against OneBusAway
-  commit `476cf18`. They are proposals only until the OneBusAway maintainers review them.
+  commit `476cf18` and checked again against `27c5818` (November 1, 2026), where all nine still apply. They are proposals only until the OneBusAway maintainers review them.
 - `journeys/`, `run_audit.sh`, `ci_audit.sh`, `instrument.sh`, `compare.py`: the audit harness.
   The `oba-audit` workflow builds OneBusAway twice (as published, and with the patches), checks the
   patched build the way OneBusAway's own CI does (Spotless, Kotlin warnings as errors, unit tests,
