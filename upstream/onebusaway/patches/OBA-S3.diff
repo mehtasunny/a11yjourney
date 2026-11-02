@@ -1,0 +1,123 @@
+diff --git a/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/settings/SwitchPreferenceItemSemanticsTest.kt b/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/settings/SwitchPreferenceItemSemanticsTest.kt
+new file mode 100644
+index 0000000..38c2f3b
+--- /dev/null
++++ b/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/settings/SwitchPreferenceItemSemanticsTest.kt
+@@ -0,0 +1,70 @@
++/*
++ * Copyright (C) 2026 Open Transit Software Foundation
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++package org.onebusaway.android.ui.settings
++
++import androidx.compose.runtime.getValue
++import androidx.compose.runtime.mutableStateOf
++import androidx.compose.runtime.setValue
++import androidx.compose.ui.semantics.Role
++import androidx.compose.ui.semantics.SemanticsProperties
++import androidx.compose.ui.test.SemanticsMatcher
++import androidx.compose.ui.test.assertCountEquals
++import androidx.compose.ui.test.assertIsOff
++import androidx.compose.ui.test.assertIsOn
++import androidx.compose.ui.test.hasText
++import androidx.compose.ui.test.isToggleable
++import androidx.compose.ui.test.performClick
++import org.junit.Rule
++import org.junit.Test
++import org.onebusaway.android.ui.compose.createUnconfinedComposeRule
++import org.onebusaway.android.ui.settings.components.SwitchPreferenceItem
++
++/**
++ * A settings toggle reaches accessibility services as one switch named by its title, rather than as a
++ * stateless clickable row followed by a second, unlabelled switch.
++ */
++class SwitchPreferenceItemSemanticsTest {
++
++    // See createUnconfinedComposeRule for why Unconfined composition is used here (issue #1792).
++    @get:Rule
++    val composeRule = createUnconfinedComposeRule()
++
++    @Test
++    fun theRowIsOneSwitchNamedByItsTitle() {
++        var checked by mutableStateOf(false)
++        composeRule.setContent {
++            SwitchPreferenceItem(
++                title = TITLE,
++                summary = SUMMARY,
++                checked = checked,
++                onCheckedChange = { checked = it }
++            )
++        }
++
++        composeRule.onAllNodes(isToggleable()).assertCountEquals(1)
++        val switch = composeRule.onNode(isToggleable() and hasText(TITLE) and hasRole(Role.Switch))
++        switch.assertIsOff()
++        switch.performClick()
++        switch.assertIsOn()
++    }
++
++    private fun hasRole(role: Role) = SemanticsMatcher.expectValue(SemanticsProperties.Role, role)
++
++    private companion object {
++        const val TITLE = "Show weather"
++        const val SUMMARY = "Display the weather view on the map"
++    }
++}
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/settings/components/PreferenceItems.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/settings/components/PreferenceItems.kt
+index ac78c63..f47a37b 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/settings/components/PreferenceItems.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/settings/components/PreferenceItems.kt
+@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.padding
+ import androidx.compose.foundation.layout.width
+ import androidx.compose.foundation.selection.selectable
+ import androidx.compose.foundation.selection.selectableGroup
++import androidx.compose.foundation.selection.toggleable
+ import androidx.compose.foundation.text.KeyboardOptions
+ import androidx.compose.material3.AlertDialog
+ import androidx.compose.material3.HorizontalDivider
+@@ -123,7 +124,12 @@ private fun PreferenceRow(
+     }
+ }
+ 
+-/** A toggle row (replaces `CheckBoxPreference`/`SwitchPreference`); the whole row flips the switch. */
++/**
++ * A toggle row (replaces `CheckBoxPreference`/`SwitchPreference`); the whole row flips the switch.
++ * The row owns the toggle (as [org.onebusaway.android.ui.compose.components.SwitchRow] does) and the
++ * [Switch] takes a null callback, so the title, summary and on/off state read as one switch to
++ * accessibility services rather than as a stateless row followed by an unlabelled switch.
++ */
+ @Composable
+ fun SwitchPreferenceItem(
+     title: String,
+@@ -137,12 +143,17 @@ fun SwitchPreferenceItem(
+         title = title,
+         summary = summary,
+         enabled = enabled,
+-        onClick = { onCheckedChange(!checked) },
+-        modifier = modifier,
++        onClick = null,
++        modifier = modifier.toggleable(
++            value = checked,
++            enabled = enabled,
++            role = Role.Switch,
++            onValueChange = onCheckedChange
++        ),
+         content = {
+             Switch(
+                 checked = checked,
+-                onCheckedChange = { onCheckedChange(it) },
++                onCheckedChange = null,
+                 enabled = enabled
+             )
+         }

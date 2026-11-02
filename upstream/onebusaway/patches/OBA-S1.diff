@@ -1,0 +1,147 @@
+diff --git a/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/arrivals/EtaPillStatusDescriptionTest.kt b/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/arrivals/EtaPillStatusDescriptionTest.kt
+new file mode 100644
+index 0000000..cc9616f
+--- /dev/null
++++ b/onebusaway-android/src/androidTest/java/org/onebusaway/android/ui/arrivals/EtaPillStatusDescriptionTest.kt
+@@ -0,0 +1,75 @@
++/*
++ * Copyright (C) 2026 Open Transit Software Foundation
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++package org.onebusaway.android.ui.arrivals
++
++import android.content.Context
++import androidx.compose.ui.test.hasStateDescription
++import androidx.test.platform.app.InstrumentationRegistry
++import org.junit.Rule
++import org.junit.Test
++import org.onebusaway.android.R
++import org.onebusaway.android.models.Status
++import org.onebusaway.android.ui.arrivals.components.RouteArrivalRow
++import org.onebusaway.android.ui.arrivals.components.previewArrival
++import org.onebusaway.android.ui.arrivals.components.previewRowCallbacks
++import org.onebusaway.android.ui.compose.createUnconfinedComposeRule
++
++/**
++ * A strip pill's status reaches accessibility services as words, not only as the pill's fill colour,
++ * live glyph and strikethrough. Asserted through the pill's state description, so the test states the
++ * meaning a screen reader announces rather than sampling the colour.
++ */
++class EtaPillStatusDescriptionTest {
++
++    // See createUnconfinedComposeRule for why Unconfined composition is used here (issue #1792).
++    @get:Rule
++    val composeRule = createUnconfinedComposeRule()
++
++    private val context: Context
++        get() = InstrumentationRegistry.getInstrumentation().targetContext
++
++    @Test
++    fun aCanceledTripsPillSaysItIsCanceled() {
++        setRow(previewArrival("40", "Northgate", etaMinutes = 8, status = Status.CANCELED, context = context))
++
++        composeRule.onNode(hasStateDescription(context.getString(R.string.stop_info_canceled))).assertExists()
++    }
++
++    @Test
++    fun aScheduleOnlyTripsPillSaysItIsScheduled() {
++        setRow(previewArrival("40", "Northgate", etaMinutes = 8, predicted = false, context = context))
++
++        composeRule.onNode(hasStateDescription(context.getString(R.string.stop_info_scheduled))).assertExists()
++    }
++
++    @Test
++    fun anOnTimeLiveTripsPillSaysItIsOnTime() {
++        setRow(previewArrival("40", "Northgate", etaMinutes = 8, context = context))
++
++        composeRule.onNode(hasStateDescription(context.getString(R.string.stop_info_ontime))).assertExists()
++    }
++
++    private fun setRow(arrival: ArrivalInfo) {
++        composeRule.setContent {
++            RouteArrivalRow(
++                group = RouteRowGroup(listOf(arrival)),
++                actionsFor = { null },
++                isFavorite = false,
++                callbacks = previewRowCallbacks()
++            )
++        }
++    }
++}
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
+index bb1a667..b6075e4 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/arrivals/components/EtaStrip.kt
+@@ -61,6 +61,7 @@ import androidx.compose.ui.res.colorResource
+ import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.semantics.selected
+ import androidx.compose.ui.semantics.semantics
++import androidx.compose.ui.semantics.stateDescription
+ import androidx.compose.ui.text.SpanStyle
+ import androidx.compose.ui.text.font.FontWeight
+ import androidx.compose.ui.tooling.preview.Preview
+@@ -369,6 +370,9 @@ internal fun EtaPillWithMenu(
+             standalone = standalone,
+             routeBadge = routeBadge,
+             outline = outline,
++            // A standalone pill's row already shows (and reads) these words in its own StatusPill, so
++            // only a strip pill, where the fill colour is all there is, carries them.
++            statusDescription = trip.statusText.takeUnless { standalone },
+             onClick = { callbacks.onEtaClick(trip) },
+             onLongClick = { expanded = true }
+         )
+@@ -444,6 +448,11 @@ private data class PillSizing(val number: TextUnit, val now: TextUnit, val extra
+  *
+  * Every pill renders at the same size regardless of [eta] — a recent-past (negative-ETA) trip shows
+  * its negative countdown in place at the same size as the upcoming ones, not a smaller pill.
++ *
++ * [statusDescription] is the arrival's status in words ("On time", "3 min late", "Scheduled",
++ * "CANCELED"), published as the pill's state description. On the pill itself that status is carried
++ * only by the fill colour, the live glyph and the strikethrough, none of which a screen reader can
++ * hear. Null (the Home legend's illustrative pills) adds nothing.
+  */
+ @OptIn(ExperimentalFoundationApi::class)
+ @Composable
+@@ -466,6 +475,7 @@ internal fun EtaPill(
+     // The row is drilled into this pill's trip (#2205): its card's selection border, drawn on the pill
+     // too. Null is the ordinary unfocused pill.
+     outline: BorderStroke? = null,
++    statusDescription: String? = null,
+     onClick: (() -> Unit)? = null,
+     onLongClick: (() -> Unit)? = null
+ ) {
+@@ -494,6 +504,11 @@ internal fun EtaPill(
+     } else {
+         Modifier
+     }
++    // Remembered for the same reason FOCUSED_PILL_SEMANTICS is hoisted: the pill recomposes every
++    // second off the strip's live clock, but the status only changes when a poll brings a new one.
++    val statusSemantics = remember(statusDescription) {
++        if (statusDescription.isNullOrEmpty()) Modifier else Modifier.semantics { stateDescription = statusDescription }
++    }
+     // Numbers stay bold-sized, only the unit letters shrink (see formatEtaParts for the part shape;
+     // etaAnnotatedString for why they render as a single AnnotatedString).
+     val etaParts = if (eta != 0L) DisplayFormat.formatEtaParts(LocalContext.current, eta) else null
+@@ -501,7 +516,10 @@ internal fun EtaPill(
+     // below are the actual on-screen spacing rather than a guess fighting Android's hidden font padding.
+     val baseTextStyle = LocalTextStyle.current
+     Surface(
+-        modifier = modifier.then(if (outline == null) Modifier else FOCUSED_PILL_SEMANTICS).then(interaction),
++        modifier = modifier
++            .then(if (outline == null) Modifier else FOCUSED_PILL_SEMANTICS)
++            .then(statusSemantics)
++            .then(interaction),
+         shape = shape,
+         color = color,
+         border = outline

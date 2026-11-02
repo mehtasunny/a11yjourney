@@ -1,0 +1,65 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/customerservice/CustomerServiceScreen.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/customerservice/CustomerServiceScreen.kt
+index b57d9b7..c3a2f0f 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/customerservice/CustomerServiceScreen.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/customerservice/CustomerServiceScreen.kt
+@@ -100,25 +100,38 @@ private fun AgencyContactRow(
+                 modifier = Modifier.weight(1f)
+             )
+             if (agency.email != null) {
+-                ContactIconButton(R.drawable.ic_customer_service_email, onClick = { onEmail(agency) })
++                ContactIconButton(
++                    iconRes = R.drawable.ic_customer_service_email,
++                    contentDescription = stringResource(R.string.rt_customer_service_email, agency.name),
++                    onClick = { onEmail(agency) }
++                )
+             }
+             if (agency.url != null) {
+-                ContactIconButton(R.drawable.ic_customer_service_web, onClick = { onWeb(agency) })
++                ContactIconButton(
++                    iconRes = R.drawable.ic_customer_service_web,
++                    contentDescription = stringResource(R.string.rt_customer_service_web, agency.name),
++                    onClick = { onWeb(agency) }
++                )
+             }
+             if (agency.phone != null) {
+-                ContactIconButton(R.drawable.ic_customer_service_phone, onClick = { onPhone(agency) })
++                ContactIconButton(
++                    iconRes = R.drawable.ic_customer_service_phone,
++                    contentDescription = stringResource(R.string.rt_customer_service_phone, agency.name),
++                    onClick = { onPhone(agency) }
++                )
+             }
+         }
+         HorizontalDivider()
+     }
+ }
+ 
++/** An icon-only contact action; [contentDescription] names it, since the glyph alone is all it shows. */
+ @Composable
+-private fun ContactIconButton(iconRes: Int, onClick: () -> Unit) {
++private fun ContactIconButton(iconRes: Int, contentDescription: String, onClick: () -> Unit) {
+     IconButton(onClick = onClick) {
+         Icon(
+             painter = painterResource(iconRes),
+-            contentDescription = null,
++            contentDescription = contentDescription,
+             tint = MaterialTheme.colorScheme.primary
+         )
+     }
+diff --git a/onebusaway-android/src/main/res/values/strings.xml b/onebusaway-android/src/main/res/values/strings.xml
+index 7e54818..829d2f7 100644
+--- a/onebusaway-android/src/main/res/values/strings.xml
++++ b/onebusaway-android/src/main/res/values/strings.xml
+@@ -829,6 +829,12 @@
+     <!-- Remove rt_infrastructure_problem and use rt_stop_problem -->
+     <string name="rt_infrastructure_problem">Report a Stop Problem</string>
+     <string name="rt_customer_service">Contact Customer Service</string>
++    <!-- Content descriptions for the icon-only email / website / phone buttons on each agency's row of
++         the Contact Customer Service screen. %1$s is the agency name, so each button is distinct when
++         several agencies are listed. -->
++    <string name="rt_customer_service_email">Email %1$s</string>
++    <string name="rt_customer_service_web">%1$s website</string>
++    <string name="rt_customer_service_phone">Call %1$s</string>
+     <string name="rt_stop_problem">Report a Stop Problem</string>
+     <string name="rt_arrival_problem">Report an Arrival Time Problem</string>
+     <string name="rt_infrastructure_problem_title">Report a Problem</string>

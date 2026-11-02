@@ -1,0 +1,120 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/home/map/MapFeature.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/home/map/MapFeature.kt
+index d50b8cd..26aa95c 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/home/map/MapFeature.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/home/map/MapFeature.kt
+@@ -39,6 +39,7 @@ import androidx.compose.foundation.layout.WindowInsets
+ import androidx.compose.foundation.layout.fillMaxSize
+ import androidx.compose.foundation.layout.fillMaxWidth
+ import androidx.compose.foundation.layout.height
++import androidx.compose.foundation.layout.heightIn
+ import androidx.compose.foundation.layout.ime
+ import androidx.compose.foundation.layout.navigationBars
+ import androidx.compose.foundation.layout.padding
+@@ -46,7 +47,6 @@ import androidx.compose.foundation.layout.size
+ import androidx.compose.foundation.layout.statusBars
+ import androidx.compose.foundation.shape.RoundedCornerShape
+ import androidx.compose.material3.AlertDialog
+-import androidx.compose.material3.Checkbox
+ import androidx.compose.material3.Icon
+ import androidx.compose.material3.MaterialTheme
+ import androidx.compose.material3.Text
+@@ -105,6 +105,7 @@ import org.onebusaway.android.map.rental.RentalLayer
+ import org.onebusaway.android.map.rental.RentalPlace
+ import org.onebusaway.android.map.settledCamera
+ import org.onebusaway.android.models.ObaTripStatus
++import org.onebusaway.android.ui.compose.components.CheckboxRow
+ import org.onebusaway.android.ui.home.CurrentFocus
+ import org.onebusaway.android.ui.home.FocusedStop
+ import org.onebusaway.android.ui.home.HomeViewModel
+@@ -762,19 +763,20 @@ private fun NoLocationDialog(onEnable: () -> Unit, onDismiss: () -> Unit) {
+         text = {
+             androidx.compose.foundation.layout.Column {
+                 Text(stringResource(R.string.main_nolocation, stringResource(R.string.app_name)))
+-                Row(
+-                    modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+-                    verticalAlignment = Alignment.CenterVertically
+-                ) {
+-                    Checkbox(
+-                        checked = neverAskAgain,
+-                        onCheckedChange = {
+-                            neverAskAgain = it
+-                            PreferenceUtils.saveBoolean(neverShowDialogKey, it)
+-                        }
+-                    )
+-                    Text(stringResource(R.string.main_never_ask_again))
+-                }
++                // The label is part of the toggle, so a screen reader names the checkbox and the
++                // text is a tap target too.
++                CheckboxRow(
++                    label = stringResource(R.string.main_never_ask_again),
++                    checked = neverAskAgain,
++                    onCheckedChange = {
++                        neverAskAgain = it
++                        PreferenceUtils.saveBoolean(neverShowDialogKey, it)
++                    },
++                    modifier = Modifier
++                        .fillMaxWidth()
++                        .padding(top = 16.dp)
++                        .heightIn(min = 48.dp)
++                )
+             }
+         },
+         confirmButton = {
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/problem/ProblemReportScreen.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/problem/ProblemReportScreen.kt
+index 1ad1260..a07c724 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/problem/ProblemReportScreen.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/report/problem/ProblemReportScreen.kt
+@@ -15,13 +15,11 @@
+  */
+ package org.onebusaway.android.ui.report.problem
+ 
+-import androidx.compose.foundation.clickable
+ import androidx.compose.foundation.layout.Arrangement
+ import androidx.compose.foundation.layout.Column
+-import androidx.compose.foundation.layout.Row
+ import androidx.compose.foundation.layout.fillMaxWidth
++import androidx.compose.foundation.layout.heightIn
+ import androidx.compose.foundation.layout.padding
+-import androidx.compose.material3.Checkbox
+ import androidx.compose.material3.DropdownMenuItem
+ import androidx.compose.material3.ExperimentalMaterial3Api
+ import androidx.compose.material3.ExposedDropdownMenuAnchorType
+@@ -35,13 +33,13 @@ import androidx.compose.runtime.getValue
+ import androidx.compose.runtime.mutableStateOf
+ import androidx.compose.runtime.remember
+ import androidx.compose.runtime.setValue
+-import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.tooling.preview.Preview
+ import androidx.compose.ui.unit.dp
+ import androidx.lifecycle.compose.collectAsStateWithLifecycle
+ import org.onebusaway.android.R
++import org.onebusaway.android.ui.compose.components.CheckboxRow
+ import org.onebusaway.android.ui.compose.theme.ObaTheme
+ import org.onebusaway.android.ui.report.ReportFormSurface
+ 
+@@ -91,15 +89,16 @@ fun ProblemReportForm(
+             )
+ 
+             if (state.kind == ProblemKind.TRIP) {
+-                Row(
++                // One toggle for the box and its label, so a screen reader announces "On the bus,
++                // checkbox" rather than an unlabelled checkbox beside a separately clickable line.
++                CheckboxRow(
++                    label = stringResource(R.string.report_problem_onvehicle_bus),
++                    checked = state.onVehicle,
++                    onCheckedChange = onVehicleToggle,
+                     modifier = Modifier
+                         .fillMaxWidth()
+-                        .clickable { onVehicleToggle(!state.onVehicle) },
+-                    verticalAlignment = Alignment.CenterVertically
+-                ) {
+-                    Checkbox(checked = state.onVehicle, onCheckedChange = onVehicleToggle)
+-                    Text(stringResource(R.string.report_problem_onvehicle_bus))
+-                }
++                        .heightIn(min = 48.dp)
++                )
+ 
+                 OutlinedTextField(
+                     value = state.vehicleNumber,

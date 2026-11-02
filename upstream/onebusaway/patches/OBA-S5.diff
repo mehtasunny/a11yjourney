@@ -1,0 +1,52 @@
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/mylists/MyTabsScreen.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/mylists/MyTabsScreen.kt
+index 4e31152..86cae9c 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/mylists/MyTabsScreen.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/mylists/MyTabsScreen.kt
+@@ -139,7 +139,7 @@ private fun ClearOverflow(clear: TabAction) {
+     var expanded by remember { mutableStateOf(false) }
+     Box {
+         IconButton(onClick = { expanded = true }) {
+-            Icon(AppIcons.MoreVert, contentDescription = null)
++            Icon(AppIcons.MoreVert, contentDescription = stringResource(R.string.more_options))
+         }
+         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+             DropdownMenuItem(
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/nightlight/NightLightDestination.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/nightlight/NightLightDestination.kt
+index f79ed9a..577b1dc 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/nightlight/NightLightDestination.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/nightlight/NightLightDestination.kt
+@@ -186,7 +186,7 @@ private fun NightLightScreen(onBack: () -> Unit, onCreateShortcut: () -> Unit) {
+                     IconButton(onClick = { expanded = true }) {
+                         Icon(
+                             imageVector = AppIcons.MoreVert,
+-                            contentDescription = null,
++                            contentDescription = stringResource(R.string.more_options),
+                             tint = MaterialTheme.colorScheme.onSurface
+                         )
+                     }
+diff --git a/onebusaway-android/src/main/java/org/onebusaway/android/ui/tripinfo/TripInfoScreen.kt b/onebusaway-android/src/main/java/org/onebusaway/android/ui/tripinfo/TripInfoScreen.kt
+index 76b6b77..8f18b56 100644
+--- a/onebusaway-android/src/main/java/org/onebusaway/android/ui/tripinfo/TripInfoScreen.kt
++++ b/onebusaway-android/src/main/java/org/onebusaway/android/ui/tripinfo/TripInfoScreen.kt
+@@ -162,7 +162,7 @@ private fun OverflowMenu(onShowRoute: () -> Unit, onShowStop: () -> Unit) {
+         IconButton(onClick = { expanded = true }) {
+             Icon(
+                 imageVector = AppIcons.MoreVert,
+-                contentDescription = null,
++                contentDescription = stringResource(R.string.more_options),
+                 tint = MaterialTheme.colorScheme.onSurface
+             )
+         }
+diff --git a/onebusaway-android/src/main/res/values/strings.xml b/onebusaway-android/src/main/res/values/strings.xml
+index 7e54818..829d2f7 100644
+--- a/onebusaway-android/src/main/res/values/strings.xml
++++ b/onebusaway-android/src/main/res/values/strings.xml
+@@ -1496,6 +1496,8 @@
+     <string name="reminder_not_enabled">Reminder not enabled</string>
+     <string name="dismiss">Dismiss</string>
+     <string name="more_info">More Info</string>
++    <!-- Content description for a toolbar's overflow (three-dot) menu button -->
++    <string name="more_options">More options</string>
+     <string name="display_test_alerts">Display test alerts</string>
+     <string name="display_test_wide_alerts_for_regions">Display test-wide alerts for regions</string>
+     <string name="preferences_push_test_device_title">Register as test device</string>

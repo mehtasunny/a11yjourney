@@ -1,0 +1,39 @@
+diff --git a/onebusaway-android/src/main/res/values-night/colors.xml b/onebusaway-android/src/main/res/values-night/colors.xml
+index 223946a..490115f 100644
+--- a/onebusaway-android/src/main/res/values-night/colors.xml
++++ b/onebusaway-android/src/main/res/values-night/colors.xml
+@@ -22,7 +22,6 @@
+ 
+     <color name="body_text_1">#deffffff</color>
+     <color name="body_text_2">#8affffff</color>
+-    <color name="body_text_disabled">#44ffffff</color>
+ 
+     <!-- Neutral rim sits roughly halfway between the white core and the dark map background. -->
+     <color name="route_stop_outline">#969696</color>
+diff --git a/onebusaway-android/src/main/res/values/colors.xml b/onebusaway-android/src/main/res/values/colors.xml
+index 8405be1..c3ed30e 100644
+--- a/onebusaway-android/src/main/res/values/colors.xml
++++ b/onebusaway-android/src/main/res/values/colors.xml
+@@ -43,7 +43,6 @@
+ 
+     <color name="body_text_1">#de000000</color>
+     <color name="body_text_2">#8a000000</color>
+-    <color name="body_text_disabled">#44000000</color>
+ 
+ 
+     <!-- Navigation Drawer -->
+@@ -101,9 +100,11 @@
+     <color name="alert_icon_error">@color/md_theme_error</color>
+ 
+ 
+-    <!-- Trip details colors -->
+-    <color name="trip_details_passed">@color/body_text_disabled</color>
+-    <color name="trip_details_not_passed">@color/body_text_2</color>
++    <!-- Trip details colors. A passed stop is dimmed relative to an upcoming one, but stays at least
++         4.5:1 against the background (WCAG 1.4.3): its row is still tappable and its time is still
++         read. The former 26%-alpha "disabled" tone measured about 1.9:1 in light mode. -->
++    <color name="trip_details_passed">@color/body_text_2</color>
++    <color name="trip_details_not_passed">@color/body_text_1</color>
+ 
+     <!-- Tutorials -->
+     <color name="tutorial_background">#df4CAF50</color>

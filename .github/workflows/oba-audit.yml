@@ -1,0 +1,135 @@
+name: oba-audit
+# Audits OneBusAway for Android (github.com/OneBusAway/onebusaway-android) with A11yJourney,
+# before and after the proposed accessibility patches in upstream/onebusaway/patches.
+on:
+  push:
+    branches: [upstream-oba]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  OBA_SHA: 476cf183c2647a8a7d725da021edf92731e8279e
+
+jobs:
+  build:
+    name: Build baseline and patched OneBusAway
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: tool
+      - uses: actions/checkout@v7
+        with:
+          repository: OneBusAway/onebusaway-android
+          ref: ${{ env.OBA_SHA }}
+          path: oba
+      - uses: actions/setup-java@v6
+        with:
+          java-version: 21
+          distribution: temurin
+      - uses: gradle/actions/setup-gradle@v6.3.0
+      - name: Build baseline
+        working-directory: oba
+        run: |
+          ./gradlew :onebusaway-android:assembleObaGoogleDebug --stacktrace > ../baseline-build.log 2>&1 || { tail -40 ../baseline-build.log; echo "::error title=baseline build::failed"; exit 1; }
+          mkdir -p ../apks && cp "$(find onebusaway-android/build/outputs/apk/obaGoogle/debug -name '*.apk' | head -1)" ../apks/baseline.apk
+          echo "::notice title=baseline build::ok"
+      - name: Apply patches
+        working-directory: oba
+        run: |
+          for p in ../tool/upstream/onebusaway/patches/OBA-S*.diff; do
+            if git apply "$p"; then echo "::notice title=patch::applied $(basename "$p")"; else echo "::error title=patch::$(basename "$p") did not apply"; exit 1; fi
+          done
+      - name: Formatting (Spotless)
+        working-directory: oba
+        run: |
+          ./gradlew spotlessCheck > ../spotless.log 2>&1 && echo "::notice title=spotless::ok" || { grep -E "violations|\.kt|^\s+[-+@]" ../spotless.log | head -40 | while read -r l; do echo "::error title=spotless::$l"; done; exit 1; }
+      - name: Compile patched with warnings as errors
+        working-directory: oba
+        run: |
+          ./gradlew :onebusaway-android:compileObaGoogleDebugKotlin :onebusaway-android:compileObaGoogleDebugAndroidTestKotlin -PwarningsAsErrors=true > ../compile.log 2>&1 && echo "::notice title=compile::ok" || { grep -E "^(e|w): " ../compile.log | head -40 | while read -r l; do echo "::error title=compile::$l"; done; tail -20 ../compile.log; exit 1; }
+      - name: Unit tests and APKs
+        working-directory: oba
+        run: |
+          ./gradlew :onebusaway-android:testObaGoogleDebugUnitTest :onebusaway-android:assembleObaGoogleDebug :onebusaway-android:assembleObaGoogleDebugAndroidTest -PwarningsAsErrors=true > ../unit.log 2>&1 && echo "::notice title=unit tests::ok" || { grep -E "FAILED|tests completed" ../unit.log | head -30 | while read -r l; do echo "::error title=unit tests::$l"; done; exit 1; }
+          cp "$(find onebusaway-android/build/outputs/apk/obaGoogle/debug -name '*.apk' | head -1)" ../apks/patched.apk
+          cp "$(find onebusaway-android/build/outputs/apk/androidTest/obaGoogle/debug -name '*.apk' | head -1)" ../apks/patched-test.apk
+      - uses: actions/upload-artifact@v7
+        with:
+          name: apks
+          path: apks/
+
+  lint:
+    name: Android Lint on patched build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: tool
+      - uses: actions/checkout@v7
+        with:
+          repository: OneBusAway/onebusaway-android
+          ref: ${{ env.OBA_SHA }}
+          path: oba
+      - uses: actions/setup-java@v6
+        with:
+          java-version: 21
+          distribution: temurin
+      - uses: gradle/actions/setup-gradle@v6.3.0
+      - name: Lint
+        working-directory: oba
+        run: |
+          for p in ../tool/upstream/onebusaway/patches/OBA-S*.diff; do git apply "$p"; done
+          if ./gradlew :onebusaway-android:lintObaGoogleDebug -PwarningsAsErrors=true > ../lint.log 2>&1; then
+            echo "::notice title=lint::ok"
+          else
+            f=$(find onebusaway-android/build/reports -name 'lint-results*.txt' | head -1)
+            { [ -n "$f" ] && grep -E "Error|Warning" "$f" || tail -30 ../lint.log; } | head -40 | while read -r l; do echo "::error title=lint::$l"; done
+            exit 1
+          fi
+
+  audit:
+    name: Audit on emulator (baseline vs patched)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - uses: actions/download-artifact@v8
+        with:
+          name: apks
+          path: apks
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run audits and instrumented tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash upstream/onebusaway/ci_audit.sh
+      - name: Compare and publish to the oba-audit-results branch
+        if: always()
+        run: |
+          python upstream/onebusaway/compare.py oba-audit/baseline oba-audit/patched oba-audit/SUMMARY.md || true
+          cp upstream/onebusaway/README.md oba-audit/README.md 2>/dev/null || true
+          mkdir -p /tmp/out && cp -r oba-audit/. /tmp/out/
+          cd /tmp/out
+          git init -q -b oba-audit-results
+          git config user.name "oba-audit"
+          git config user.email "oba-audit@users.noreply.github.com"
+          git add -A && git commit -q -m "OneBusAway audit run ${GITHUB_RUN_ID} at ${GITHUB_SHA} (OBA ${OBA_SHA})"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" oba-audit-results
