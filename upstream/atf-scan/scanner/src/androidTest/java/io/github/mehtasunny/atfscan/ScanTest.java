@@ -62,6 +62,11 @@ public class ScanTest {
         if (shot != null) {
             parameters.putScreenCapture(new BitmapImage(shot));
         }
+        int views = hierarchy.getActiveWindow().getAllViews().size();
+        Log.i(TAG, new JSONObject().put("screen", screen)
+                .put("debug", "root=" + root.getPackageName() + " class=" + root.getClassName()
+                        + " children=" + root.getChildCount() + " views=" + views
+                        + " screenshot=" + (shot != null)).toString());
         int count = 0;
         for (AccessibilityHierarchyCheck check :
                 AccessibilityCheckPreset.getAccessibilityHierarchyChecksForPreset(
