@@ -21,12 +21,15 @@ scan() {
   adb shell am instrument -w -e class io.github.mehtasunny.atfscan.ScanTest -e screen "$1" \
     io.github.mehtasunny.atfscan.test/androidx.test.runner.AndroidJUnitRunner >/dev/null 2>&1
   adb logcat -d -s ATFSCAN:I -v raw | grep '^{' | head -30 | sed "s/^/::notice title=OBA $1::/"
+  adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
+  echo "::notice title=OBA $1::uiautomator nodes $(adb shell cat /sdcard/ui.xml | grep -o '<node' | wc -l)"
 }
 scan oba-home
 adb shell am start -W -a android.intent.action.VIEW -d "onebusaway://view-stop?stopID=1_75403" $PKG >/dev/null 2>&1
 sleep 15; a11yjourney journey /tmp/dismiss.txt --out /tmp/j >/dev/null 2>&1
 scan oba-arrivals
-printf 'tap Navigate up\nwait 3\ntry tap Close\ntap Open navigation drawer\nwait 3\ntap Settings\nwait 5\n' > /tmp/settings.txt
+adb shell am force-stop $PKG
+printf 'launch com.joulespersecond.seattlebusbot\nwait 10\ntry tap YES\nwait 2\ntry tap Close\nwait 2\ntap Open navigation drawer\nwait 3\ntap Settings\nwait 5\n' > /tmp/settings.txt
 a11yjourney journey /tmp/settings.txt --out /tmp/j2 > /tmp/j2.log 2>&1 || tail -1 /tmp/j2.log | sed 's/^/::warning title=settings journey::/'
 scan oba-settings
 exit 0

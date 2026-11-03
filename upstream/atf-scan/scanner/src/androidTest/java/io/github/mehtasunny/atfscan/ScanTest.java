@@ -1,5 +1,6 @@
 package io.github.mehtasunny.atfscan;
 
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Instrumentation;
 import android.app.UiAutomation;
 import android.content.Context;
@@ -44,6 +45,17 @@ public class ScanTest {
         UiAutomation ua = inst.getUiAutomation();
         Bundle args = InstrumentationRegistry.getArguments();
         String screen = args.getString("screen", "screen");
+        // Read the same tree uiautomator reads: include views not marked important, which is
+        // how Jetpack Compose exposes many of its semantics nodes.
+        AccessibilityServiceInfo info = ua.getServiceInfo();
+        info.flags |= AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS
+                | AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS;
+        ua.setServiceInfo(info);
+        try {
+            ua.waitForIdle(500, 5000);
+        } catch (java.util.concurrent.TimeoutException ignored) {
+            // live screens may never go fully idle; scan what is there
+        }
 
         AccessibilityNodeInfo root = null;
         for (int i = 0; i < 20 && root == null; i++) {
